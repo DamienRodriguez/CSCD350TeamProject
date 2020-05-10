@@ -2,24 +2,11 @@ import java.sql.*;
 
 public class Tester {
 
-    final static String DBCONNECTION = "jdbc:sqlite:trivia.db";
-
     public static void main(String[]args) throws Exception {
-        Connection c = null;
+        DamiensDBConnector connection = new DamiensDBConnector();
 
-        try {
-        Class.forName("org.sqlite.JDBC");
-        c = DriverManager.getConnection(DBCONNECTION);
-        System.out.println("SQLite database connected.");
+        //connection.trueFalseAddQuestion(1, "The Happy part of Stu Land is the best part.", "T", "Bad part is bad.");
+        connection.mutipleChoiceAddQuestion(1, "How many years are there between world fairs?", "5 years", "7 years", "10 years", "4 years", "it is 5 years.");
 
-        } catch (Exception e) {
-        System.out.println("Database connection failed.");
-        System.out.println(e);
-        }
-
-        Statement myStm = c.createStatement();
-        String sql = "insert into trueFalse values(1, 'There are no kings in the US', 'T', 'George Washington was going to be declared king.')";
-
-        myStm.executeUpdate(sql);
     }
 }
