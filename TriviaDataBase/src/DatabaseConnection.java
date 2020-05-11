@@ -62,4 +62,15 @@ public class DatabaseConnection {
     }
 
 
+    public void clearTestData() throws Exception {
+        try {
+            Statement temp = this.c.createStatement();
+            temp.execute("DELETE FROM trueFalse");
+            temp.execute("DELETE FROM multipleChoice");
+            temp.execute("DELETE FROM shortAnswer");
+            System.out.println("Deletion of Test Data Successful");
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
 }
