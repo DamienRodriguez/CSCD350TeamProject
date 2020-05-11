@@ -62,7 +62,7 @@ public class DatabaseConnection {
     }
 
 
-    public void clearTestData() throws Exception {
+    public void clearTestData() throws Exception { //this was done to clear out the database before we implement stuff into the database
         try {
             Statement temp = this.c.createStatement();
             temp.execute("DELETE FROM trueFalse");
@@ -73,4 +73,6 @@ public class DatabaseConnection {
             System.out.println(e);
         }
     }
+
+
 }
