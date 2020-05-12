@@ -1,6 +1,6 @@
 import java.sql.*;
 
-/*DatabaseConnection.java
+/* DatabaseConnection.java
  * Author: Damien Rodriguez
  * Revision: 3
  * Rev. Author: Damien Rodriguez
@@ -14,9 +14,14 @@ public class DatabaseConnection {
     private Connection c;
 
 
+    ///Returns: nothing, it sets up the connection to our global Connection variable
+    ///Throws:
+    ///ClassNotFoundException: Throws the exception when the driver .jar file isn't present
+    ///SQLException: Throws exception when SQL database connection fails
     private DatabaseConnection() throws Exception {
         connectionSetUp();
     }
+
 
     public static DatabaseConnection getInstance() {
         try {
@@ -35,7 +40,7 @@ public class DatabaseConnection {
     }
 
 
-    private void connectionSetUp() throws Exception {
+    private void connectionSetUp() {
         try {
             Class.forName("org.sqlite.JDBC");
             this.c = DriverManager.getConnection(DB_CONNECTION);
