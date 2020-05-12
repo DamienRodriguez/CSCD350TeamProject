@@ -1,14 +1,37 @@
 import java.sql.*;
 
+/*DatabaseConnection.java
+ * Author: Damien Rodriguez
+ * Revision: 3
+ * Rev. Author: Damien Rodriguez
+ * Description: Database connection class. Singleton pattern implemented.
+ * Has functionality to execute SQL queries within the SQLite database
+ */
 public class DatabaseConnection {
 
-
+    private static DatabaseConnection SINGLE_INSTANCE = null;
     private final String DB_CONNECTION = "jdbc:sqlite:trivia.db";
     private Connection c;
 
 
-    public DatabaseConnection() throws Exception {
+    private DatabaseConnection() throws Exception {
         connectionSetUp();
+    }
+
+    public static DatabaseConnection getInstance() {
+        try {
+            if(SINGLE_INSTANCE == null) {
+                synchronized (DatabaseConnection.class) {
+                    if(SINGLE_INSTANCE == null)
+                        SINGLE_INSTANCE = new DatabaseConnection();
+                }
+            }
+            return SINGLE_INSTANCE;
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+        return null;
+
     }
 
 
@@ -25,24 +48,24 @@ public class DatabaseConnection {
 
     public void trueFalseAddQuestion(final int difficulty, final String question, final String answer, final String hint) throws Exception{
         String sql = "insert into trueFalse values(" + difficulty + ", '" + question + "', '" + answer + "', '" + hint + "')";
-        executeStatement(sql);
+        executeInsertionStatement(sql);
     } //this will be the same but for the other queries for adding stuff into the database, so this will have to be refactored
       // for a more elegant solution. This smells like a template or builder type of problem (at least I think...)
 
 
     public void mutipleChoiceAddQuestion(final int difficulty, final String question, final String answer, final String wrongAnswer1, final String wrongAnswer2, final String wrongAnswer3, final String hint) throws Exception {
         String sql = "insert into multipleChoice values(" + difficulty + ", '" + question + "', '" + answer + "', '" + wrongAnswer1 + "', '" + wrongAnswer2 + "', '" + wrongAnswer3 + "', '" + hint + "')";
-        executeStatement(sql);
+        executeInsertionStatement(sql);
     }
 
 
     public void shortAnswerQuestions(final int difficulty, final String question, final String answer, final String hint) throws Exception {
         String sql = "insert into shortAnswer values(" + difficulty + ", '" + question + "', '" + answer + "', '" + hint + "')";
-        executeStatement(sql);
+        executeInsertionStatement(sql);
     }
 
 
-    private void executeStatement(final String query) throws Exception {
+    private void executeInsertionStatement(final String query) throws Exception {
         try {
             Statement myStm = this.c.createStatement();
             myStm.executeUpdate(query);
@@ -73,6 +96,5 @@ public class DatabaseConnection {
             System.out.println(e);
         }
     }
-
 
 }

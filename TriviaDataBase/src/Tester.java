@@ -4,7 +4,7 @@ public class Tester {
 
     public static void main(String[] args) throws Exception {
 
-        DatabaseConnection connection = new DatabaseConnection();
+        DatabaseConnection connection = DatabaseConnection.getInstance(); //this should work
 
         connection.trueFalseAddQuestion(0, "This is a test", "T", "This is a test");
         connection.mutipleChoiceAddQuestion(0, "This is a multiple choice test.", "This is the answer.",
