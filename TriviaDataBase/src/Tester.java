@@ -11,7 +11,7 @@ public class Tester {
                 "This is not the answer", "This is also not the answer",
                 "This again, is not the right answer", "There is only one right answer.");
 
-        connection.shortAnswerQuestions(0, "This is a multiple choice test.",
+        connection.shortAnswerAddQuestion(0, "This is a multiple choice test.",
                 "There is no answer.", "There is not an answer.");
 
         System.out.println("COMMENCING SEARCH QUERY");

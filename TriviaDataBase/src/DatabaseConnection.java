@@ -59,7 +59,7 @@ public class DatabaseConnection {
     }
 
 
-    public void shortAnswerQuestions(final int difficulty, final String question, final String answer, final String hint) throws Exception {
+    public void shortAnswerAddQuestion(final int difficulty, final String question, final String answer, final String hint) throws Exception {
         String sql = "insert into shortAnswer values(" + difficulty + ", '" + question + "', '" + answer + "', '" + hint + "')";
         insertQuery(sql);
     }
@@ -97,6 +97,7 @@ public class DatabaseConnection {
             temp.execute("DELETE FROM multipleChoice");
             temp.execute("DELETE FROM shortAnswer");
             System.out.println("Deletion of Test Data Successful");
+
         } catch (Exception e) {
             System.out.println(e);
         }
