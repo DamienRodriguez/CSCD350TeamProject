@@ -1,0 +1,31 @@
+Format for the primary key:
+
+
+aa-#####
+
+
+e- easy
+m- medium
+h- hard
+
+e- entrance
+x- exit
+r- room
+
+t- truefalse
+m- multiplechoice
+s- shortAnswer
+v- video
+a- audio
+
+We generate a number that will be put at the # portion of the primary key
+
+How we will create the primary key:
+
+	- Generate the letter portion of the primary key
+	- Generate random number
+	- Put primary key together
+	- Query database to see if the primary key exists
+	- If primary key exists:
+		- Add +1 to the numeric part of the primary key
+	- Assign primary to to Question object

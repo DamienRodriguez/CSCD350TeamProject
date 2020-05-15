@@ -11,12 +11,6 @@ class QuestionTest {
 
 
     @Test
-    void getDiff() {
-        assertEquals(0, 1);
-    }
-
-
-    @Test
     void getQuestion() {
         assertEquals(0, 1);
     }
