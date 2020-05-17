@@ -1,8 +1,6 @@
 Format for the primary key:
 
-
-aa-#####
-
+aaa-#####
 
 e- easy
 m- medium
@@ -20,12 +18,17 @@ a- audio
 
 We generate a number that will be put at the # portion of the primary key
 
-How we will create the primary key:
+Phil: Can we do something if we can do an incremental number?
+	- Query Unique tuples, and check how many of the tuples exist
+	- Take number, and add 1 to the number of records. 
 
+How we will create the primary key:
 	- Generate the letter portion of the primary key
 	- Generate random number
 	- Put primary key together
 	- Query database to see if the primary key exists
 	- If primary key exists:
 		- Add +1 to the numeric part of the primary key
+		- Check again
+	
 	- Assign primary to to Question object

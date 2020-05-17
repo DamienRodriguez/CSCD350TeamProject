@@ -90,7 +90,22 @@ public class Question {
         this.wrongAnswerThree = wrongAnswerThree;
     }
 
-    private void createID() {
-        //put stuff here
+    public char[] getIDParseArray() {
+        char[] temp = this.id.toCharArray();
+        return temp;
+    }
+
+
+    //need to fix later
+    public void createID() {
+        setId(alphaID() + "-" + numberID());
+    }
+
+    private String alphaID() {
+        return "eet";
+    }
+
+    private String numberID() {
+        return "00001";
     }
 }
