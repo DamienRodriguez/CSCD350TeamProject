@@ -52,22 +52,18 @@ public class DatabaseConnection {
 
     //combine the addQuestions into one method with logic on how to know what kind of question is being asked
 
-    public void trueFalseAddQuestion(final int difficulty, final String question, final String answer, final String hint) throws Exception{
-        String sql = "insert into trueFalse values(" + difficulty + ", '" + question + "', '" + answer + "', '" + hint + "')";
-        insertQuery(sql);
-    } //this will be the same but for the other queries for adding stuff into the database, so this will have to be refactored
-      // for a more elegant solution. This smells like a template or builder type of problem (at least I think...)
+
+    public void addQuestion(final Question q) throws Exception {
+        String sql = "insert into questions values(";
 
 
-    public void mutipleChoiceAddQuestion(final int difficulty, final String question, final String answer, final String wrongAnswer1, final String wrongAnswer2, final String wrongAnswer3, final String hint) throws Exception {
-        String sql = "insert into multipleChoice values(" + difficulty + ", '" + question + "', '" + answer + "', '" + wrongAnswer1 + "', '" + wrongAnswer2 + "', '" + wrongAnswer3 + "', '" + hint + "')";
-        insertQuery(sql);
-    }
+        if(q.getWrongAnswerOne() != null) {
+            sql = sql + q.getId() + ", '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
+        }
 
-
-    public void shortAnswerAddQuestion(final int difficulty, final String question, final String answer, final String hint) throws Exception {
-        String sql = "insert into shortAnswer values(" + difficulty + ", '" + question + "', '" + answer + "', '" + hint + "')";
-        insertQuery(sql);
+        else {
+            sql = sql + q.getId() + ", '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + null + "', '" + null + "', '" + null + "', '" + q.getHint() + "')";
+        }
     }
 
 
@@ -113,4 +109,29 @@ public class DatabaseConnection {
         this.c.close();
     }
 
+
+
+
+    /* DEPRICATED METHODS
+    //these will need to be deleted safely at a later date. They are here simply for documentation purposes at this point in time.
+
+    private void trueFalseAddQuestion(final int diff, final String question, final String answer, final String hint) throws Exception{
+        String sql = "insert into trueFalse values(" + diff + ", '" + question + "', '" + answer + "', '" + hint + "')";
+        insertQuery(sql);
+    } //this will be the same but for the other queries for adding stuff into the database, so this will have to be refactored
+    // for a more elegant solution. This smells like a template or builder type of problem (at least I think...)
+
+
+    private void multipleChoiceAddQuestion(final int diff, final String question, final String answer, final String wrongAnswer1, final String wrongAnswer2, final String wrongAnswer3, final String hint) throws Exception {
+        String sql = "insert into multipleChoice values(" + diff + ", '" + question + "', '" + answer + "', '" + wrongAnswer1 + "', '" + wrongAnswer2 + "', '" + wrongAnswer3 + "', '" + hint + "')";
+        insertQuery(sql);
+    }
+
+
+    private void shortAnswerAddQuestion(final int diff, final String question, final String answer, final String hint) throws Exception {
+        String sql = "insert into shortAnswer values(" + diff + ", '" + question + "', '" + answer + "', '" + hint + "')";
+        insertQuery(sql);
+    }
+
+     */
 }

@@ -110,13 +110,19 @@ public class Question {
 
     //Value hard coded for testing purposes
     public void createID() {
+        int indexNum = numberID();
+        String id = alphaID(0,0, 0) + "-" + indexNum;
 
-        setId(alphaID(0,0) + "-" + numberID());
+        //if id exists
+        //increment the indexNum by 1
+        //check again, repeat as necessary. this is a concept that i forgot that involves hashtables.
+        //assign unique id.
+        //profit.
     }
 
 
     //need to figure out what to do with this method
-    private String alphaID(final int difficulty, final int room_type) {
+    private String alphaID(final int difficulty, final int room_type, final int question_type) {
 
         String characterID = "";
         if(difficulty == 0) {
@@ -139,16 +145,24 @@ public class Question {
             characterID = characterID + "r";
         }
 
+        if(question_type == 0) {
+            characterID = characterID + "t";
+        }
+        else if(question_type == 2) {
+            characterID = characterID + "m";
+        }
+        else if(question_type == 3) {
+            characterID = characterID + "s";
+        }
+
         return characterID;
     }
 
 
     //need to figure out how to handle padding when it comes to this number
-    private String numberID() {
+    private int numberID() {
         Random random = new Random();
-        int randInt = random.nextInt(100);
-
-
-        return "00001";
+        int randInt = random.nextInt(1000);
+        return randInt;
     }
 }

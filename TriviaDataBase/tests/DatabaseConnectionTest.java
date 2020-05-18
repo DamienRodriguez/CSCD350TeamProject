@@ -11,6 +11,7 @@ class DatabaseConnectionTest {
     public DatabaseConnection db = null;
 
 
+    /*
     @BeforeEach
     void setUp() throws Exception {
         db = DatabaseConnection.getInstance();
@@ -24,6 +25,7 @@ class DatabaseConnectionTest {
     void tearDown() throws Exception {
         db.clearTestData();
     }
+     */
 
 
 
