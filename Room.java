@@ -4,6 +4,7 @@ public class Room {
     private boolean visited = true;
     private int[] coordinates;
 
+
     Room(int[] coords) {
         setCoordinates(coords);
     }
@@ -18,7 +19,7 @@ public class Room {
     }
 
 
-    private boolean getHasExit() {
+    boolean getHasExit() {
         return hasExit;
     }
 

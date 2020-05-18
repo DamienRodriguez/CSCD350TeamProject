@@ -1,6 +1,7 @@
 public class maze {
     private final int size;
     private Room[][] maze;
+    private int[] pos, exitPos;
 
     public maze(int size, int dif) {
         this.size =size;
@@ -11,13 +12,23 @@ public class maze {
                 maze[row][column] = makeRoom(row, column);
             }
         }
-        maze[0][0].sethasEntrance();
-        maze[size-1][size-1].setHasExit();
+        pos= new int[]{0, 0};
+        exitPos = new int[]{4, 4};
+
         setMaze(maze);
     }
+    public int[] getPos(){
+        return this.pos;
+    }
+
+    public int[] getExitPos(){
+        return this.exitPos;
+    }
+
     public void setMaze(final Room[][] maze) {
         this.maze = maze;
     }
+
 
     private Room makeRoom(int x, int y) {
         int[] coords = new int[]{x, y};
@@ -25,8 +36,6 @@ public class maze {
     }
     @Override
     public String toString() {
-
-
         StringBuilder strTop = new StringBuilder();
         StringBuilder strMid = new StringBuilder();
         StringBuilder strBot = new StringBuilder();
@@ -59,4 +68,46 @@ public class maze {
     }
 
 
+    public void movePlayer(String i) {
+        int temp;
+
+        if (i.equalsIgnoreCase("w") && pos[0] > 0) { //move up
+
+            temp = pos[0];
+            pos[0] = temp - 1;
+            roomInteractions();
+        } else if (i.equalsIgnoreCase("s") && pos[0] < 4) {//move down
+
+            temp = pos[0];
+            pos[0] = temp + 1;
+            roomInteractions();
+            
+        } else if (i.equalsIgnoreCase("d") && pos[1] < 4) {//move right
+            temp = pos[1];
+            pos[1] = temp + 1;
+            roomInteractions();
+
+        } else if (i.equalsIgnoreCase("a") && pos[1] > 0) {//move left
+            temp = pos[1];
+            pos[1] = temp - 1;
+            roomInteractions();
+
+        } else
+            System.out.println("invalid, its a wall...");
+    }
+
+
+    private void roomInteractions() {
+        System.out.println(pos[0] + " , " + pos[1]);
+        if (canExit()) {
+            if(this.maze[pos[0]][pos[1]].getHasExit()){
+                System.out.println("This is the exit.");
+            }
+        }
+
+    }
+
+    private boolean canExit() {
+        return false;
+    }
 }
