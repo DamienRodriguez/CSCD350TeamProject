@@ -1,6 +1,8 @@
 import java.sql.*;
+import java.util.Random;
 
 public class Question {
+
     private String id;
     private String question;
     private String answer;
@@ -18,6 +20,17 @@ public class Question {
         setWrongAnswerThree(rs.getString("wrongAnswerThree"));
         setHint(rs.getString("hint"));
 
+    }
+
+
+    public Question(final String question, final String answer, final String wrongAnswerOne, final String wrongAnswerTwo, final String wrongAnswerThree, final String hint) {
+        createID();
+        setQuestion(question);
+        setAnswer(answer);
+        setWrongAnswerOne(wrongAnswerOne);
+        setWrongAnswerTwo(wrongAnswerTwo);
+        setWrongAnswerThree(wrongAnswerThree);
+        setHint(hint);
     }
 
 
@@ -91,21 +104,51 @@ public class Question {
     }
 
     public char[] getIDParseArray() {
-        char[] temp = this.id.toCharArray();
-        return temp;
+        return this.id.toCharArray();
     }
 
 
-    //need to fix later
+    //Value hard coded for testing purposes
     public void createID() {
-        setId(alphaID() + "-" + numberID());
+
+        setId(alphaID(0,0) + "-" + numberID());
     }
 
-    private String alphaID() {
-        return "eet";
+
+    //need to figure out what to do with this method
+    private String alphaID(final int difficulty, final int room_type) {
+
+        String characterID = "";
+        if(difficulty == 0) {
+            characterID = characterID + "e";
+        }
+        else if(difficulty == 2) {
+            characterID = characterID + "m";
+        }
+        else if(difficulty == 3) {
+            characterID = characterID + "h";
+        }
+
+        if(room_type == 0) {
+            characterID = characterID + "e";
+        }
+        else if(room_type == 2) {
+            characterID = characterID + "x";
+        }
+        else if(room_type == 3) {
+            characterID = characterID + "r";
+        }
+
+        return characterID;
     }
 
+
+    //need to figure out how to handle padding when it comes to this number
     private String numberID() {
+        Random random = new Random();
+        int randInt = random.nextInt(100);
+
+
         return "00001";
     }
 }

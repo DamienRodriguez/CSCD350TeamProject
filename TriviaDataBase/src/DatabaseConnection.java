@@ -50,6 +50,7 @@ public class DatabaseConnection {
         }
     }
 
+    //combine the addQuestions into one method with logic on how to know what kind of question is being asked
 
     public void trueFalseAddQuestion(final int difficulty, final String question, final String answer, final String hint) throws Exception{
         String sql = "insert into trueFalse values(" + difficulty + ", '" + question + "', '" + answer + "', '" + hint + "')";
@@ -106,6 +107,10 @@ public class DatabaseConnection {
         } catch (Exception e) {
             System.out.println(e);
         }
+    }
+
+    public void closeConnection() throws SQLException {
+        this.c.close();
     }
 
 }

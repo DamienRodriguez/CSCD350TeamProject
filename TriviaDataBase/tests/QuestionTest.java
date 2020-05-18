@@ -1,53 +1,63 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import java.util.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionTest {
 
+    public static Question q;
+    @BeforeAll
+    static void setUp() {
+        q = new Question("test", "test",  "test", "test","test", "test");
+    }
 
     @Test
     void getID() {
-        assertEquals(0, 1);
+        assertEquals("ee-00001", q.getId());
     }
 
 
     @Test
     void getQuestion() {
-        assertEquals(0, 1);
+        assertEquals("test", q.getQuestion());
     }
 
 
     @Test
     void getAnswer() {
-        assertEquals(0, 1);
+        assertEquals("test", q.getAnswer());
     }
 
 
     @Test
     void getHint() {
-        assertEquals(0, 1);
+        assertEquals("test", q.getHint());
     }
 
 
     @Test
     void getWrongAnswerOne() {
-        assertEquals(0, 1);
+        assertEquals("test", q.getWrongAnswerOne());
     }
 
 
     @Test
     void getWrongAnswerTwo() {
-        assertEquals(0, 1);
+        assertEquals("test", q.getWrongAnswerTwo());
     }
 
 
     @Test
     void getWrongAnswerThree() {
-        assertEquals(0, 1);
+        assertEquals("test", q.getWrongAnswerThree());
     }
 
 
     @Test
     void getIDParseArray() {
-        assertEquals(0, 1);
+
+        char[] temp = {'e','e','-','0','0','0','0','1'};
+
+        assertTrue(Arrays.equals(q.getIDParseArray(), temp));
     }
 }

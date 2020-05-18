@@ -1,6 +1,6 @@
 Format for the primary key:
 
-aaa-#####
+aaa-####
 
 e- easy
 m- medium
