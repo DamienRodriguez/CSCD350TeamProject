@@ -5,8 +5,19 @@ public class Room {
     private int[] coordinates;
 
 
+
     Room(int[] coords) {
         setCoordinates(coords);
+        /*
+         * doors
+         * 0 locked can be attempted
+         * 1  unlocked
+         * 2 permanently locked
+         * */
+        int northdoor = 0;
+        int southdoor = 0;
+        int eastdoor = 0;
+        int westdoor = 0;
     }
 
     private void setCoordinates(int[] coordinates) {

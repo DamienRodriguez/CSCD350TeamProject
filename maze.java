@@ -99,15 +99,13 @@ public class maze {
 
     private void roomInteractions() {
         System.out.println(pos[0] + " , " + pos[1]);
-        if (canExit()) {
-            if(this.maze[pos[0]][pos[1]].getHasExit()){
-                System.out.println("This is the exit.");
-            }
+
+        if(this.maze[pos[0]][pos[1]].getHasExit()){
+            System.out.println("This is the exit.");
         }
 
+
     }
 
-    private boolean canExit() {
-        return false;
-    }
+
 }
