@@ -144,11 +144,11 @@ public class Question {
 
 
     //need to figure out how to handle padding when it comes to this number
-    private String numberID() {
+    private int numberID() {
         Random random = new Random();
         int randInt = random.nextInt(100);
 
 
-        return "00001";
+        return randInt;
     }
 }
