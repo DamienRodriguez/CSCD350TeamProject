@@ -3,34 +3,42 @@ import java.util.Scanner;
 
 public class mazeTester {
     public static void main(String[] args) {
+        boolean gameOver;
+        String t = "n";
         Scanner kb = new Scanner(System.in);
-        mazebuilder factory = new mazebuilder();
-        int choice = menu(kb);
-        System.out.println("choice : " + choice);
-        maze maze = factory.newMaze(choice);
+        do {
+            mazebuilder factory = new mazebuilder();
+            int choice = menu(kb);
+            System.out.println("choice : " + choice);
+            maze maze = factory.newMaze(choice);
             playGame(maze);
+            System.out.println("Play again y/n");
+            String temp = kb.nextLine();
+            gameOver = t.equalsIgnoreCase(temp);
+        }while(gameOver);
 
     }
 
 
-
     private static void playGame(maze maze) {
         Scanner kb = new Scanner(System.in);
-        boolean gameOver;
-        char t = 'n';
+
+
         do {
-            do {
-            System.out.println(maze.toString());
-            String choice = gameMenu(kb);
-            maze.movePlayer(choice);
-            }while(!Arrays.equals(maze.getPos(), maze.getExitPos()));
+        System.out.println(maze.toString());
+        String choice = gameMenu(kb);
+        maze.movePlayer(choice);
+        }while(!Arrays.equals(maze.getPos(), maze.getExitPos()));
+        int[] temp=maze.getPos();
+        if(temp[0]==4 && temp[1] == 4){
+            System.out.println("You win!");
+        }else
+            System.out.println("You lose.");
 
 
-            System.out.println("continue y/n");
-            String temp = kb.nextLine();
-            gameOver= !temp.equalsIgnoreCase("y");
 
-        }while(!gameOver);
+
+
     }
 
     private static String gameMenu(Scanner kb) {
@@ -39,7 +47,7 @@ public class mazeTester {
         do {
             System.out.println("move up     " + "     [W]\n" +
                     "            [A] " + " [S] " + " [D]\n" +
-                    "    move down" + " move left" + " move right\n");
+                    "  move down |" + " move left " + " | move right\n");
             game_choice = kb.nextLine();
             if(game_choice.equalsIgnoreCase("a") ||game_choice.equalsIgnoreCase("w") || game_choice.equalsIgnoreCase("s") ||game_choice.equalsIgnoreCase("d") ){
                 bool =false;
