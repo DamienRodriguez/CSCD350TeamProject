@@ -67,7 +67,10 @@ public class Room {
                 return 'O';
             else if (getHasEntrance())
                 return 'I';
-        }
+            //else if (this.equals())
+        //return'P';
+    }
+
         return ' ';
     }
     @Override
