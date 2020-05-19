@@ -1,8 +1,9 @@
+import javax.xml.transform.Result;
 import java.sql.*;
 
 /* DatabaseConnection.java
  * Author: Damien Rodriguez
- * Revision: 3
+ * Revision: 4
  * Rev. Author: Damien Rodriguez
  * Description: Database connection class. Singleton pattern implemented.
  * Has functionality to execute SQL queries within the SQLite database
@@ -11,7 +12,17 @@ public class DatabaseConnection {
 
     private static DatabaseConnection SINGLE_INSTANCE = null;
     private final String DB_CONNECTION = "jdbc:sqlite:trivia.db";
+    private final String MULTIPLECHOICE_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions WHERE wrongAnswerOne IS NOT NULL";
+    private final String TRUEFALSE_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions WHERE length(answer) == 1 AND wrongAnswerOne IS NULL";
+    private final String SHORTANSWER_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions WHERE length(answer) != 1 AND wrongAnswerOne IS NULL";
+    private final String TOTAL_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions";
     private Connection c;
+
+    private int trueFalseRecordCount;
+    private int multipleChoiceRecordCount;
+    private int shortAnswerChoiceRecordCount;
+    private int totalRecordCount;
+
 
 
     ///Returns: nothing, it sets up the connection to our global Connection variable
@@ -20,8 +31,25 @@ public class DatabaseConnection {
     ///SQLException: Throws exception when SQL database connection fails
     private DatabaseConnection() throws Exception {
         connectionSetUp();
+        setMultipleChoiceRecordCount(getRecordCount(MULTIPLECHOICE_COUNT_QUERY));
+        setTrueFalseRecordCount(getRecordCount(TRUEFALSE_COUNT_QUERY));
+        setShortAnswerChoiceRecordCount(getRecordCount(SHORTANSWER_COUNT_QUERY));
+        setTotalRecordCount(getRecordCount(TOTAL_COUNT_QUERY));
+
+        if(this.totalRecordCount != (this.multipleChoiceRecordCount + this.trueFalseRecordCount + this.shortAnswerChoiceRecordCount))
+            throw new SQLException("SQL statements aren't getting the seperate categories that you are expecting.");
+
     }
 
+    private int getRecordCount(final String sql) throws SQLException {
+
+        Statement statement = this.c.createStatement();
+        ResultSet rs = statement.executeQuery(sql);
+        int count = rs.getInt("rowCount");
+        rs.close();
+
+        return count;
+    }
 
     public static DatabaseConnection getInstance() {
         try {
@@ -53,6 +81,12 @@ public class DatabaseConnection {
     //combine the addQuestions into one method with logic on how to know what kind of question is being asked
 
 
+
+
+
+
+
+
     public void addQuestion(final Question q) throws Exception {
         String sql = "insert into questions values(";
 
@@ -64,6 +98,8 @@ public class DatabaseConnection {
         else {
             sql = sql + q.getId() + ", '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + null + "', '" + null + "', '" + null + "', '" + q.getHint() + "')";
         }
+
+        insertQuery(sql);
     }
 
 
@@ -79,15 +115,10 @@ public class DatabaseConnection {
     }
 
 
-    //this could be a problem.
-    //insert is private, but this is not. We don't have a reliable way to put this,
-    //as well as the insertQuery function into the same thing. Perhaps do an if block?
-    //would look horrid, but would have to be refactored
-
     public ResultSet searchQuery(final String query) throws Exception {
         Statement temp_statement = this.c.createStatement();
         ResultSet rs = temp_statement.executeQuery(query);
-
+        temp_statement.close();
         return rs;
     }
 
@@ -109,29 +140,44 @@ public class DatabaseConnection {
         this.c.close();
     }
 
-
-
-
-    /* DEPRICATED METHODS
-    //these will need to be deleted safely at a later date. They are here simply for documentation purposes at this point in time.
-
-    private void trueFalseAddQuestion(final int diff, final String question, final String answer, final String hint) throws Exception{
-        String sql = "insert into trueFalse values(" + diff + ", '" + question + "', '" + answer + "', '" + hint + "')";
-        insertQuery(sql);
-    } //this will be the same but for the other queries for adding stuff into the database, so this will have to be refactored
-    // for a more elegant solution. This smells like a template or builder type of problem (at least I think...)
-
-
-    private void multipleChoiceAddQuestion(final int diff, final String question, final String answer, final String wrongAnswer1, final String wrongAnswer2, final String wrongAnswer3, final String hint) throws Exception {
-        String sql = "insert into multipleChoice values(" + diff + ", '" + question + "', '" + answer + "', '" + wrongAnswer1 + "', '" + wrongAnswer2 + "', '" + wrongAnswer3 + "', '" + hint + "')";
-        insertQuery(sql);
+    public int getTrueFalseRecordCount() {
+        return trueFalseRecordCount;
     }
 
-
-    private void shortAnswerAddQuestion(final int diff, final String question, final String answer, final String hint) throws Exception {
-        String sql = "insert into shortAnswer values(" + diff + ", '" + question + "', '" + answer + "', '" + hint + "')";
-        insertQuery(sql);
+    public void setTrueFalseRecordCount(int trueFalseRecordCount) {
+        this.trueFalseRecordCount = trueFalseRecordCount;
     }
 
-     */
+    public int getMultipleChoiceRecordCount() {
+        return multipleChoiceRecordCount;
+    }
+
+    public void setMultipleChoiceRecordCount(int multipleChoiceRecordCount) {
+        this.multipleChoiceRecordCount = multipleChoiceRecordCount;
+    }
+
+    public int getShortAnswerChoiceRecordCount() {
+        return shortAnswerChoiceRecordCount;
+    }
+
+    public void setShortAnswerChoiceRecordCount(int shortAnswerChoiceRecordCount) {
+        this.shortAnswerChoiceRecordCount = shortAnswerChoiceRecordCount;
+    }
+
+    public int getTotalRecordCount() {
+        return totalRecordCount;
+    }
+
+    public void setTotalRecordCount(int totalRecordCount) {
+        this.totalRecordCount = totalRecordCount;
+    }
+
+    public static void main(String[] args) {
+        DatabaseConnection db = DatabaseConnection.getInstance();
+
+        System.out.println(db.getTotalRecordCount());
+        System.out.println(db.getMultipleChoiceRecordCount());
+        System.out.println(db.getShortAnswerChoiceRecordCount());
+        System.out.println(db.getTrueFalseRecordCount());
+    }
 }

@@ -40,58 +40,7 @@ class DatabaseConnectionTest {
     @Test
     void searchTrueFalseQuery() throws Exception {
         ResultSet rs = db.searchQuery("SELECT * FROM trueFalse");
-
-        int diff = rs.getInt("diff");
-        String question = rs.getString("question");
-        String answer = rs.getString("answer");
-        String hint = rs.getString("hint");
-
-
-        assertEquals(0, diff);
-        assertEquals("test", question);
-        assertEquals("test",answer);
-        assertEquals("test",hint);
+        
     }
-
-
-    @Test
-    void searchMultipleChoiceQuery() throws Exception {
-        ResultSet rs = db.searchQuery("SELECT * FROM multipleChoice");
-
-        int diff = rs.getInt("diff");
-        String question = rs.getString("question");
-        String answer = rs.getString("answer");
-        String wrongAnswerOne = rs.getString("wrongAnswerOne");
-        String wrongAnswerTwo = rs.getString("wrongAnswerTwo");
-        String wrongAnswerThree = rs.getString("wrongAnswerThree");
-        String hint = rs.getString("hint");
-
-
-        assertEquals(0, diff);
-        assertEquals("test", question);
-        assertEquals("test",answer);
-        assertEquals("test",hint);
-        assertEquals("test", wrongAnswerOne);
-        assertEquals("test",wrongAnswerTwo);
-        assertEquals("test",wrongAnswerThree);
-    }
-
-
-    @Test
-    void searchShortAnswerQuery() throws Exception {
-        ResultSet rs = db.searchQuery("SELECT * FROM shortAnswer");
-
-        int diff = rs.getInt("diff");
-        String question = rs.getString("question");
-        String answer = rs.getString("answer");
-        String hint = rs.getString("hint");
-
-
-        assertEquals(0, diff);
-        assertEquals("test", question);
-        assertEquals("test",answer);
-        assertEquals("test",hint);
-    }
-
 
 }
