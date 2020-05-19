@@ -152,15 +152,19 @@ public class Question {
 
         final DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
 
-        int numID = numberID(difficulty, DB_CONNECTION);
+        int numID = numberID(questionType, DB_CONNECTION);
         String alphaID = alphaID(difficulty, roomType, questionType);
 
         String questionID = alphaID + "-" + numID;
-        if(DB_CONNECTION.exists(questionID)) {
+        if(!DB_CONNECTION.exists(questionID)) {
             numID++;
             questionID = alphaID + "-" + numID;
+            setId(questionID);
         }
-        setId(questionID);
+        else {
+            setId(questionID);
+        }
+
         DB_CONNECTION.closeConnection();
     }
 

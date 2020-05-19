@@ -187,18 +187,23 @@ public class DatabaseConnection {
 
 
 
-    //Create unit tests for later
-    //include an existing questionID, and a not existing question ID
+    //Bug where there appears to be n + 1 rows
+    //when checking if a particular ID exists on
+    //the database.
+    //Could be time to create Hashtables for lookups.
     public boolean exists(final String questionID) {
 
         try {
             Statement myStm = this.c.createStatement();
 
             String sql = "SELECT * FROM questions WHERE questionID = ";
-            sql = sql + "\'" + questionID + "\'";
+            String addedQuotes = "\'" + questionID + "\'";
+            sql = sql + addedQuotes;
+
 
 
             ResultSet rs = myStm.executeQuery(sql);
+            //need to do some check with the result set here
 
             return true;
 
@@ -216,7 +221,7 @@ public class DatabaseConnection {
     public static void main(String[] args) throws Exception {
         DatabaseConnection db = DatabaseConnection.getInstance();
 
-        System.out.println(db.exists("can't exist"));
+        System.out.println(db.exists("ees-2"));
     }
 
 
