@@ -1,5 +1,9 @@
+import javax.lang.model.type.ArrayType;
 import javax.xml.transform.Result;
+import java.rmi.server.ExportException;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /* DatabaseConnection.java
  * Author: Damien Rodriguez
@@ -59,6 +63,8 @@ public class DatabaseConnection {
                         SINGLE_INSTANCE = new DatabaseConnection();
                 }
             }
+
+            System.out.println("Connection successful");
             return SINGLE_INSTANCE;
         } catch(Exception e) {
             System.out.println(e);
@@ -67,6 +73,10 @@ public class DatabaseConnection {
 
     }
 
+
+
+
+    //Need to figure out how to get record information from here
 
     private void connectionSetUp() {
         try {
@@ -79,12 +89,6 @@ public class DatabaseConnection {
     }
 
     //combine the addQuestions into one method with logic on how to know what kind of question is being asked
-
-
-
-
-
-
 
 
     public void addQuestion(final Question q) throws Exception {
@@ -115,11 +119,20 @@ public class DatabaseConnection {
     }
 
 
-    public ResultSet searchQuery(final String query) throws Exception {
+    public ArrayList<Question> searchQuery(final String query) throws Exception {
+
+        ArrayList<Question> arrayList = new ArrayList<Question>();
         Statement temp_statement = this.c.createStatement();
         ResultSet rs = temp_statement.executeQuery(query);
-        temp_statement.close();
-        return rs;
+
+        int row = rs.getRow();
+        while(row < 1) {
+            Question temp = new Question(rs.getString("questionID"), rs.getString("question"), rs.getString("answer"), rs.getString("hint"), rs.getString("wrongAnswerOne"), rs.getString("wrongAnswerTwo"), rs.getString("wrongAnswerThree"));
+            arrayList.add(temp);
+            rs.next();
+            row = rs.getRow();
+        }
+        return arrayList;
     }
 
     //to be deleted later
@@ -172,12 +185,39 @@ public class DatabaseConnection {
         this.totalRecordCount = totalRecordCount;
     }
 
-    public static void main(String[] args) {
+
+
+    //Create unit tests for later
+    //include an existing questionID, and a not existing question ID
+    public boolean exists(final String questionID) {
+
+        try {
+            Statement myStm = this.c.createStatement();
+
+            String sql = "SELECT * FROM questions WHERE questionID = ";
+            sql = sql + "\'" + questionID + "\'";
+
+
+            ResultSet rs = myStm.executeQuery(sql);
+
+            return true;
+
+        }
+        catch(Exception e) {
+
+            return false;
+        }
+
+
+    }
+
+
+
+    public static void main(String[] args) throws Exception {
         DatabaseConnection db = DatabaseConnection.getInstance();
 
-        System.out.println(db.getTotalRecordCount());
-        System.out.println(db.getMultipleChoiceRecordCount());
-        System.out.println(db.getShortAnswerChoiceRecordCount());
-        System.out.println(db.getTrueFalseRecordCount());
+        System.out.println(db.exists("can't exist"));
     }
+
+
 }

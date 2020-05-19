@@ -1,46 +1,85 @@
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.sql.*;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseConnectionTest {
+
     public DatabaseConnection db = null;
 
-
-    /*
     @BeforeEach
-    void setUp() throws Exception {
+    void setUp() {
         db = DatabaseConnection.getInstance();
-        db.trueFalseAddQuestion(0, "test","test","test");
-        db.mutipleChoiceAddQuestion(0, "test","test","test","test","test","test");
-        db.shortAnswerAddQuestion(0, "test","test","test");
     }
-
-
-    @AfterEach
-    void tearDown() throws Exception {
-        db.clearTestData();
-    }
-     */
-
-
 
     @Test
     void getInstance() {
-        db = DatabaseConnection.getInstance();
-        assertEquals(db instanceof DatabaseConnection, true);
+        assertTrue(db instanceof DatabaseConnection);
     }
+/*
+    @Test
+    void searchQuery() throws Exception {
+        ArrayList<Question> list = new ArrayList<Question>();
 
+        db.searchQuery("SELECT * FROM questions WHERE wrongAnswerOne IS NOT NULL", list);
+
+        System.out.println(list.toString());
+
+        Question q = list.get(0);
+
+        assertEquals("eem-1",q.getId());
+        assertEquals("test", q.getQuestion());
+        assertEquals("test", q.getAnswer());
+        assertEquals("test", q.getHint());
+        assertEquals("test", q.getWrongAnswerOne());
+        assertEquals("test", q.getWrongAnswerTwo());
+        assertEquals("test", q.getWrongAnswerThree());
+
+
+    }
 
 
     @Test
-    void searchTrueFalseQuery() throws Exception {
-        ResultSet rs = db.searchQuery("SELECT * FROM trueFalse");
-        
+    void addQuestion() throws Exception {
+        db.addQuestion(new Question("eem-2","test 2", "test 2", "test 2", "test 2","test 2", "test 2"));
+
+        ArrayList<Question> checker = new ArrayList<Question>();
+
+        db.searchQuery("SELECT * FROM questions WHERE wrongAnswerOne IS NOT NULL", checker);
+
+        boolean added = false;
+        if(checker.size() > 1) {
+            added = true;
+        }
+
+        assertTrue(added);
     }
 
+
+    @Test
+    void closeConnection() {
+    }
+
+    @Test
+    void getTrueFalseRecordCount() {
+    }
+
+    @Test
+    void getMultipleChoiceRecordCount() {
+    }
+
+    @Test
+    void getShortAnswerChoiceRecordCount() {
+    }
+
+    @Test
+    void getTotalRecordCount() {
+    }
+
+ */
 }
