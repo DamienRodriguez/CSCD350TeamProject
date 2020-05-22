@@ -1,6 +1,4 @@
-import javax.swing.*;
 import java.sql.*;
-import java.util.Random;
 
 public class Question {
 
@@ -12,7 +10,8 @@ public class Question {
     private String wrongAnswerTwo;
     private String wrongAnswerThree;
 
-    /*
+
+    // This is the constructor that will be used for search queries
     public Question(final ResultSet rs) throws SQLException {
         setId(rs.getString("id"));
         setQuestion(rs.getString("question"));
@@ -24,7 +23,6 @@ public class Question {
 
     }
 
-     */
 
     public Question() {
         this.id = null;
@@ -35,6 +33,8 @@ public class Question {
         setWrongAnswerThree(null);
         setHint(null);
     }
+
+
     //This constructor is used for question creation via the menu admin tool.
     //This will be where the random ID generation would take place
     public Question(final int difficulty, final int roomType, final int questionType, final String question, final String answer, final String wrongAnswerOne, final String wrongAnswerTwo, final String wrongAnswerThree, final String hint) throws Exception {
@@ -60,6 +60,7 @@ public class Question {
         setWrongAnswerTwo(null);
         setWrongAnswerThree(null);
     }
+
 
     //Please see above constructors comments
     //This however emulates multipleChoice questions with fixed "magic" number values for testing
@@ -143,6 +144,7 @@ public class Question {
         this.wrongAnswerThree = wrongAnswerThree;
     }
 
+
     public char[] getIDParseArray() {
         return this.id.toCharArray();
     }
@@ -165,11 +167,15 @@ public class Question {
             setId(questionID);
         }
 
+
+        //I believe this updates the record count. Could potentially be
+        DB_CONNECTION.updateRecordCount(alphaID.charAt(2));
+
         DB_CONNECTION.closeConnection();
     }
 
 
-    //need to figure out what to do with this method
+    //the below methods were made protected for testing purposes. They will be returned to private after testing is completed.
     protected String alphaID(final int difficulty, final int roomType, final int questionType) {
 
         String characterID = "";
@@ -207,7 +213,6 @@ public class Question {
     }
 
 
-    //need to figure out how to handle padding when it comes to this number
     protected int numberID(final int questionType, final DatabaseConnection DB_CONNECTION) {
 
         int id = 0;
@@ -225,9 +230,5 @@ public class Question {
 
     }
 
-
-    public static void main(String[] args) {
-
-    }
 
 }

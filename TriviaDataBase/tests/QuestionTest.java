@@ -52,34 +52,31 @@ class QuestionTest {
     }
 
 
-
-
     @Test
     void createTrueFalseFullID() throws Exception {
         Question q = new Question();
         q.createID(0,0,0);
+        System.out.println(q.getId());
 
-        assertEquals("eet-2",q.getId());
+        assertEquals("eet-1",q.getId());
     }
 
     @Test
     void createMultipleChoiceFullID() throws Exception {
         Question q = new Question();
         q.createID(0,0,1);
-        assertEquals("eem-2",q.getId());
+        System.out.println(q.getId());
+        assertEquals("eem-1",q.getId());
     }
 
-
-    //Exists is currently not working as intended appearently.
-    //currently believes that there is n + 1 rows
-    //where n is the number of existing rows
+    
     @Test
     void createShortAnswerFullID() throws Exception {
         Question q = new Question();
         q.createID(0,0,2);
 
         System.out.println(q.getId());
-        assertEquals("ees-2",q.getId());
+        assertEquals("ees-1",q.getId());
     }
 
 

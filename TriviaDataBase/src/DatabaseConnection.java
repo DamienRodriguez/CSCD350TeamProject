@@ -1,9 +1,6 @@
-import javax.lang.model.type.ArrayType;
-import javax.xml.transform.Result;
-import java.rmi.server.ExportException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 /* DatabaseConnection.java
  * Author: Damien Rodriguez
@@ -63,8 +60,6 @@ public class DatabaseConnection {
                         SINGLE_INSTANCE = new DatabaseConnection();
                 }
             }
-
-            System.out.println("Connection successful");
             return SINGLE_INSTANCE;
         } catch(Exception e) {
             System.out.println(e);
@@ -73,10 +68,6 @@ public class DatabaseConnection {
 
     }
 
-
-
-
-    //Need to figure out how to get record information from here
 
     private void connectionSetUp() {
         try {
@@ -106,12 +97,24 @@ public class DatabaseConnection {
         insertQuery(sql);
     }
 
+    public void updateRecordCount(final char token) {
+        if(token == 't')
+            this.trueFalseRecordCount++;
+        else if(token == 'm')
+            this.multipleChoiceRecordCount++;
+        else if(token == 's')
+            this.shortAnswerChoiceRecordCount++;
+        else
+            throw new IllegalArgumentException("token sent to update the record count is invalid.");
+
+        this.totalRecordCount++; //there might be a problem here if we get the invalid token exception.
+    }
+
 
     private void insertQuery(final String query) throws Exception {
         try {
             Statement myStm = this.c.createStatement();
             myStm.executeUpdate(query);
-            System.out.println("Query complete");
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -149,41 +152,51 @@ public class DatabaseConnection {
         }
     }
 
+
     public void closeConnection() throws SQLException {
         this.c.close();
     }
+
 
     public int getTrueFalseRecordCount() {
         return trueFalseRecordCount;
     }
 
+
     public void setTrueFalseRecordCount(int trueFalseRecordCount) {
         this.trueFalseRecordCount = trueFalseRecordCount;
     }
+
 
     public int getMultipleChoiceRecordCount() {
         return multipleChoiceRecordCount;
     }
 
+
     public void setMultipleChoiceRecordCount(int multipleChoiceRecordCount) {
         this.multipleChoiceRecordCount = multipleChoiceRecordCount;
     }
+
 
     public int getShortAnswerChoiceRecordCount() {
         return shortAnswerChoiceRecordCount;
     }
 
+
     public void setShortAnswerChoiceRecordCount(int shortAnswerChoiceRecordCount) {
         this.shortAnswerChoiceRecordCount = shortAnswerChoiceRecordCount;
     }
+
 
     public int getTotalRecordCount() {
         return totalRecordCount;
     }
 
+
     public void setTotalRecordCount(int totalRecordCount) {
         this.totalRecordCount = totalRecordCount;
     }
+
 
 
 
