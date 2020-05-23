@@ -15,6 +15,7 @@ public class QuestionMenu {
             System.out.println("1) Add a true/false question to the dateabase.");
             System.out.println("2) Add a multiple choice question to the database.");
             System.out.println("3) Add a short answer question to the database.");
+
             System.out.println("4) Quit");
 
             choice = Integer.valueOf(kb.nextLine());
@@ -26,6 +27,7 @@ public class QuestionMenu {
                 addQuestion(choice);
             }
         }
+        kb.close();
     }
 
 
@@ -35,11 +37,11 @@ public class QuestionMenu {
         Scanner kb = new Scanner(System.in);
 
         if(choice == 1)
-            DB_CONNECTION.addQuestion(createTrueFalseQuestion(kb));
+            DB_CONNECTION.addQuestion(createTrueFalseQuestion());
         else if(choice == 2)
-            DB_CONNECTION.addQuestion(createMultipleChoiceQuestion(kb));
+            DB_CONNECTION.addQuestion(createMultipleChoiceQuestion());
         else if(choice == 3)
-            DB_CONNECTION.addQuestion(createShortAnswerQuestion(kb));
+            DB_CONNECTION.addQuestion(createShortAnswerQuestion());
         else
             System.out.println("This should not ever happen.");
 
@@ -47,7 +49,9 @@ public class QuestionMenu {
     }
 
 
-    private static Question createTrueFalseQuestion(final Scanner kb) throws Exception {
+    private static Question createTrueFalseQuestion() throws Exception {
+
+        Scanner kb = new Scanner(System.in);
 
         String question;
         String answer;
@@ -79,11 +83,15 @@ public class QuestionMenu {
 
         Question q = new Question(difficulty, roomType, 0, question, answer, null, null, null, hint);
 
+        kb.close();
+
         return q;
     }
 
 
-    private static Question createMultipleChoiceQuestion(final Scanner kb) throws Exception {
+    private static Question createMultipleChoiceQuestion() throws Exception {
+
+        Scanner kb = new Scanner(System.in);
         String question;
         String answer;
         String wrongAnswerOne;
@@ -92,6 +100,7 @@ public class QuestionMenu {
         String hint;
         int difficulty;
         int roomType;
+
 
         System.out.println("What is the multiple choice question you'd like to add? ");
         question = kb.nextLine();
@@ -130,11 +139,15 @@ public class QuestionMenu {
 
         Question q = new Question(difficulty, roomType, 1, question, answer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree, hint);
 
+        kb.close();
+
         return q;
     }
 
 
-    private static Question createShortAnswerQuestion(final Scanner kb) throws Exception {
+    private static Question createShortAnswerQuestion() throws Exception {
+
+        Scanner kb = new Scanner(System.in);
 
         String question;
         String answer;
@@ -166,7 +179,16 @@ public class QuestionMenu {
 
         Question q = new Question(difficulty, roomType, 2, question, answer, null, null, null, hint);
 
+        kb.close();
         return q;
+    }
+
+
+    public static void main(String[] args) throws Exception {
+        DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
+        QuestionMenu.menu();
+
+        DB_CONNECTION.closeConnection();
     }
 
 }

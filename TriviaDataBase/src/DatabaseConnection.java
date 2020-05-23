@@ -87,11 +87,13 @@ public class DatabaseConnection {
 
 
         if(q.getWrongAnswerOne() != null) {
-            sql = sql + q.getId() + ", '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
+            sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
+            System.out.println(sql);
         }
 
         else {
-            sql = sql + q.getId() + ", '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + null + "', '" + null + "', '" + null + "', '" + q.getHint() + "')";
+            sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + null + "', '" + null + "', '" + null + "', '" + q.getHint() + "')";
+            System.out.println(sql);
         }
 
         insertQuery(sql);
@@ -116,6 +118,7 @@ public class DatabaseConnection {
             Statement myStm = this.c.createStatement();
             myStm.executeUpdate(query);
         } catch (Exception e) {
+            System.out.println("ERROR HAPPENED AT insertQuery");
             System.out.println(e);
         }
 
@@ -227,14 +230,6 @@ public class DatabaseConnection {
         }
 
 
-    }
-
-
-
-    public static void main(String[] args) throws Exception {
-        DatabaseConnection db = DatabaseConnection.getInstance();
-
-        System.out.println(db.exists("ees-2"));
     }
 
 
