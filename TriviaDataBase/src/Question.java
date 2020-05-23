@@ -170,7 +170,7 @@ public class Question {
 
         //I believe this updates the record count. Could potentially be
         DB_CONNECTION.updateRecordCount(alphaID.charAt(2));
-        //DB_CONNECTION.closeConnection();
+        DB_CONNECTION.closeConnection();
 
     }
 

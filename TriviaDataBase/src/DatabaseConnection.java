@@ -79,25 +79,22 @@ public class DatabaseConnection {
         }
     }
 
-    //combine the addQuestions into one method with logic on how to know what kind of question is being asked
 
-
-    public void addQuestion(final Question q) throws Exception {
+    public void addQuestion(final Question q) {
         String sql = "insert into questions values(";
 
 
         if(q.getWrongAnswerOne() != null) {
             sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
-            System.out.println(sql);
         }
 
         else {
             sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + null + "', '" + null + "', '" + null + "', '" + q.getHint() + "')";
-            System.out.println(sql);
         }
 
         insertQuery(sql);
     }
+
 
     public void updateRecordCount(final char token) {
         if(token == 't')
@@ -113,7 +110,7 @@ public class DatabaseConnection {
     }
 
 
-    private void insertQuery(final String query) throws Exception {
+    private void insertQuery(final String query) {
         try {
             Statement myStm = this.c.createStatement();
             myStm.executeUpdate(query);
@@ -141,14 +138,12 @@ public class DatabaseConnection {
         return arrayList;
     }
 
+
     //to be deleted later
-    public void clearTestData() throws Exception {
+    public void clearTestData() {
         try {
             Statement temp = this.c.createStatement();
-            temp.execute("DELETE FROM trueFalse");
-            temp.execute("DELETE FROM multipleChoice");
-            temp.execute("DELETE FROM shortAnswer");
-            System.out.println("Deletion of Test Data Successful");
+            temp.execute("DELETE FROM questions");
 
         } catch (Exception e) {
             System.out.println(e);

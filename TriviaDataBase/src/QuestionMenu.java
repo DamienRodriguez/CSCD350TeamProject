@@ -3,31 +3,51 @@ import java.util.Scanner;
 public class QuestionMenu {
 
 
+
     public static void menu() throws Exception {
+
         Scanner kb = new Scanner(System.in);
-        boolean done = false;
-
         int choice = 0;
-        while(!done) {
 
-            System.out.println("Please choose from the following menu:");
-            System.out.println("======================================");
-            System.out.println("1) Add a true/false question to the dateabase.");
-            System.out.println("2) Add a multiple choice question to the database.");
-            System.out.println("3) Add a short answer question to the database.");
+        while(choice != 5) {
+            choice = menu(kb);
 
-            System.out.println("4) Quit");
-
-            choice = Integer.valueOf(kb.nextLine());
-
-            if(choice == 4)
-                done = true;
-
-            else {
+            if(choice >= 1 && choice <= 3)
                 addQuestion(choice);
-            }
+            else if(choice == 4)
+                nukeIt();
         }
         kb.close();
+        DatabaseConnection.getInstance().closeConnection();
+    }
+
+
+    //Menu taken from 211 assignment
+    private static int menu(final Scanner kb) {
+      if(kb == null)
+         throw new IllegalArgumentException("bad params in menu");
+
+      int choice = 0;
+      do {
+         System.out.println("1) Add a true false question");
+         System.out.println("2) Add a multiple choice question");
+         System.out.println("3) Add a short answer question");
+         System.out.println("4) Nuke database");
+         System.out.println("5) Quit");
+
+         System.out.println("Please enter your choice -----> ");
+         choice = kb.nextInt();
+         kb.nextLine();
+
+
+      } while(choice < 0 || choice > 5);
+      return choice;
+    }
+
+
+    private static void nukeIt() {
+        DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
+        DB_CONNECTION.clearTestData();
     }
 
 
