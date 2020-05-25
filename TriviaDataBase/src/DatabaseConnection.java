@@ -42,15 +42,23 @@ public class DatabaseConnection {
 
     }
 
-    private int getRecordCount(final String sql) throws SQLException {
 
-        Statement statement = this.c.createStatement();
-        ResultSet rs = statement.executeQuery(sql);
-        int count = rs.getInt("rowCount");
-        rs.close();
+    private int getRecordCount(final String sql)  {
+
+        int count = 0;
+        try {
+            Statement statement = this.c.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+            count = rs.getInt("rowCount");
+            rs.close();
+
+        } catch(Exception e) {
+            System.out.println("ERROR in getRecordCount");
+        }
 
         return count;
     }
+
 
     public static DatabaseConnection getInstance() {
         try {
@@ -75,6 +83,7 @@ public class DatabaseConnection {
             this.c = DriverManager.getConnection(DB_CONNECTION);
 
         } catch (Exception e) {
+            System.out.println("Problem in connectionSetUp");
             System.out.println(e);
         }
     }
@@ -122,20 +131,29 @@ public class DatabaseConnection {
     }
 
 
-    public ArrayList<Question> searchQuery(final String query) throws Exception {
+    public ArrayList<Question> searchQuery(final String query) {
 
-        ArrayList<Question> arrayList = new ArrayList<Question>();
-        Statement temp_statement = this.c.createStatement();
-        ResultSet rs = temp_statement.executeQuery(query);
+        try {
+            ArrayList<Question> arrayList = new ArrayList<Question>();
+            Statement temp_statement = this.c.createStatement();
+            ResultSet rs = temp_statement.executeQuery(query);
 
-        int row = rs.getRow();
-        while(row < 1) {
-            Question temp = new Question(rs.getString("questionID"), rs.getString("question"), rs.getString("answer"), rs.getString("hint"), rs.getString("wrongAnswerOne"), rs.getString("wrongAnswerTwo"), rs.getString("wrongAnswerThree"));
-            arrayList.add(temp);
-            rs.next();
-            row = rs.getRow();
+            int row = rs.getRow();
+            while(row < 1) {
+
+                Question temp = new Question(rs);
+                arrayList.add(temp);
+                rs.next();
+                row = rs.getRow();
+            }
+
+            arrayList.trimToSize();
+            return arrayList;
+        } catch(Exception e) {
+            System.out.println("ERROR HAPPENED in searchQuery");
         }
-        return arrayList;
+
+        return null;
     }
 
 
@@ -151,8 +169,14 @@ public class DatabaseConnection {
     }
 
 
-    public void closeConnection() throws SQLException {
-        this.c.close();
+    public void closeConnection() {
+        try {
+            this.c.close();
+        } catch(Exception e) {
+            System.out.println("ERROR HAPPENED in closeConnection");
+            System.out.println(e);
+        }
+
     }
 
 
@@ -220,7 +244,7 @@ public class DatabaseConnection {
 
         }
         catch(Exception e) {
-
+            System.out.println("question does not exist.");
             return false;
         }
 

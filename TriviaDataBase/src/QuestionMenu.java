@@ -6,29 +6,25 @@ public class QuestionMenu {
 
     public static void menu() throws Exception {
 
-        Scanner kb = new Scanner(System.in);
         int choice = 0;
 
         while(choice != 5) {
-            choice = menu(kb);
+            choice = Pmenu();
 
             if(choice >= 1 && choice <= 3)
                 addQuestion(choice);
             else if(choice == 4)
                 nukeIt();
         }
-        kb.close();
         DatabaseConnection.getInstance().closeConnection();
     }
 
 
     //Menu taken from 211 assignment
-    private static int menu(final Scanner kb) {
-      if(kb == null)
-         throw new IllegalArgumentException("bad params in menu");
-
-      int choice = 0;
-      do {
+    private static int Pmenu() {
+        Scanner kb = new Scanner(System.in);
+        int choice = 0;
+        do {
          System.out.println("1) Add a true false question");
          System.out.println("2) Add a multiple choice question");
          System.out.println("3) Add a short answer question");
@@ -40,8 +36,10 @@ public class QuestionMenu {
          kb.nextLine();
 
 
-      } while(choice < 0 || choice > 5);
-      return choice;
+        } while(choice < 0 || choice > 5);
+
+
+        return choice;
     }
 
 
@@ -65,11 +63,10 @@ public class QuestionMenu {
         else
             System.out.println("This should not ever happen.");
 
-        kb.close();
     }
 
 
-    private static Question createTrueFalseQuestion() throws Exception {
+    private static Question createTrueFalseQuestion() {
 
         Scanner kb = new Scanner(System.in);
 
@@ -78,7 +75,6 @@ public class QuestionMenu {
         String hint;
         int difficulty;
         int roomType;
-
         System.out.println("What is the true false question you'd like to add? ");
         question = kb.nextLine();
 
@@ -102,8 +98,6 @@ public class QuestionMenu {
         roomType = Integer.valueOf(kb.nextLine());
 
         Question q = new Question(difficulty, roomType, 0, question, answer, null, null, null, hint);
-
-        kb.close();
 
         return q;
     }
@@ -159,7 +153,7 @@ public class QuestionMenu {
 
         Question q = new Question(difficulty, roomType, 1, question, answer, wrongAnswerOne, wrongAnswerTwo, wrongAnswerThree, hint);
 
-        kb.close();
+
 
         return q;
     }
@@ -199,16 +193,13 @@ public class QuestionMenu {
 
         Question q = new Question(difficulty, roomType, 2, question, answer, null, null, null, hint);
 
-        kb.close();
+
         return q;
     }
 
 
     public static void main(String[] args) throws Exception {
-        DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
         QuestionMenu.menu();
-
-        DB_CONNECTION.closeConnection();
     }
 
 }

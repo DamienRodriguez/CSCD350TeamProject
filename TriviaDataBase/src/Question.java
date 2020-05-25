@@ -10,68 +10,39 @@ public class Question {
     private String wrongAnswerTwo;
     private String wrongAnswerThree;
 
-
-    // This is the constructor that will be used for search queries
-    public Question(final ResultSet rs) throws SQLException {
-        setId(rs.getString("id"));
-        setQuestion(rs.getString("question"));
-        setAnswer(rs.getString("answer"));
-        setWrongAnswerOne(rs.getString("wrongAnswerOne"));
-        setWrongAnswerTwo(rs.getString("wrongAnswerTwo"));
-        setWrongAnswerThree(rs.getString("wrongAnswerThree"));
-        setHint(rs.getString("hint"));
+    public Question() {
 
     }
 
+    // This is the constructor that will be used for search queries
+    public Question(final ResultSet rs) {
+        try {
+            setId(rs.getString("id"));
+            setQuestion(rs.getString("question"));
+            setAnswer(rs.getString("answer"));
+            setWrongAnswerOne(rs.getString("wrongAnswerOne"));
+            setWrongAnswerTwo(rs.getString("wrongAnswerTwo"));
+            setWrongAnswerThree(rs.getString("wrongAnswerThree"));
+            setHint(rs.getString("hint"));
+        } catch(Exception e) {
+            System.out.println("ERROR HAPPENED in Question (ResultSet) Constructor");
+            System.out.println(e);
+        }
 
-    public Question() {
-        this.id = null;
-        setQuestion(null);
-        setAnswer(null);
-        setWrongAnswerOne(null);
-        setWrongAnswerTwo(null);
-        setWrongAnswerThree(null);
-        setHint(null);
     }
 
 
     //This constructor is used for question creation via the menu admin tool.
     //This will be where the random ID generation would take place
-    public Question(final int difficulty, final int roomType, final int questionType, final String question, final String answer, final String wrongAnswerOne, final String wrongAnswerTwo, final String wrongAnswerThree, final String hint) throws Exception {
-        createID(difficulty, roomType, questionType);
-        setQuestion(question);
-        setAnswer(answer);
-        setWrongAnswerOne(wrongAnswerOne);
-        setWrongAnswerTwo(wrongAnswerTwo);
-        setWrongAnswerThree(wrongAnswerThree);
-        setHint(hint);
-    }
+    public Question(final int difficulty, final int roomType, final int questionType, final String question, final String answer, final String wrongAnswerOne, final String wrongAnswerTwo, final String wrongAnswerThree, final String hint)  {
+            createID(difficulty, roomType, questionType);
+            setQuestion(question);
+            setAnswer(answer);
+            setWrongAnswerOne(wrongAnswerOne);
+            setWrongAnswerTwo(wrongAnswerTwo);
+            setWrongAnswerThree(wrongAnswerThree);
+            setHint(hint);
 
-
-    //This constructor would be for test purposes ONLY
-    //This is meant to emulate a true or false/short answer question, with fixed "magic" values for testing
-    //This will eventually be deleted after a testing method can be used for the random generation
-    public Question(final String questionID, final String question, final String answer, final String hint) {
-        setId(questionID);
-        setQuestion(question);
-        setAnswer(answer);
-        setHint(hint);
-        setWrongAnswerOne(null);
-        setWrongAnswerTwo(null);
-        setWrongAnswerThree(null);
-    }
-
-
-    //Please see above constructors comments
-    //This however emulates multipleChoice questions with fixed "magic" number values for testing
-    public Question(final String questionID, final String question, final String answer, final String wrongAnswerOne, final String wrongAnswerTwo, final String wrongAnswerThree, final String hint) {
-        setId(questionID);
-        setQuestion(question);
-        setAnswer(answer);
-        setWrongAnswerOne(wrongAnswerOne);
-        setWrongAnswerTwo(wrongAnswerTwo);
-        setWrongAnswerThree(wrongAnswerThree);
-        setHint(hint);
     }
 
 
@@ -150,7 +121,7 @@ public class Question {
     }
 
 
-    public void createID(final int difficulty, final int roomType, final int questionType) throws Exception {
+    public void createID(final int difficulty, final int roomType, final int questionType) {
 
         final DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
 
@@ -170,8 +141,6 @@ public class Question {
 
         //I believe this updates the record count. Could potentially be
         DB_CONNECTION.updateRecordCount(alphaID.charAt(2));
-        DB_CONNECTION.closeConnection();
-
     }
 
 
