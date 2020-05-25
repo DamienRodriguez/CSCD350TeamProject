@@ -45,7 +45,7 @@ public class QuestionMenu {
 
     private static void nukeIt() {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
-        DB_CONNECTION.clearTestData();
+        DB_CONNECTION.clearQuestionData();
     }
 
 

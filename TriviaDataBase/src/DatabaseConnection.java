@@ -158,7 +158,7 @@ public class DatabaseConnection {
 
 
     //to be deleted later
-    public void clearTestData() {
+    public void clearQuestionData() {
         try {
             Statement temp = this.c.createStatement();
             temp.execute("DELETE FROM questions");
@@ -218,8 +218,6 @@ public class DatabaseConnection {
     public void setTotalRecordCount(int totalRecordCount) {
         this.totalRecordCount = totalRecordCount;
     }
-
-
 
 
     //Bug where there appears to be n + 1 rows
