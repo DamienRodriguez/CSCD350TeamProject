@@ -10,14 +10,14 @@ public class maze {
 
 
     private Hashtable<String, Question> questionIndex = new Hashtable<String, Question>();
+    private Hashtable<String, Question> usedQuestionIndex = new Hashtable<String, Question>();
     private Set<String> keySet = null;
-
 
 
     //if this breaks, it is the database connection m
     private void setQuestionIndex() {
         DatabaseConnection DB = DatabaseConnection.getInstance();
-        ArrayList<Question> myList = DB.searchQuery("SELECT * FROM questions WHERE length(answer) == 1 AND wrongAnswerOne IS NULL");
+        ArrayList<Question> myList = DB.searchQuery("SELECT * FROM questions"); //the whole database was queried
 
         for (Question question : myList) {
             this.questionIndex.put(question.getId(), question);
@@ -25,6 +25,7 @@ public class maze {
 
         this.keySet = this.questionIndex.keySet();
     }
+
 
     public maze(int size, int dif) {
         this.size =size;
@@ -37,7 +38,7 @@ public class maze {
         }
         pos= new int[]{0, 0};
         exitPos = new int[]{4, 4};
-
+        setQuestionIndex();
         setMaze(maze);
     }
 
@@ -59,15 +60,8 @@ public class maze {
 
     private Room makeRoom(int x, int y) {
         int[] coords = new int[]{x, y};
-        Room temp = new Room(coords);
-
-        Question[] questions = new Question[temp.getNumDoors()];
-
-        for(int i = 0; i < questions.length; i++) {
-            questions[i] = questionIndex.get(keySet.iterator().next());
-        }
-        temp.setDoors(questions);
-
+        Room temp = new Room(coords, this.questionIndex, this.usedQuestionIndex);
+        return temp;
     }
 
 
@@ -112,30 +106,31 @@ public class maze {
 
             temp = pos[0];
             pos[0] = temp - 1;
-            roomInteractions();
+            roomInteractions(i);
         } else if (i.equalsIgnoreCase("s") && pos[0] < 4) {//move down
 
             temp = pos[0];
             pos[0] = temp + 1;
-            roomInteractions();
+            roomInteractions(i);
             
         } else if (i.equalsIgnoreCase("d") && pos[1] < 4) {//move right
             temp = pos[1];
             pos[1] = temp + 1;
-            roomInteractions();
+            roomInteractions(i);
 
         } else if (i.equalsIgnoreCase("a") && pos[1] > 0) {//move left
             temp = pos[1];
             pos[1] = temp - 1;
-            roomInteractions();
+            roomInteractions(i);
 
         } else
             System.out.println("invalid, its a wall...");
     }
 
 
-    private void roomInteractions() {
+    private void roomInteractions(String i) {
         System.out.println(pos[0] + " , " + pos[1]);
+
 
         if(this.maze[pos[0]][pos[1]].getHasExit()){
             System.out.println("This is the exit.");
