@@ -2,6 +2,7 @@ package TriviaDataBase;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 
 /* DatabaseConnection.java
@@ -250,6 +251,43 @@ public class DatabaseConnection {
 
 
     }
+
+
+
+    public static void main(String[] args) {
+        QuestionReader qr = new QuestionReader();
+        ArrayList<String[]> questions = qr.getQuestions();
+
+        Iterator<String []> itr = questions.iterator();
+
+
+        String[] temp_Question;
+        Question temp_ActualQuestion;
+
+        while(itr.hasNext()) {
+            temp_Question = itr.next();
+
+            if(temp_Question.length == 3) {
+                if(temp_Question[1].length() == 1) {
+                    temp_ActualQuestion = new Question(0,0,0,temp_Question[0],temp_Question[1], null, null, null, temp_Question[2]);
+                }
+                else {
+                    temp_ActualQuestion = new Question(0,0,2,temp_Question[0],temp_Question[1], null, null, null, temp_Question[2]);
+                }
+            }
+            else {
+                temp_ActualQuestion = temp_ActualQuestion = new Question(0,0,2,temp_Question[0],temp_Question[1], temp_Question[2], temp_Question[3], temp_Question[4], temp_Question[5]);
+            }
+
+            SINGLE_INSTANCE.addQuestion(temp_ActualQuestion);
+        }
+
+
+
+
+
+    }
+
 
 
 }
