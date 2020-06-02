@@ -1,6 +1,9 @@
 package TriviaDataBase;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class QuestionMenu {
 
@@ -201,7 +204,20 @@ public class QuestionMenu {
 
 
     public static void main(String[] args) throws Exception {
-        QuestionMenu.menu();
+        DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
+        QuestionReader qr = new QuestionReader();
+
+        Stack<Question> stack = qr.getStack();
+
+
+        for(Question question: stack) {
+            DB_CONNECTION.addQuestion(question);
+        }
+
+
+        //QuestionMenu.menu();
     }
+
+
 
 }
