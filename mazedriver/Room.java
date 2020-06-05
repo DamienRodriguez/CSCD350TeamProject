@@ -4,13 +4,14 @@ package mazedriver;
 /*
 Author: Kevin Underwood
 Class: CSCD350
-version 1.3
-
+version 1.4
+attribution: damien and I worked on the dungeon crawler for 349 together.
+The drawing of the layout is based on that old driver.
  */
 
 
 public class Room {
-    private boolean visited = true;
+
     private int[] coordinates;
     int northdoor = 0;
     int southdoor = 0;
@@ -22,8 +23,6 @@ public class Room {
 
     }
 
-    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    //set
 
     public int getNorthdoor() {
         return northdoor;
@@ -56,9 +55,6 @@ public class Room {
     public void setWestdoor(int westdoor) {
         this.westdoor = westdoor;
     }
-//unlock all
-
-    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     private void setCoordinates(int[] coordinates) {
         this.coordinates = coordinates;
@@ -74,12 +70,6 @@ public class Room {
     private boolean getHasEntrance() {
         return this.coordinates[0] == 0 && this.coordinates[1] == 0;
     }
-
-
-    private void isVisited() {
-        this.visited = true;
-    }
-
 
 
     private boolean getHasPlayer() {
@@ -112,7 +102,6 @@ public class Room {
 
     @Override
     public String toString() {
-        isVisited(); //can only be drawn if it was visited.
         char c = whatIsInRoom();
 
         //Needs work when drawing out the room info.
