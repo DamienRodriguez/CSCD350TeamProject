@@ -13,7 +13,6 @@ public class Question {
     private String wrongAnswerThree;
 
     public Question() {
-
     }
 
     // This is the constructor that will be used for search queries
