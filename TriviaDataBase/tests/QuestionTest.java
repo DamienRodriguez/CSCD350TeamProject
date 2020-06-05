@@ -1,10 +1,10 @@
+import Database.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import java.util.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionTest {
-
     public final DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
 
     @Test

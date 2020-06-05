@@ -1,3 +1,5 @@
+package Database;
+
 import java.util.Scanner;
 
 public class QuestionMenu {
@@ -84,18 +86,25 @@ public class QuestionMenu {
         System.out.println("What is a hint you would give to lead you to the answer?");
         hint = kb.nextLine();
 
-        System.out.println("What would the difficulty of this question be? (Enter the number that you believe is closest to difficulty of the question");
-        System.out.println("0: Easy");
-        System.out.println("1: Medium");
-        System.out.println("2: Hard");
-        System.out.println("3: Master");
-        difficulty = Integer.valueOf(kb.nextLine());
+        do {
+            System.out.println("What would the difficulty of this question be? (Enter the number that you believe is closest to difficulty of the question");
+            System.out.println("0: Easy");
+            System.out.println("1: Medium");
+            System.out.println("2: Hard");
+            System.out.println("3: Master");
+            difficulty = Integer.valueOf(kb.nextLine());
 
-        System.out.println("Would you like this question to appear in a typical room, at the entrance room, or the exit room?");
-        System.out.println("0: Entrance");
-        System.out.println("1: Exit");
-        System.out.println("2: Room");
-        roomType = Integer.valueOf(kb.nextLine());
+        } while(difficulty < 0 && difficulty > 3);
+
+
+        do {
+            System.out.println("Would you like this question to appear in a typical room, at the entrance room, or the exit room?");
+            System.out.println("0: Entrance");
+            System.out.println("1: Exit");
+            System.out.println("2: Room");
+            roomType = Integer.valueOf(kb.nextLine());
+        } while(roomType < 0 && roomType > 3);
+
 
         Question q = new Question(difficulty, roomType, 0, question, answer, null, null, null, hint);
 
