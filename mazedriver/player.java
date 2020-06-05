@@ -9,32 +9,40 @@ version 1.2
  */
 
 
-public class player {
+public class player{
 
 
     public static int[] pos = new int[]{0,0};
 
-    public void movePlayer(String i) {
+    public void movePlayer(String i, maze maze) {
         int temp;
-
+        Room[][] tempmaze = maze.getMaze();
+        /*
+         * doors
+         * 0 locked can be attempted
+         * 1  unlocked
+         * 2 permanently locked
+         */
         if (i.equalsIgnoreCase("w") && pos[0] > 0) { //move up
-
+            tempmaze[pos[0]][pos[1]].setNorthdoor(1);
             temp = pos[0];
             pos[0] = temp - 1;
 
 
         } else if (i.equalsIgnoreCase("s") && pos[0] < 4) {//move down
-
+            tempmaze[pos[0]][pos[1]].setSouthdoor(1);
             temp = pos[0];
             pos[0] = temp + 1;
 
 
         } else if (i.equalsIgnoreCase("d") && pos[1] < 4) {//move right
+            tempmaze[pos[0]][pos[1]].setEastdoor(1);
             temp = pos[1];
             pos[1] = temp + 1;
 
 
         } else if (i.equalsIgnoreCase("a") && pos[1] > 0) {//move left
+            tempmaze[pos[0]][pos[1]].setWestdoor(1);
             temp = pos[1];
             pos[1] = temp - 1;
 
@@ -42,7 +50,7 @@ public class player {
         } else
             System.out.println("invalid, its a wall...");
 
-        System.out.println("new position: "+pos[0]+","+pos[1]);
+
     }
 
 

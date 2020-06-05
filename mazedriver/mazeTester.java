@@ -4,7 +4,7 @@ package mazedriver;
 /*
 Author: Kevin Underwood
 Class: CSCD350
-version 1.2
+version 1.3
 
  */
 
@@ -38,7 +38,12 @@ public class mazeTester {
         do {
             System.out.println(maze.toString());
             String choice = gameMenu(kb);
-            player1.movePlayer(choice);
+
+            if(maze.check(choice, player1) < 2){
+                if(maze.check(choice, player1) == 1 || maze.answerQuestion(kb)) {
+                    player1.movePlayer(choice, maze);
+                }else maze.lock(choice,player1);
+            }
         } while (!Arrays.equals(player1.getPos(), maze.getExitPos()));
         System.out.println(maze.toString());
         int[] temp = player1.getPos();
