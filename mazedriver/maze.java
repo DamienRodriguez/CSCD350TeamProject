@@ -1,5 +1,7 @@
 package mazedriver;
 
+import java.util.Scanner;
+
 /*
 Author: Kevin Underwood
 Class: CSCD350
@@ -10,6 +12,8 @@ public class maze {
     private final int size;
     private Room[][] maze;
     private int[] exitPos;
+
+
 
     public maze(int size, int dif) {
         this.size =size;
@@ -36,6 +40,9 @@ public class maze {
         this.maze = maze;
     }
 
+    public Room[][] getMaze() {
+        return maze;
+    }
 
     private Room makeRoom(int x, int y) {
         int[] coords = new int[]{x, y};
@@ -76,4 +83,48 @@ public class maze {
         return strFinal.toString();
     }
 
+    public boolean answerQuestion(Scanner kb) {
+        //stubbed for testing waiting for Damiens database.
+
+        String correct ="a";
+
+        System.out.println("Testing question?");
+        System.out.println("Testing answer a.");
+        System.out.println("Testing answer b.");
+        System.out.println("Testing answer c.");
+        String choice =kb.nextLine();
+
+        return choice.equals(correct);
+    }
+
+
+    public int check(String c, player player1) {
+        int[] temp = player1.getPos();
+        if (c.equalsIgnoreCase("w")) { //move up
+            return maze[temp[0]][temp[1]].getNorthdoor();
+        } else if (c.equalsIgnoreCase("s")) {//move down
+            return maze[temp[0]][temp[1]].getSouthdoor();
+        } else if (c.equalsIgnoreCase("d")) {//move right
+            return maze[temp[0]][temp[1]].getEastdoor();
+        } else {//move left
+            return maze[temp[0]][temp[1]].getWestdoor();
+        }
+
+    }
+
+
+    public void lock(String c, player player1) {
+        int[] temp = player1.getPos();
+        if (c.equalsIgnoreCase("w")) { //move up
+            maze[temp[0]][temp[1]].setNorthdoor(2);
+        } else if (c.equalsIgnoreCase("s")) {//move down
+            maze[temp[0]][temp[1]].setSouthdoor(2);
+        } else if (c.equalsIgnoreCase("d")) {//move right
+            maze[temp[0]][temp[1]].setEastdoor(2);
+        } else if (c.equalsIgnoreCase("a")) {//move left
+            maze[temp[0]][temp[1]].setWestdoor(2);
+
+        }else System.out.println("Problem in lock");
+
+    }
 }

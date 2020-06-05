@@ -4,7 +4,7 @@ package mazedriver;
 /*
 Author: Kevin Underwood
 Class: CSCD350
-version 1.2
+version 1.3
 
  */
 
@@ -12,29 +12,51 @@ version 1.2
 public class Room {
     private boolean visited = true;
     private int[] coordinates;
-
-
+    int northdoor = 0;
+    int southdoor = 0;
+    int eastdoor = 0;
+    int westdoor = 0;
 
     Room(int[] coords) {
         setCoordinates(coords);
-        /*
-         * doors
-         * 0 locked can be attempted
-         * 1  unlocked
-         * 2 permanently locked
-         */
 
-        int northdoor = 0;
-        int southdoor = 0;
-        int eastdoor = 0;
-        int westdoor = 0;
     }
 
     //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     //set
 
+    public int getNorthdoor() {
+        return northdoor;
+    }
 
-    //unlock all
+    public int getSouthdoor() {
+        return southdoor;
+    }
+
+    public int getEastdoor() {
+        return eastdoor;
+    }
+
+    public int getWestdoor() {
+        return westdoor;
+    }
+
+    public void setNorthdoor(int northdoor) {
+        this.northdoor = northdoor;
+    }
+
+    public void setSouthdoor(int southdoor) {
+        this.southdoor = southdoor;
+    }
+
+    public void setEastdoor(int eastdoor) {
+        this.eastdoor = eastdoor;
+    }
+
+    public void setWestdoor(int westdoor) {
+        this.westdoor = westdoor;
+    }
+//unlock all
 
     //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
