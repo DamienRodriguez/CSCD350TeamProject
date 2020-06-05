@@ -5,7 +5,7 @@ import java.util.Scanner;
 /*
 Author: Kevin Underwood
 Class: CSCD350
-version 1.2
+version 1.4
 
  */
 public class maze {
@@ -15,18 +15,23 @@ public class maze {
 
 
 
-    public maze(int size, int dif) {
+    public maze(int size, int dif, String cheats) {
         this.size =size;
         Room[][] maze = new Room[size][size];
 
         for (int row = 0; row < size; row++) {
             for (int column = 0; column < size; column++) {
                 maze[row][column] = makeRoom(row, column);
+                if(cheats.equalsIgnoreCase("y")) {
+                    maze[row][column].setSouthdoor(1);
+                    maze[row][column].setNorthdoor(1);
+                    maze[row][column].setEastdoor(1);
+                    maze[row][column].setWestdoor(1);
+                }
             }
         }
 
         exitPos = new int[]{4, 4};
-
         setMaze(maze);
     }
 
@@ -83,6 +88,7 @@ public class maze {
         return strFinal.toString();
     }
 
+//DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE
     public boolean answerQuestion(Scanner kb) {
         //stubbed for testing waiting for Damiens database.
 
@@ -96,7 +102,7 @@ public class maze {
 
         return choice.equals(correct);
     }
-
+//DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE
 
     public int check(String c, player player1) {
         int[] temp = player1.getPos();
