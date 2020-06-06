@@ -94,14 +94,8 @@ public class DatabaseConnection {
     public void addQuestion(final Question q) {
         String sql = "insert into questions values(";
 
+        sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
 
-        if(q.getWrongAnswerOne() != null) {
-            sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
-        }
-
-        else {
-            sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + null + "', '" + null + "', '" + null + "', '" + q.getHint() + "')";
-        }
 
         insertQuery(sql);
     }
@@ -128,6 +122,7 @@ public class DatabaseConnection {
         } catch (Exception e) {
             System.out.println("ERROR HAPPENED AT insertQuery");
             System.out.println(e);
+            System.out.println(query);
         }
 
     }

@@ -48,8 +48,8 @@ class QuestionReader {
         }
 
         Question q = new Question(difficulty, roomType, questionType, question[0], question[1], null, null, null, question[2]);
-
         DB_CONNECTION.addQuestion(q);
+        //System.out.println(q);
     }
 
     private static void addQuestionTF(String[] question, int counter) {
@@ -70,6 +70,7 @@ class QuestionReader {
 
         Question q = new Question(difficulty, roomType, questionType, question[0], question[1], null, null, null, question[2]);
         DB_CONNECTION.addQuestion(q);
+        //System.out.println(q);
     }
 
     private static void addQuestionMC(String[] question, int counter) {
@@ -87,8 +88,10 @@ class QuestionReader {
             difficulty = 2;
         }
 
+
         Question q = new Question(difficulty, roomType, questionType, question[0], question[1], question[2], question[3], question[4], question[5]);
         DB_CONNECTION.addQuestion(q);
+        //System.out.println(q);
     }
 
 }

@@ -201,4 +201,10 @@ public class Question {
     }
 
 
+    @Override
+    public String toString() {
+        String str = this.id + " " + this.question + " " + this.answer + " " + this.wrongAnswerOne + " " + this.wrongAnswerTwo + " " + this.wrongAnswerThree + " " + this.hint;
+        return str;
+    }
+
 }

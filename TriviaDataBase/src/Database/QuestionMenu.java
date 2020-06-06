@@ -5,7 +5,6 @@ import java.util.Scanner;
 public class QuestionMenu {
 
 
-
     public static void menu() throws Exception {
 
         int choice = 0;
