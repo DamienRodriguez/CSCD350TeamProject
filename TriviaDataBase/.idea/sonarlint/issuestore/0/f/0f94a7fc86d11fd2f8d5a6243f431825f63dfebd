@@ -1,0 +1,14 @@
+
+Q
+java:S1117¼"5Rename "id" which hides the field declared at line 7.(“¼µüÿÿÿÿ
+l	java:S117º"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ«¡€úÿÿÿÿ
+V	java:S107&"AConstructor has 9 parameters, which is greater than 7 authorized.(¬´«
+2
+java:S1700"Rename field "question"(·î”Ûøÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ØÍÛ¨
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+q
+java:S1488Î"[Immediately return this expression instead of assigning it to the temporary variable "str".(ÑìÙ~
+k	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿áëúÿÿÿÿ
+Æ
+java:S1598"¨This file "Question.java" should be located in "database" directory, not in "C:\Users\I am the machine\Documents\GitHub\CSCD350TeamProject\TriviaDataBase\src\Database".(ê³îæ8ğÜ¨.

@@ -1,0 +1,88 @@
+
+O	java:S106…"9Replace this use of System.out or System.err by a logger.(“çØö
+T	java:S106–"9Replace this use of System.out or System.err by a logger.( „‘ëúÿÿÿÿ
+T	java:S106‰"9Replace this use of System.out or System.err by a logger.(™¯¯Ğûÿÿÿÿ
+T	java:S106¾"9Replace this use of System.out or System.err by a logger.( „‘ëúÿÿÿÿ
+T	java:S106™"9Replace this use of System.out or System.err by a logger.(Ì˜¨‘şÿÿÿÿ
+N	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(—ØÔ	
+T	java:S106Á"9Replace this use of System.out or System.err by a logger.(Ì˜¨‘şÿÿÿÿ
+S	java:S106Z"9Replace this use of System.out or System.err by a logger.( „‘ëúÿÿÿÿ
+O	java:S106º"9Replace this use of System.out or System.err by a logger.(“çØö
+=
+java:S14818"'Remove this unused "kb" local variable.(­îß
+N	java:S106U"9Replace this use of System.out or System.err by a logger.(“çØö
+T	java:S106Ÿ"9Replace this use of System.out or System.err by a logger.(èœÀ üÿÿÿÿ
+S	java:S106g"9Replace this use of System.out or System.err by a logger.(èœÀ üÿÿÿÿ
+b
+java:S1192e"LDefine a constant instead of duplicating this literal "0: Entrance" 3 times.(²şÈ»
+S	java:S106O"9Replace this use of System.out or System.err by a logger.(ƒÊÂ‘şÿÿÿÿ
+O	java:S106"9Replace this use of System.out or System.err by a logger.(Ùù¹
+N	java:S106e"9Replace this use of System.out or System.err by a logger.(²şÈ»
+S	java:S106\"9Replace this use of System.out or System.err by a logger.(‘šà´ıÿÿÿÿ
+T	java:S106‹"9Replace this use of System.out or System.err by a logger.(ü¦­üÿÿÿÿ
+T	java:S106œ"9Replace this use of System.out or System.err by a logger.(ÔƒÌÈùÿÿÿÿ
+T	java:S106˜"9Replace this use of System.out or System.err by a logger.(‘šà´ıÿÿÿÿ
+N	java:S106R"9Replace this use of System.out or System.err by a logger.(‰Ì…«
+
+java:S1192U"yDefine a constant instead of duplicating this literal "What is a hint you would give to lead you to the answer?" 3 times.(“çØö
+T	java:S106´"9Replace this use of System.out or System.err by a logger.(ÁĞÎúøÿÿÿÿ
+^
+java:S1192f"HDefine a constant instead of duplicating this literal "1: Exit" 3 times.(Ùù¹
+o
+java:S1488l"YImmediately return this expression instead of assigning it to the temporary variable "q".(ŞÚ¡
+T	java:S106Ç"9Replace this use of System.out or System.err by a logger.(èœÀ üÿÿÿÿ
+S	java:S106d"9Replace this use of System.out or System.err by a logger.(ÔƒÌÈùÿÿÿÿ
+×
+java:S1192Y"»Define a constant instead of duplicating this literal "What would the difficulty of this question be? (Enter the number that you believe is closest to difficulty of the question" 3 times.(£á¤¢úÿÿÿÿ
+T	java:S106‘"9Replace this use of System.out or System.err by a logger.(ü¦­üÿÿÿÿ
+N	java:S106f"9Replace this use of System.out or System.err by a logger.(Ùù¹
+O	java:S106Æ"9Replace this use of System.out or System.err by a logger.(Ùù¹
+c
+java:S1192g"HDefine a constant instead of duplicating this literal "2: Room" 3 times.(èœÀ üÿÿÿÿ
+N	java:S106#"9Replace this use of System.out or System.err by a logger.(Å¶™¢
+O	java:S106"9Replace this use of System.out or System.err by a logger.(²şÈ»
+N	java:S106A"9Replace this use of System.out or System.err by a logger.(¢é
+p
+java:S1488Ê"YImmediately return this expression instead of assigning it to the temporary variable "q".(é¢¥€
+u
+java:S1488¢"YImmediately return this expression instead of assigning it to the temporary variable "q".(ÿšÙßúÿÿÿÿ
+`
+java:S1192["JDefine a constant instead of duplicating this literal "1: Medium" 3 times.(ÎÇÇÊ
+[	java:S112r"FDefine and throw a dedicated exception instead of using a generic one.(ÕÀÎ
+L
+java:S18548"6Remove this useless assignment to local variable "kb".(­îß
+T	java:S106À"9Replace this use of System.out or System.err by a logger.(‘šà´ıÿÿÿÿ
+„
+java:S1192‹"hDefine a constant instead of duplicating this literal "What is a wrong answer to the question?" 3 times.(ü¦­üÿÿÿÿ
+T	java:S106•"9Replace this use of System.out or System.err by a logger.(£á¤¢úÿÿÿÿ
+O	java:S106—"9Replace this use of System.out or System.err by a logger.(ÎÇÇÊ
+N	java:S106["9Replace this use of System.out or System.err by a logger.(ÎÇÇÊ
+O	java:S106¿"9Replace this use of System.out or System.err by a logger.(ÎÇÇÊ
+O	java:S106·"9Replace this use of System.out or System.err by a logger.(¯›ˆ÷
+c
+java:S1192\"HDefine a constant instead of duplicating this literal "2: Hard" 3 times.(‘šà´ıÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(áúÁŠıÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Š¢Ù¡üÿÿÿÿ
+¾
+java:S1192d"¢Define a constant instead of duplicating this literal "Would you like this question to appear in a typical room, at the entrance room, or the exit room?" 3 times.(ÔƒÌÈùÿÿÿÿ
+N	java:S106 "9Replace this use of System.out or System.err by a logger.(¼Ìà‚
+k	java:S1170"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Ö‚Ùÿÿÿÿÿ
+N	java:S106!"9Replace this use of System.out or System.err by a logger.(ø”Ï‚
+O	java:S106‚"9Replace this use of System.out or System.err by a logger.(¯›ˆ÷
+S	java:S106]"9Replace this use of System.out or System.err by a logger.(Ì˜¨‘şÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Çòâ½ÿÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¯ğ¼úÿÿÿÿ
+T	java:S106Ä"9Replace this use of System.out or System.err by a logger.(ÔƒÌÈùÿÿÿÿ
+e
+java:S1192]"JDefine a constant instead of duplicating this literal "3: Master" 3 times.(Ì˜¨‘şÿÿÿÿ
+[	java:S112ª"FDefine and throw a dedicated exception instead of using a generic one.(›şœ
+T	java:S106½"9Replace this use of System.out or System.err by a logger.(£á¤¢úÿÿÿÿ
+S	java:S106Y"9Replace this use of System.out or System.err by a logger.(£á¤¢úÿÿÿÿ
+T	java:S106"9Replace this use of System.out or System.err by a logger.(ü¦­üÿÿÿÿ
+k	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜Ö‚Ùÿÿÿÿÿ
+O	java:S106Å"9Replace this use of System.out or System.err by a logger.(²şÈ»
+c
+java:S1192Z"HDefine a constant instead of duplicating this literal "0: Easy" 3 times.( „‘ëúÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê•èáıÿÿÿÿ
+Ê
+java:S1598"¬This file "QuestionMenu.java" should be located in "database" directory, not in "C:\Users\I am the machine\Documents\GitHub\CSCD350TeamProject\TriviaDataBase\src\Database".(ê³îæ8ôÀïÜ¨.

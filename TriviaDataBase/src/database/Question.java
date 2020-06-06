@@ -1,4 +1,4 @@
-package Database;
+package database;
 
 import java.sql.*;
 
@@ -18,13 +18,17 @@ public class Question {
     // This is the constructor that will be used for search queries
     public Question(final ResultSet rs) {
         try {
-            setId(rs.getString("id"));
-            setQuestion(rs.getString("question"));
-            setAnswer(rs.getString("answer"));
-            setWrongAnswerOne(rs.getString("wrongAnswerOne"));
-            setWrongAnswerTwo(rs.getString("wrongAnswerTwo"));
-            setWrongAnswerThree(rs.getString("wrongAnswerThree"));
-            setHint(rs.getString("hint"));
+
+            setId(rs.getString(1));
+            setQuestion(rs.getString(2));
+            setAnswer(rs.getString(3));
+            setHint(rs.getString(4));
+            setWrongAnswerOne(rs.getString(5));
+            setWrongAnswerTwo(rs.getString(6));
+            setWrongAnswerThree(rs.getString(7));
+
+            System.out.println(this.hint);
+
         } catch(Exception e) {
             System.out.println("ERROR HAPPENED in Question (ResultSet) Constructor");
             System.out.println(e);
@@ -201,10 +205,11 @@ public class Question {
     }
 
 
+    //change before implementing to maze
     @Override
     public String toString() {
-        String str = this.id + " " + this.question + " " + this.answer + " " + this.wrongAnswerOne + " " + this.wrongAnswerTwo + " " + this.wrongAnswerThree + " " + this.hint;
-        return str;
+       return this.id + " | " + this.question + " | " + this.answer + " | " + this.wrongAnswerOne + " | " + this.wrongAnswerTwo + " | " + this.wrongAnswerThree + " | " + this.hint;
+
     }
 
 }

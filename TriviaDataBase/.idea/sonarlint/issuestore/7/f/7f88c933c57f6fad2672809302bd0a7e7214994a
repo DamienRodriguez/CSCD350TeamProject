@@ -1,0 +1,64 @@
+
+7
+java:S1170"!Make this final field static too.(á‹ú¿
+D
+java:S2115U")Add password protection to this database.(Öµ’¨şÿÿÿÿ
+R
+java:S1854ë"6Remove this useless assignment to local variable "rs".(õˆáøÿÿÿÿ
+S	java:S106:"9Replace this use of System.out or System.err by a logger.(Ôü”µşÿÿÿÿ
+T	java:S106®"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(ì•Öÿÿÿÿÿ
+c
+java:S2095‡"GUse try-with-resources or close this "Statement" in a "finally" clause.(¤Æ…Àÿÿÿÿÿ
+S	java:S106Y"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+`	java:S112#"FDefine and throw a dedicated exception instead of using a generic one.(µÇúÿÿÿÿÿÿ
+‡
+java:S1319ƒ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Æ­Òš
+S	java:S106|"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+	java:S116"eRename this field "MULTIPLECHOICE_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì•Öÿÿÿÿÿ
+C
+java:S1481ë"'Remove this unused "rs" local variable.(õˆáøÿÿÿÿ
+l	java:S117‡"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤Æ…Àÿÿÿÿÿ
+T	java:S106­"9Replace this use of System.out or System.err by a logger.(ë¶ù˜ùÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(¼„ úÿÿÿÿ
+m	java:S116"XRename this field "DB_CONNECTION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á‹ú¿
+c
+java:S2095ë"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(õˆáøÿÿÿÿ
+T
+java:S2168D"9Remove this dangerous instance of double-checked locking.(½³‹ıÿÿÿÿ
+v	java:S116"\Rename this field "TOTAL_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼„ úÿÿÿÿ
+S	java:S106X"9Replace this use of System.out or System.err by a logger.(¿¾´´ûÿÿÿÿ
+N	java:S106}"9Replace this use of System.out or System.err by a logger.(Šğš
+^
+java:S2095ˆ"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(Ü„½Ê
+u
+java:S2293†"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ç£…şÿÿÿÿ
+u
+java:S3008"ZRename this field "SINGLE_INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÀ¥ìøÿÿÿÿ
+T	java:S106¤"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+]
+java:S2095x"GUse try-with-resources or close this "Statement" in a "finally" clause.(˜€ä´
+<
+java:S1170"!Make this final field static too.(ªèÖÏıÿÿÿÿ
+N	java:S106{"9Replace this use of System.out or System.err by a logger.(Øâ“ú
+b
+java:S20954"GUse try-with-resources or close this "Statement" in a "finally" clause.(¿Ú»¯úÿÿÿÿ
+z	java:S116"`Rename this field "TRUEFALSE_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìì£½ıÿÿÿÿ
+|	java:S116"bRename this field "SHORTANSWER_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªèÖÏıÿÿÿÿ
+^
+java:S2095 "GUse try-with-resources or close this "Statement" in a "finally" clause.(–¤éé
+<
+java:S1170"!Make this final field static too.(ìì£½ıÿÿÿÿ
+]
+java:S20955"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(‚µŠ¯
+^
+java:S2095ã"GUse try-with-resources or close this "Statement" in a "finally" clause.(˜€ä´
+S	java:S106K"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+O	java:S106–"9Replace this use of System.out or System.err by a logger.(¬¹·ö
+B
+java:S1168™"+Return an empty collection instead of null.(¥¹ï
+O	java:S106ò"9Replace this use of System.out or System.err by a logger.(İşÎ¸
+Ğ
+java:S1598"²This file "DatabaseConnection.java" should be located in "database" directory, not in "C:\Users\I am the machine\Documents\GitHub\CSCD350TeamProject\TriviaDataBase\src\Database".(ê³îæ8Œ¹ğÜ¨.

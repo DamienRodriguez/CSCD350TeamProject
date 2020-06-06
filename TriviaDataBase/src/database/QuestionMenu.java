@@ -1,6 +1,8 @@
-package Database;
+package database;
 
+import java.util.Hashtable;
 import java.util.Scanner;
+import java.util.Set;
 
 public class QuestionMenu {
 
@@ -9,13 +11,15 @@ public class QuestionMenu {
 
         int choice = 0;
 
-        while(choice != 5) {
+        while(choice != 6 ) {
             choice = Pmenu();
 
             if(choice >= 1 && choice <= 3)
                 addQuestion(choice);
             else if(choice == 4)
                 nukeIt();
+            else if(choice == 5)
+                display();
         }
         DatabaseConnection.getInstance().closeConnection();
     }
@@ -30,17 +34,29 @@ public class QuestionMenu {
          System.out.println("2) Add a multiple choice question");
          System.out.println("3) Add a short answer question");
          System.out.println("4) Nuke database");
-         System.out.println("5) Quit");
+         System.out.println("5) Display all Questions in database");
+         System.out.println("6) Quit");
 
          System.out.println("Please enter your choice -----> ");
          choice = kb.nextInt();
          kb.nextLine();
 
 
-        } while(choice < 0 || choice > 5);
+        } while(choice < 0 || choice > 6);
 
 
         return choice;
+    }
+
+    private static void display() {
+        DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
+        Hashtable<String, Question> table = DB_CONNECTION.getQuestionLookUp();
+
+        Set<String> questionKeys = table.keySet();
+
+        for(String key: questionKeys)
+            System.out.println(table.get(key).toString());
+
     }
 
 

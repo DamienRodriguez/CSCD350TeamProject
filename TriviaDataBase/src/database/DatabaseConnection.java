@@ -1,7 +1,9 @@
-package Database;
+package database;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.concurrent.ExecutionException;
 
 
 /* DatabaseConnection.java
@@ -26,6 +28,9 @@ public class DatabaseConnection {
     private int shortAnswerChoiceRecordCount;
     private int totalRecordCount;
 
+    private Hashtable<String, Question> questionLookUp = new Hashtable<>();
+    private int hashTableCursor = 0;
+
 
 
     ///Returns: nothing, it sets up the connection to our global Connection variable
@@ -38,6 +43,7 @@ public class DatabaseConnection {
         setTrueFalseRecordCount(getRecordCount(TRUEFALSE_COUNT_QUERY));
         setShortAnswerChoiceRecordCount(getRecordCount(SHORTANSWER_COUNT_QUERY));
         setTotalRecordCount(getRecordCount(TOTAL_COUNT_QUERY));
+        setQuestionLookUp();
 
         if(this.totalRecordCount != (this.multipleChoiceRecordCount + this.trueFalseRecordCount + this.shortAnswerChoiceRecordCount))
             throw new SQLException("SQL statements aren't getting the seperate categories that you are expecting.");
@@ -94,7 +100,7 @@ public class DatabaseConnection {
     public void addQuestion(final Question q) {
         String sql = "insert into questions values(";
 
-        sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "', '" + q.getHint() + "')";
+        sql = sql + "'"+ q.getId() + "', '" + q.getQuestion() + "', '" + q.getAnswer() + "', '" + q.getHint() + "', '" + q.getWrongAnswerOne() + "', '" + q.getWrongAnswerTwo() + "', '" + q.getWrongAnswerThree() + "')";
 
 
         insertQuery(sql);
@@ -217,10 +223,7 @@ public class DatabaseConnection {
     }
 
 
-    //Bug where there appears to be n + 1 rows
-    //when checking if a particular ID exists on
-    //the database.
-    //Could be time to create Hashtables for lookups.
+
     public boolean exists(final String questionID) {
 
         try {
@@ -247,4 +250,36 @@ public class DatabaseConnection {
     }
 
 
+    public Hashtable<String, Question> getQuestionLookUp() {
+        return questionLookUp;
+    }
+
+
+    public void setQuestionLookUp() {
+        Statement myStm = null;
+        ResultSet set = null;
+        try {
+            myStm = this.c.createStatement();
+            set = myStm.executeQuery("SELECT * FROM questions");
+
+            while(set.next()) {
+                this.questionLookUp.put(set.getString("questionID"), new Question(set));
+            }
+            set.close();
+
+        } catch(Exception e) {
+            System.out.println("Error happened while filling Hashtable");
+            System.out.println(e);
+        }
+    }
+
+
+    public int getHashTableCursor() {
+        return hashTableCursor;
+    }
+
+
+    public void setHashTableCursor(int hashTableCursor) {
+        this.hashTableCursor = hashTableCursor;
+    }
 }
