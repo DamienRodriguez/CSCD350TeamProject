@@ -27,8 +27,6 @@ public class Question {
             setWrongAnswerTwo(rs.getString(6));
             setWrongAnswerThree(rs.getString(7));
 
-            System.out.println(this.hint);
-
         } catch(Exception e) {
             System.out.println("ERROR HAPPENED in Question (ResultSet) Constructor");
             System.out.println(e);

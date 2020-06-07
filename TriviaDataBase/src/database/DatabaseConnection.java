@@ -1,9 +1,7 @@
 package database;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.concurrent.ExecutionException;
+import java.util.*;
 
 
 /* DatabaseConnection.java
@@ -29,7 +27,7 @@ public class DatabaseConnection {
     private int totalRecordCount;
 
     private Hashtable<String, Question> questionLookUp = new Hashtable<>();
-    private int hashTableCursor = 0;
+    private List<String> keyset;
 
 
 
@@ -44,12 +42,23 @@ public class DatabaseConnection {
         setShortAnswerChoiceRecordCount(getRecordCount(SHORTANSWER_COUNT_QUERY));
         setTotalRecordCount(getRecordCount(TOTAL_COUNT_QUERY));
         setQuestionLookUp();
+        setKeyset();
 
         if(this.totalRecordCount != (this.multipleChoiceRecordCount + this.trueFalseRecordCount + this.shortAnswerChoiceRecordCount))
             throw new SQLException("SQL statements aren't getting the seperate categories that you are expecting.");
 
     }
 
+    public List<String> getKeyset() {
+        return keyset;
+    }
+
+    //Keyset was created as a list to be able to handle random pulls from the given collection.
+    public void setKeyset() {
+        this.keyset.addAll(this.questionLookUp.keySet());
+        Collections.shuffle(this.keyset);
+        System.out.println(keyset.toString());
+    }
 
     private int getRecordCount(final String sql)  {
 
@@ -274,12 +283,14 @@ public class DatabaseConnection {
     }
 
 
-    public int getHashTableCursor() {
-        return hashTableCursor;
+    public Question pullQuestion() {
+        return this.questionLookUp.get(this.keyset.remove(1));
     }
 
+    public static void main(String[] args) {
+        DatabaseConnection db = DatabaseConnection.getInstance();
 
-    public void setHashTableCursor(int hashTableCursor) {
-        this.hashTableCursor = hashTableCursor;
+        //KEY SET LIST IS THE PROBLEM
+        db.setKeyset();
     }
 }

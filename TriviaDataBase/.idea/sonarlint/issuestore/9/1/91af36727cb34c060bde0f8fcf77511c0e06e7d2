@@ -1,0 +1,39 @@
+
+N
+java:S1117"8Rename "maze" which hides the field declared at line 19.(ˆ õØ
+[	java:S106 "9Replace this use of System.out or System.err by a logger.(ßŞ©Íÿÿÿÿÿ8ŞÊä¨.
+]
+java:S1854Ó"?Remove this useless assignment to local variable "answerArray".(ê¤Õ8÷„õä¨.
+F
+java:S1172c")Remove this unused method parameter "kb".(¸»Ù¿8¯Çüä¨.
+[	java:S106Á"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8Šêàä¨.
+G
+java:S1481e"+Remove this unused "answer" local variable.(Â›F8Ö»åã¨.
+N
+java:S1481Ó"0Remove this unused "answerArray" local variable.(ê¤Õ8÷„õä¨.
+U	java:S106˜"9Replace this use of System.out or System.err by a logger.(Ş‹“	8òÑàã¨.
+U	java:S106¹"9Replace this use of System.out or System.err by a logger.(Ş‹“	8Šêàä¨.
+@
+java:S1172"*Remove this unused method parameter "dif".(¤ÍŞ¯
+]
+java:S1854¼"?Remove this useless assignment to local variable "answerArray".(ê¤Õ8ö„îä¨.
+V	java:S106£"9Replace this use of System.out or System.err by a logger.(Ì£è8ÈÆ»ä¨.
+[	java:S106ş"9Replace this use of System.out or System.err by a logger.(ÇïÂœûÿÿÿÿ8¥ê—ä¨.
+V	java:S106×"9Replace this use of System.out or System.err by a logger.(ûŠøï8÷„õä¨.
+Y
+java:S1481"7Remove this unused "databaseconnection" local variable.(Ä»ÚÊüÿÿÿÿ8ãØˆå¨.
+V	java:S106À"9Replace this use of System.out or System.err by a logger.(ûŠøï8Ìïãä¨.
+S
+java:S5261p"1Add explicit curly braces to avoid dangling else.(„¶áìøÿÿÿÿ8¯Çüä¨.
+U	java:S106Ğ"9Replace this use of System.out or System.err by a logger.(Ş‹“	8÷„õä¨.
+N
+java:S1481¼"0Remove this unused "answerArray" local variable.(ê¤Õ8ö„îä¨.
+p
+java:S1192¤"MDefine a constant instead of duplicating this literal "----------->" 3 times.(ú»µûÿÿÿÿ8÷„õä¨.
+C
+java:S1068"(Remove this unused "size" private field.(–“Èéıÿÿÿÿ
+)
+java:S1700"Rename field "maze"(õ¤İ‘
+[	java:S106Ø"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8÷„õä¨.
+[	java:S106¤"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ÈÆ»ä¨.
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ó¢·˜øÿÿÿÿ
