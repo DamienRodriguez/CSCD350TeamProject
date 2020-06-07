@@ -27,7 +27,8 @@ public class DatabaseConnection {
     private int totalRecordCount;
 
     private Hashtable<String, Question> questionLookUp = new Hashtable<>();
-    private List<String> keyset;
+    private Set<String> keyset;
+    private int hashTableCursor;
 
 
 
@@ -43,21 +44,20 @@ public class DatabaseConnection {
         setTotalRecordCount(getRecordCount(TOTAL_COUNT_QUERY));
         setQuestionLookUp();
         setKeyset();
+        setHashTableCursor(this.questionLookUp.size()-1); //when questions are loaded into hashtable, all of the hard questions are placed at the top, so we just start from the bottom
 
         if(this.totalRecordCount != (this.multipleChoiceRecordCount + this.trueFalseRecordCount + this.shortAnswerChoiceRecordCount))
             throw new SQLException("SQL statements aren't getting the seperate categories that you are expecting.");
 
     }
 
-    public List<String> getKeyset() {
+    public Set<String> getKeyset() {
         return keyset;
     }
 
     //Keyset was created as a list to be able to handle random pulls from the given collection.
     public void setKeyset() {
-        this.keyset.addAll(this.questionLookUp.keySet());
-        Collections.shuffle(this.keyset);
-        System.out.println(keyset.toString());
+        this.keyset = this.questionLookUp.keySet();
     }
 
     private int getRecordCount(final String sql)  {
@@ -74,6 +74,16 @@ public class DatabaseConnection {
         }
 
         return count;
+    }
+
+
+    public int getHashTableCursor() {
+        return hashTableCursor;
+    }
+
+
+    public void setHashTableCursor(int hashTableCursor) {
+        this.hashTableCursor = hashTableCursor;
     }
 
 
@@ -284,7 +294,10 @@ public class DatabaseConnection {
 
 
     public Question pullQuestion() {
-        return this.questionLookUp.get(this.keyset.remove(1));
+        Object[] myArray = this.keyset.toArray();
+        Question q = this.questionLookUp.get(myArray[this.hashTableCursor]);
+        this.hashTableCursor--;
+        return q;
     }
 
     public static void main(String[] args) {
@@ -292,5 +305,6 @@ public class DatabaseConnection {
 
         //KEY SET LIST IS THE PROBLEM
         db.setKeyset();
+
     }
 }

@@ -52,9 +52,11 @@ public class maze {
         this.maze = maze;
     }
 
+
     public Room[][] getMaze() {
         return maze;
     }
+
 
     private Room makeRoom(int x, int y) {
         int[] coords = new int[]{x, y};
@@ -114,12 +116,14 @@ public class maze {
 
         else
             return askMCQuestion(question);
+
     }
+
 
     private String[] makeAnswerArray(final Question question) {
         String[] answerArray;
 
-        if(question.getWrongAnswerTwo() == null) {
+        if(question.getWrongAnswerTwo() != null) {
             answerArray = new String[4];
             answerArray[0] = question.getAnswer();
             answerArray[1] = question.getWrongAnswerOne();
