@@ -15,6 +15,7 @@ Revisor: Damien Rodriguez
 
  */
 public class maze {
+
     private final int size;
     private Room[][] maze;
     private int[] exitPos;
@@ -97,7 +98,7 @@ public class maze {
         return strFinal.toString();
     }
 
-//DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE
+
     public boolean answerQuestion(Scanner kb) {
 
         String[] answer;
@@ -141,7 +142,7 @@ public class maze {
     }
 
 
-    private int findAnswer(final Question question, final String[] answerArray) {
+    private int findAnswerInArray(final Question question, final String[] answerArray) {
         for(int i = 0; i < answerArray.length; i++) {
             if(answerArray[i].equals(question.getAnswer()))
                 return i;
@@ -176,7 +177,7 @@ public class maze {
             return false; //if they put anything other than a number this will know
         }
 
-        int actualAnswer = findAnswer(question, answerArray);
+        int actualAnswer = findAnswerInArray(question, answerArray);
 
 
         return actualAnswer == (answer - 1);
@@ -229,6 +230,8 @@ public class maze {
 //DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE
 //These methods were a bit ambigous, and I didn't understand how to use them, so I expanded the askQuestion method. Hopefully it all works.
 
+    //what if we call answer question here, and find some way for it to call lock
+    //monkaHmm
     public int check(String c, player player1) {
         int[] temp = player1.getPos();
         if (c.equalsIgnoreCase("w")) { //move up

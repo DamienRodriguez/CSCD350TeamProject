@@ -35,6 +35,7 @@ public class mazeTester {
     }
 
 
+    //I believe that this is where the issue happens
     private static void playGame(maze maze) {
         Scanner kb = new Scanner(System.in);
         player player1 = new player();
