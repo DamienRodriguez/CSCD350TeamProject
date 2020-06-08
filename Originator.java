@@ -1,19 +1,19 @@
 public class Originator {
     private Memento state;
     private String saveName;
-    private String[] answeredQs;
+    private int cursor;
     private int[] playerPosition;
     private Room[][] maze;
 
-    public void setState(String saveName, String[] answeredQs, int[] playerPosition, Room[][] maze){
+    public void setState(String saveName, int cursor, int[] playerPosition, Room[][] maze){
         this.saveName = saveName;
-        this.answeredQs = answeredQs;
+        this.cursor = cursor;
         this.playerPosition = playerPosition;
         this.maze = maze;
     }
 
     public Memento save() {
-        return new Memento(saveName, answeredQs, playerPosition, maze);
+        return new Memento(saveName, cursor, playerPosition, maze);
     }
 
     public void restore(Memento m)

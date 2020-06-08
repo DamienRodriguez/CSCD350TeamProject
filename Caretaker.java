@@ -7,7 +7,24 @@ public class Caretaker {
         mementos.add(m);
     }
 
-    public Memento getMemento(){
-        return mementos.get(0);
+    public Memento getMemento(String saveName){
+
+        if (mementos.size()==0)
+           {
+            System.out.println("There are no save games.");
+            return null;
+            }
+
+        for (int x = 0; x < mementos.size(); x ++){
+            if (mementos.get(x).getName().equalsIgnoreCase(saveName)){
+                return mementos.get(x);
+            }
+        }
+
+        System.out.println("Your save was not found. These saves were found: ");
+        for (int x = 0; x < mementos.size(); x ++){
+            System.out.println(mementos.get(x).getName());
+        }
+        return null;
     }
 }

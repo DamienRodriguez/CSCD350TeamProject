@@ -1,14 +1,14 @@
 class Memento{
     private Memento state;
     private String saveName;
-    private String[] answeredQs;
+    private int cursor;
     private int[] playerPosition;
     private Room[][] maze;
  
-    public Memento(String saveName, String[] answeredQs, int[] playerPosition, Room[][] maze)
+    public Memento(String saveName, int cursor, int[] playerPosition, Room[][] maze)
     {
         this.saveName = saveName;
-        this.answeredQs = answeredQs;
+        this.cursor = cursor;
         this.playerPosition = playerPosition;
         this.maze = maze;
     }
@@ -22,10 +22,7 @@ class Memento{
     {
         String str = "Save Name: " + saveName;
         
-        for (String fromAQ : answeredQs)
-        {
-            str += ", " + fromAQ;
-        }
+        str += ", the cursor is at: " + cursor;
 
         str += ", Player Position: X, Y";
         for (int fromPos : playerPosition)
@@ -34,5 +31,10 @@ class Memento{
         }
 
         return str;
+    }
+
+    public String getName()
+    {
+        return saveName;
     }
 }
