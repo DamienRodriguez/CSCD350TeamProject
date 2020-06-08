@@ -1,11 +1,11 @@
+package inputscrubber;
+
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-import jdk.internal.util.xml.impl.Input;
-
-class Scrubber {
+public class Scrubber {
     
-    static char charScrubber(String str, Scanner sc) {
+    public static char charScrubber(String str, Scanner sc) {
     if (str.length() != 1 || str == null) {
             System.out.print("Sorry, input was null or input wasn't a single character! Please repeat your answer: ");
             String input = sc.next();
@@ -24,7 +24,7 @@ class Scrubber {
     return shortString.charAt(0);
 }
 
-    static boolean boolScrubber(String str, Scanner sc) {
+    public static boolean boolScrubber(String str, Scanner sc) {
         while (!str.equalsIgnoreCase("true") && !str.equalsIgnoreCase("false") && !str.equalsIgnoreCase("t") && !str.equalsIgnoreCase("f")) {
                 System.out.print("Sorry, input isn't true, false, t, or f. (Can be upper- or lower case.)");
                 str = sc.nextLine();
@@ -36,7 +36,7 @@ class Scrubber {
                 return false;
     }
 
-    static String[] shortScrubber(String str, Scanner sc) {
+    public static String[] shortScrubber(String str, Scanner sc) {
         /*for this to work, the scanner that initially brought in the answer from user must be set to nextLine(). 
         This method returns an array of either length 1 or 2. 
         Even if this method is only passed a string with no spaces, it will still return an array. 
@@ -68,16 +68,16 @@ class Scrubber {
         }
     }
 
-    static int intScrubber(String str, Scanner sc) {
-        while (str == null || str == "") {
+    public static int intScrubber(String unscrubbedInput, Scanner sc) {
+        while (unscrubbedInput == null || unscrubbedInput == "") {
             System.out.print("Sorry, your input is blank! Please enter again: ");
-            str = sc.nextLine();
+            unscrubbedInput = sc.nextLine();
         }
-        while (!str.matches("[0-9]+")) {
+        while (!unscrubbedInput.matches("[0-9]+")) {
             System.out.println("Sorry, your input wasn't an int! Please enter again: ");
-            str = sc.nextLine();
+            unscrubbedInput = sc.nextLine();
         }
-        int myInt = Integer.parseInt(str);
+        int myInt = Integer.parseInt(unscrubbedInput);
         return myInt;
     }
 }

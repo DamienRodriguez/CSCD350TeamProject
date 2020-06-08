@@ -23,3 +23,7 @@ N
 src/mazedriver/mazeTester.java,4\d\4dbd905f7e9f37621fc0e514bceaee1cab087292
 O
 src/mazedriver/mazebuilder.java,b\8\b828929386b05d5f95d1b8f02b0fb879c8b08788
+U
+%src/inputscrubber/ScrubberTester.java,c\9\c93a72e2e7890b7b298ddbfe73667f484f3e8e5c
+O
+src/inputscrubber/Scrubber.java,c\6\c640635fe46d1361ea4845d9e6e65fef7e8f7f32

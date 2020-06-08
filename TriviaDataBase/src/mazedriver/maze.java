@@ -1,7 +1,7 @@
 package mazedriver;
 
+import inputscrubber.Scrubber;
 import database.*;
-
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -19,7 +19,6 @@ public class maze {
     private final int size;
     private Room[][] maze;
     private int[] exitPos;
-
 
 
     public maze(int size, int dif, String cheats) {
@@ -168,14 +167,7 @@ public class maze {
         System.out.println("Please enter a number between 1 and 4");
         System.out.print("----------->");
         Scanner kb = new Scanner(System.in);
-        int answer = 0;
-
-        //get user input
-        try {
-            answer = Integer.parseInt(kb.nextLine());
-        } catch(Exception e) {
-            return false; //if they put anything other than a number this will know
-        }
+        int answer = Scrubber.intScrubber(kb.nextLine(), kb);
 
         int indexOfAnswer = findAnswerInArray(question, answerArray);
 
@@ -198,12 +190,13 @@ public class maze {
         System.out.print("----------->");
         Scanner kb = new Scanner(System.in);
 
-        //get user input
-        String input = kb.nextLine();
-        if(input.length() != 1)
-            return false;
+        char input = Scrubber.charScrubber(kb.nextLine(), kb);
+        Character.toLowerCase(input);
 
-        return question.getAnswer().equals(input);
+        char answer = question.getAnswer().charAt(0);
+        Character.toLowerCase(answer);
+
+        return answer == input;
     }
 
 
@@ -213,25 +206,31 @@ public class maze {
         System.out.println(question.getQuestion());
 
         //Get answer Array
-        String[] answerArray = makeAnswerArray(question);
-
         //Display answer options
 
-        System.out.println("Please enter either a 'T' or 'F'");
-        System.out.print("----------->");
+        System.out.println("Please enter the answer");
+        System.out.print("-----------> ");
         Scanner kb = new Scanner(System.in);
 
-        //get user input
-        String input = kb.nextLine();
+        //Get user Input
+        String[] userAnswer = Scrubber.shortScrubber(kb.nextLine(), kb);
+        String[] actualAnswer = question.getAnswer().split(" ");
 
-        return question.getAnswer().equalsIgnoreCase(input);
+        //make sure all lower case
+        for(int i = 0; i < userAnswer.length; i++) {
+            userAnswer[i] = userAnswer[i].toLowerCase();
+        }
+
+        for(int i = 0; i < actualAnswer.length; i++) {
+            actualAnswer[i] = actualAnswer[i].toLowerCase();
+        }
+
+        return Arrays.equals(userAnswer, actualAnswer);
     }
 
 //DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE
 //These methods were a bit ambigous, and I didn't understand how to use them, so I expanded the askQuestion method. Hopefully it all works.
 
-    //what if we call answer question here, and find some way for it to call lock
-    //monkaHmm
     public int check(String c, player player1) {
         int[] temp = player1.getPos();
         if (c.equalsIgnoreCase("w")) { //move up
