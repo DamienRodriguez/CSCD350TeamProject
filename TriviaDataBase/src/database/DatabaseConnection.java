@@ -60,6 +60,8 @@ public class DatabaseConnection {
         this.keyset = this.questionLookUp.keySet();
     }
 
+    //gets num of records for question types based on predefined
+    //sql queries above
     private int getRecordCount(final String sql)  {
 
         int count = 0;
@@ -153,32 +155,6 @@ public class DatabaseConnection {
     }
 
 
-    public ArrayList<Question> searchQuery(final String query) {
-
-        try {
-            ArrayList<Question> arrayList = new ArrayList<Question>();
-            Statement temp_statement = this.c.createStatement();
-            ResultSet rs = temp_statement.executeQuery(query);
-
-            int row = rs.getRow();
-            while(row < 1) {
-
-                Question temp = new Question(rs);
-                arrayList.add(temp);
-                rs.next();
-                row = rs.getRow();
-            }
-
-            arrayList.trimToSize();
-            return arrayList;
-        } catch(Exception e) {
-            System.out.println("ERROR HAPPENED in searchQuery");
-        }
-
-        return null;
-    }
-
-
     //to be deleted later
     public void clearQuestionData() {
         try {
@@ -242,8 +218,7 @@ public class DatabaseConnection {
     }
 
 
-
-    public boolean exists(final String questionID) {
+    public boolean recordExists(final String questionID) {
 
         try {
             Statement myStm = this.c.createStatement();
@@ -297,8 +272,13 @@ public class DatabaseConnection {
         Object[] myArray = this.keyset.toArray();
         Question q = this.questionLookUp.get(myArray[this.hashTableCursor]);
         this.hashTableCursor--;
+
+        if(this.hashTableCursor == -1)
+            this.hashTableCursor = this.questionLookUp.size() - 1;
+
         return q;
     }
+
 
     public static void main(String[] args) {
         DatabaseConnection db = DatabaseConnection.getInstance();

@@ -132,7 +132,7 @@ public class Question {
         String alphaID = alphaID(difficulty, roomType, questionType);
 
         String questionID = alphaID + "-" + numID;
-        if(!DB_CONNECTION.exists(questionID)) {
+        if(!DB_CONNECTION.recordExists(questionID)) {
             numID++;
             questionID = alphaID + "-" + numID;
             setId(questionID);

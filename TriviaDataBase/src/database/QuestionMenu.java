@@ -17,9 +17,9 @@ public class QuestionMenu {
             if(choice >= 1 && choice <= 3)
                 addQuestion(choice);
             else if(choice == 4)
-                nukeIt();
+                clearDatabase();
             else if(choice == 5)
-                display();
+                displayAllRecords();
         }
         DatabaseConnection.getInstance().closeConnection();
     }
@@ -33,7 +33,7 @@ public class QuestionMenu {
          System.out.println("1) Add a true false question");
          System.out.println("2) Add a multiple choice question");
          System.out.println("3) Add a short answer question");
-         System.out.println("4) Nuke database");
+         System.out.println("4) Nuke database (This option clears all questions in the database)");
          System.out.println("5) Display all Questions in database");
          System.out.println("6) Quit");
 
@@ -49,7 +49,7 @@ public class QuestionMenu {
     }
 
 
-    private static void display() {
+    private static void displayAllRecords() {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
         Hashtable<String, Question> table = DB_CONNECTION.getQuestionLookUp();
 
@@ -61,7 +61,7 @@ public class QuestionMenu {
     }
 
 
-    private static void nukeIt() {
+    private static void clearDatabase() {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
         DB_CONNECTION.clearQuestionData();
     }

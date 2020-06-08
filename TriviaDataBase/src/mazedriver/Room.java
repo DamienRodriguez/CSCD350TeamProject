@@ -9,7 +9,6 @@ attribution: damien and I worked on the dungeon crawler for 349 together.
 The drawing of the layout is based on that old driver.
  */
 
-
 public class Room {
 
     private int[] coordinates;
@@ -20,7 +19,6 @@ public class Room {
 
     Room(int[] coords) {
         setCoordinates(coords);
-
     }
 
 
@@ -28,43 +26,50 @@ public class Room {
         return northdoor;
     }
 
+
     public int getSouthdoor() {
         return southdoor;
     }
+
 
     public int getEastdoor() {
         return eastdoor;
     }
 
+
     public int getWestdoor() {
         return westdoor;
     }
+
 
     public void setNorthdoor(int northdoor) {
         this.northdoor = northdoor;
     }
 
+
     public void setSouthdoor(int southdoor) {
         this.southdoor = southdoor;
     }
+
 
     public void setEastdoor(int eastdoor) {
         this.eastdoor = eastdoor;
     }
 
+
     public void setWestdoor(int westdoor) {
         this.westdoor = westdoor;
     }
 
+
     private void setCoordinates(int[] coordinates) {
-        this.coordinates = coordinates;
+        this.coordinates = coordinates.clone();
     }
 
 
     boolean getHasExit() {
         return this.coordinates[0] == 4 && this.coordinates[1] == 4;
     }
-
 
 
     private boolean getHasEntrance() {
@@ -97,7 +102,6 @@ public class Room {
 
         return ' ';
     }
-
 
 
     @Override
