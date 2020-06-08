@@ -1,0 +1,10 @@
+
+l	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿áëúÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ØÍÛ¨
+2
+java:S1700"Rename field "question"(·î”Ûøÿÿÿÿ
+V	java:S107("AConstructor has 9 parameters, which is greater than 7 authorized.(¬´«
+Z	java:S106 "9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8àÚïá¨.
+l	java:S117¼"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ«¡€úÿÿÿÿ
+Q
+java:S1117¾"5Rename "id" which hides the field declared at line 7.(“¼µüÿÿÿÿ
