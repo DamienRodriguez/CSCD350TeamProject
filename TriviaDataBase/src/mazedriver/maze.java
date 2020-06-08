@@ -105,11 +105,11 @@ public class maze {
         //Pull a question from the database
         Question question = DatabaseConnection.getInstance().pullQuestion();
 
-
         //stubbed for testing waiting for Damiens database.
 
         //determine what type of question is being asked
-        if(question.getWrongAnswerOne() == null)
+        if(question.getWrongAnswerOne() == null) //not multiple choice
+
             if(question.getAnswer().length() == 1)
                 return askTFQuestion(question);
             else
@@ -177,10 +177,10 @@ public class maze {
             return false; //if they put anything other than a number this will know
         }
 
-        int actualAnswer = findAnswerInArray(question, answerArray);
+        int indexOfAnswer = findAnswerInArray(question, answerArray);
 
 
-        return actualAnswer == (answer - 1);
+        return indexOfAnswer == (answer - 1);
     }
 
 

@@ -65,7 +65,6 @@ public class mazeTester {
     }
 
 
-
     private static String gameMenu(Scanner kb) {
         String game_choice;
         boolean bool = true;
@@ -133,4 +132,5 @@ public class mazeTester {
         return false;
     }
 
+    
 }

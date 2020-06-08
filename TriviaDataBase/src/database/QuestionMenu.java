@@ -48,6 +48,7 @@ public class QuestionMenu {
         return choice;
     }
 
+
     private static void display() {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
         Hashtable<String, Question> table = DB_CONNECTION.getQuestionLookUp();

@@ -37,13 +37,13 @@ class QuestionReader {
         int questionType = 2;
 
         String qid = "";
-        if (counter <= 32){
+        if (counter <= 32) {
             difficulty = 0;
         }
-        if (counter > 32 && counter <= 64){
+        if (counter > 32 && counter <= 64) {
             difficulty = 1;
         }
-        if (counter > 64 && counter <= 96){
+        if (counter > 64 && counter <= 96) {
             difficulty = 2;
         }
 
