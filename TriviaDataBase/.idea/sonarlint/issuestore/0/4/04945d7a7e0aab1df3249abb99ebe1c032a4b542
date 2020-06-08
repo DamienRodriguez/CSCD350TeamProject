@@ -1,14 +1,0 @@
-
-Q	java:S125^"<This block of commented-out lines of code should be removed.(™•Ù
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ÅÓ²­şÿÿÿÿ
-C
-java:S1481'"(Remove this unused "qid" local variable.(ŒØ“Âşÿÿÿÿ
-V	java:S125""<This block of commented-out lines of code should be removed.(İÎÕÑûÿÿÿÿ
-`
-java:S2095"EUse try-with-resources or close this "Scanner" in a "finally" clause.(‘½Îüÿÿÿÿ
-[
-java:S1124	"EReorder the modifiers to comply with the Java Language Specification.(¼ï«›
-Q	java:S125I"<This block of commented-out lines of code should be removed.(™•Ù
-Q	java:S1254"<This block of commented-out lines of code should be removed.(™•Ù
-Ì
-java:S1598"®This file "QuestionReader.java" should be located in "database" directory, not in "C:\Users\I am the machine\Documents\GitHub\CSCD350TeamProject\TriviaDataBase\src\Database".(ê³îæ8òÒîÜ¨.
