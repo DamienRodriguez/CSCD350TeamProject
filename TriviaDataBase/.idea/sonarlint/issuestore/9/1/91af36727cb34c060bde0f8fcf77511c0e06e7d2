@@ -1,37 +1,36 @@
 
-C
-java:S1068"(Remove this unused "size" private field.(–“Èéıÿÿÿÿ
+U	java:S106º"9Replace this use of System.out or System.err by a logger.(Ş‹“	8÷„õä¨.
+[	java:S106¬"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8éÅš‘©.
 F
 java:S1172e")Remove this unused method parameter "kb".(¸»Ù¿8¯Çüä¨.
-[	java:S106¾"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8éÅš‘©.
-@
-java:S1172"*Remove this unused method parameter "dif".(¤ÍŞ¯
-N
-java:S1117"8Rename "maze" which hides the field declared at line 20.(ˆ õØ
-R
-java:S2201Å"/The return value of "toLowerCase" must be used.(š¤Ê¿ÿÿÿÿÿ8²¸‘©.
-U	java:S106¶"9Replace this use of System.out or System.err by a logger.(Ş‹“	8÷„õä¨.
-N
-java:S1481¹"0Remove this unused "answerArray" local variable.(ê¤Õ8ö„îä¨.
-[	java:S106„"9Replace this use of System.out or System.err by a logger.(ÇïÂœûÿÿÿÿ8¥ê—ä¨.
-[	java:S106Ô"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8éÅš‘©.
-R
-java:S2201Â"/The return value of "toLowerCase" must be used.(çÑğÊÿÿÿÿÿ8²¸‘©.
-G
-java:S1481g"+Remove this unused "answer" local variable.(Â›F8Ö»åã¨.
-[	java:S106¤"9Replace this use of System.out or System.err by a logger.(ßŞ©Íÿÿÿÿÿ8ŞÊä¨.
+[	java:S106×"9Replace this use of System.out or System.err by a logger.(ëÜß­øÿÿÿÿ8÷„õä¨.
 g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ó¢·˜øÿÿÿÿ
 Y
 java:S1481"7Remove this unused "databaseconnection" local variable.(Ä»ÚÊüÿÿÿÿ8ãØˆå¨.
-S
-java:S5261r"1Add explicit curly braces to avoid dangling else.(„¶áìøÿÿÿÿ8¯Çüä¨.
-U	java:S106œ"9Replace this use of System.out or System.err by a logger.(Ş‹“	8Šêàä¨.
-[	java:S106¨"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8éÅš‘©.
-V	java:S106½"9Replace this use of System.out or System.err by a logger.(ûŠøï8Šêàä¨.
-U	java:S106Î"9Replace this use of System.out or System.err by a logger.(Ş‹“	8òÑàã¨.
+V	java:S106«"9Replace this use of System.out or System.err by a logger.(Ì£è8ÈÆ»ä¨.
+R
+java:S2201Æ"/The return value of "toLowerCase" must be used.(çÑğÊÿÿÿÿÿ8²¸‘©.
+[	java:S106ˆ"9Replace this use of System.out or System.err by a logger.(ÇïÂœûÿÿÿÿ8¥ê—ä¨.
+Z	java:S106z"9Replace this use of System.out or System.err by a logger.(ª‡ıúúÿÿÿÿ8°“®¬©.
+G
+java:S1481g"+Remove this unused "answer" local variable.(Â›F8Ö»åã¨.
+N
+java:S1481½"0Remove this unused "answerArray" local variable.(ê¤Õ8ö„îä¨.
+[	java:S106Â"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8éÅš‘©.
+C
+java:S1068"(Remove this unused "size" private field.(–“Èéıÿÿÿÿ
+U	java:S106 "9Replace this use of System.out or System.err by a logger.(Ş‹“	8Šêàä¨.
+[	java:S106¨"9Replace this use of System.out or System.err by a logger.(ßŞ©Íÿÿÿÿÿ8ŞÊä¨.
+@
+java:S1172"*Remove this unused method parameter "dif".(¤ÍŞ¯
+V	java:S106Á"9Replace this use of System.out or System.err by a logger.(ûŠøï8Šêàä¨.
+[	java:S106Ø"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8éÅš‘©.
+]
+java:S1854½"?Remove this useless assignment to local variable "answerArray".(ê¤Õ8ö„îä¨.
+N
+java:S1117"8Rename "maze" which hides the field declared at line 20.(ˆ õØ
+U	java:S106Ò"9Replace this use of System.out or System.err by a logger.(Ş‹“	8òÑàã¨.
+R
+java:S2201É"/The return value of "toLowerCase" must be used.(š¤Ê¿ÿÿÿÿÿ8²¸‘©.
 )
 java:S1700"Rename field "maze"(õ¤İ‘
-V	java:S106§"9Replace this use of System.out or System.err by a logger.(Ì£è8ÈÆ»ä¨.
-]
-java:S1854¹"?Remove this useless assignment to local variable "answerArray".(ê¤Õ8ö„îä¨.
-[	java:S106Ó"9Replace this use of System.out or System.err by a logger.(ëÜß­øÿÿÿÿ8÷„õä¨.

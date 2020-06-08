@@ -27,3 +27,7 @@ U
 %src/inputscrubber/ScrubberTester.java,c\9\c93a72e2e7890b7b298ddbfe73667f484f3e8e5c
 O
 src/inputscrubber/Scrubber.java,c\6\c640635fe46d1361ea4845d9e6e65fef7e8f7f32
+J
+src/mazedriver/player.java,0\4\047ceb01d087d4acc0f07d32d04abfcff56affeb
+=
+Questions.txt,9\4\94733a8eb65d8c53514f24ae22f3a9493a6bce9e

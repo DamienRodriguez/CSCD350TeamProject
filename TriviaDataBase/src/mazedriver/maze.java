@@ -106,17 +106,21 @@ public class maze {
 
         //stubbed for testing waiting for Damiens database.
 
-        //determine what type of question is being asked
-        if(question.getWrongAnswerOne() == null) //not multiple choice
 
-            if(question.getAnswer().length() == 1)
-                return askTFQuestion(question);
-            else
-                return askSAQuestion(question);
+        if((question.getWrongAnswerOne() == null || question.getWrongAnswerOne().equalsIgnoreCase("null")) && question.getQuestion().length() == 1)
+            return askTFQuestion(question);
 
-        else
+        if((question.getWrongAnswerOne() == null || question.getWrongAnswerOne().equalsIgnoreCase("null")))
+            return askSAQuestion(question);
+
+        //problem determining short answer questions
+        if(question.getWrongAnswerOne() != null)
             return askMCQuestion(question);
 
+
+
+        System.out.println("answer question method not working as intended and no if statements were entered.");
+        return false;
     }
 
 
