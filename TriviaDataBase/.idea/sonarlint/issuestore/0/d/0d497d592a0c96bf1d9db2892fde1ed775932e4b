@@ -1,0 +1,5 @@
+
+D
+java:S1068")Remove this unused "state" private field.(»äª•úÿÿÿÿ
+o
+java:S1450"TRemove the "state" field and declare it as a local variable in the relevant methods.(»äª•úÿÿÿÿ

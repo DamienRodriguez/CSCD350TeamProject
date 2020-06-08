@@ -11,15 +11,20 @@ Revisor: Damien Rodriguez
 Notes: Cheats are simple allows the user to just run through and test the movement and function of the maze.
         Its activated on creation of the maze on creation
  */
-
-
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+
+import database.DatabaseConnection;
+import momento.*;
+
+
 public class mazeTester {
 
+    private static Caretaker caretaker = new Caretaker(); //YOU MUST ADD THIS TO THE MAZE DRIVER
+    private static Originator originator = new Originator(); //YOU MUST ADD THIS TO THE MAZE DRIVER
 
     public static void main(String[] args) {
         boolean gameOver;
@@ -50,28 +55,42 @@ public class mazeTester {
             System.out.println(maze.toString());
             String choice = gameMenu(kb);
 
-            doorStatus = maze.touchDoor(choice, player1);
-
-            if(doorStatus < 3){
-
-                //door ask stuff
-                if(doorStatus == 0) {
-
-                    if(maze.answerQuestion(kb)) //correct answer, door updated in player
-                        player1.movePlayer(choice, tempmaze);
-                    else {
-                        maze.lock(choice, player1);
-                        System.out.println("The lock clicks...\n"+"You know that door will never open again");
-                    }
-                }
-                else if(doorStatus == 2)
-                    System.out.println("The doors locked!\n"+"I better find another way round!");
+            if(choice.equalsIgnoreCase("e")) {
+                saveGame(kb, maze, player1, DatabaseConnection.getInstance().getHashTableCursor());
             }
-            else
-                System.out.println("That is a wall humble adventurer.");
+            else if(choice.equalsIgnoreCase("q")) {
+                Memento gameState = loadGame(kb);
+                System.out.println(gameState.toString());
+                maze = gameState.getMaze();
+                player1.setPos(gameState.getPosition());
+                DatabaseConnection.getInstance().setHashTableCursor(gameState.getCursor());
+            }
 
+            else {
+                doorStatus = maze.touchDoor(choice, player1);
+                if(doorStatus < 3){
+
+                    //door ask stuff
+                    if(doorStatus == 0) {
+
+                        if(maze.answerQuestion(kb)) //correct answer, door updated in player
+                            player1.movePlayer(choice, tempmaze);
+                        else {
+                            maze.lock(choice, player1);
+                            System.out.println("The lock clicks...\n"+"You know that door will never open again");
+                        }
+                    }
+                    else if(doorStatus == 2)
+                        System.out.println("The doors locked!\n"+"I better find another way round!");
+                }
+                else
+                    System.out.println("That is a wall humble adventurer.");
+
+
+            }
 
         } while (!Arrays.equals(player1.getPos(), maze.getExitPos()) && BFS(tempmaze,player1));
+
         System.out.println(maze.toString());
         int[] temp = player1.getPos();
         if (temp[0] == 4 && temp[1] == 4) {
@@ -87,11 +106,13 @@ public class mazeTester {
         String game_choice;
         boolean bool = true;
         do {
-            System.out.println("move up     " + "     [W]\n" +
+            System.out.println("            [Q] " + " [W] " + " [E]\n" +
                     "            [A] " + " [S] " + " [D]\n" +
-                    "  move down |" + " move left " + " | move right\n");
+                    "       load | " + " move up " + " | save\n" +
+                    "  move left |" + " move down " + " | move right\n");
             game_choice = kb.nextLine();
-            if (game_choice.equalsIgnoreCase("a") || game_choice.equalsIgnoreCase("w") || game_choice.equalsIgnoreCase("s") || game_choice.equalsIgnoreCase("d")) {
+
+            if (game_choice.equalsIgnoreCase("a") || game_choice.equalsIgnoreCase("w") || game_choice.equalsIgnoreCase("s") || game_choice.equalsIgnoreCase("d") || game_choice.equalsIgnoreCase("e") || game_choice.equalsIgnoreCase("q")) {
                 bool = false;
             }
         } while (bool);
@@ -148,6 +169,32 @@ public class mazeTester {
             }
         }
         return false;
+    }
+
+
+    static void saveGame(Scanner kb, maze maze, player player1, int questionCursor) {
+        System.out.println("What would like to call your save game?");
+        String saveName = kb.nextLine();
+
+        //SAVEGAME MUST BE ADDED TO MAZE() C
+        int cursor = questionCursor;
+        int[] playerPosition = player1.getPos();
+
+        originator.setState(saveName, cursor, playerPosition, maze);
+        caretaker.addMemento(originator.save());
+    }
+
+
+    static Memento loadGame(Scanner kb) {
+        System.out.println("in load game");
+        String saveName = "";
+        Memento mySave = null;
+        while (saveName == null || saveName.equals("")) {
+            System.out.println("Please enter the save name: ");
+            saveName = kb.nextLine();
+            mySave = caretaker.getMemento(saveName);
+        }
+        return mySave;
     }
 
 

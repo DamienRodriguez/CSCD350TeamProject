@@ -1,0 +1,15 @@
+
+K
+java:S1481	".Remove this unused "caretaker" local variable.(ü‰Æ8ÅÄü±©.
+`
+java:S1854
+">Remove this useless assignment to local variable "originator".(ÌõĞÊşÿÿÿÿ8ÅÄü±©.
+]	java:S125"<This block of commented-out lines of code should be removed.(›ÏÄÁùÿÿÿÿ8Ñû±©.
+Q
+java:S1481
+"/Remove this unused "originator" local variable.(ÌõĞÊşÿÿÿÿ8ÅÄü±©.
+Z
+java:S1854	"=Remove this useless assignment to local variable "caretaker".(ü‰Æ8ÅÄü±©.
+X	java:S125"<This block of commented-out lines of code should be removed.(Ë²ÿ8ÅÄü±©.
+N	java:S106"9Replace this use of System.out or System.err by a logger.(”õ·›
+X	java:S125"<This block of commented-out lines of code should be removed.(Ì©°ƒ8İİü±©.

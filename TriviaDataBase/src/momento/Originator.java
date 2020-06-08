@@ -1,12 +1,15 @@
 package momento;
+
+import mazedriver.maze;
+
 public class Originator {
     private Memento state;
     private String saveName;
     private int cursor;
     private int[] playerPosition;
-    private Room[][] maze;
+    private mazedriver.maze maze;
 
-    public void setState(String saveName, int cursor, int[] playerPosition, Room[][] maze){
+    public void setState(String saveName, int cursor, int[] playerPosition, maze maze){
         this.saveName = saveName;
         this.cursor = cursor;
         this.playerPosition = playerPosition;

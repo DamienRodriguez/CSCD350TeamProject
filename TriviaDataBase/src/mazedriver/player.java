@@ -51,6 +51,9 @@ public class player{
 
     }
 
+    public static void setPos(int[] pos) {
+        player.pos = pos;
+    }
 
     public int[] getPos() {
         return pos;

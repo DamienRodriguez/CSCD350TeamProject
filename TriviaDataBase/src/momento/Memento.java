@@ -1,12 +1,14 @@
 package momento;
-class Memento{
+import mazedriver.maze;
+
+public class Memento{
     private Memento state;
     private String saveName;
     private int cursor;
     private int[] playerPosition;
-    private Room[][] maze;
+    private mazedriver.maze maze;
  
-    public Memento(String saveName, int cursor, int[] playerPosition, Room[][] maze)
+    public Memento(String saveName, int cursor, int[] playerPosition, maze maze)
     {
         this.saveName = saveName;
         this.cursor = cursor;
@@ -47,7 +49,7 @@ class Memento{
         return playerPosition;
     }
 
-    public Room[][] getMaze(){
+    public maze getMaze(){
         return maze;
     }
 }
