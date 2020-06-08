@@ -5,6 +5,7 @@ package mazedriver;
 Author: Kevin Underwood
 Class: CSCD350
 version 1.4
+Revisor: Damien Rodriguez
 attribution: damien and I worked on the dungeon crawler for 349 together.
 The drawing of the layout is based on that old driver.
  */
@@ -12,13 +13,27 @@ The drawing of the layout is based on that old driver.
 public class Room {
 
     private int[] coordinates;
-    int northdoor = 0;
-    int southdoor = 0;
-    int eastdoor = 0;
-    int westdoor = 0;
+    int northdoor = 3; //default to a wall.
+    int southdoor = 3; //default to a wall.
+    int eastdoor = 3; //default to a wall.
+    int westdoor = 3; //default to a wall.
 
     Room(int[] coords) {
         setCoordinates(coords);
+
+        //Figure out if there is a border wall associated with the room
+        if(coords[0] != 0)
+            //assign unopened door status to room
+
+            this.northdoor = 0; //unopened door
+
+        if(coords[0] != 4) //south wall
+            this.southdoor = 0;
+        if(coords[1] != 0)
+            this.westdoor = 0;
+        if(coords[1] != 4)
+            this.eastdoor = 0;
+
     }
 
 

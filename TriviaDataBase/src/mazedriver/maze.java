@@ -98,6 +98,7 @@ public class maze {
     }
 
 
+    //code below works as intended.
     public boolean answerQuestion(Scanner kb) {
 
         String[] answer;
@@ -235,17 +236,27 @@ public class maze {
 //DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE DAMIEN LOOK HERE
 //These methods were a bit ambigous, and I didn't understand how to use them, so I expanded the askQuestion method. Hopefully it all works.
 
-    public int check(String c, player player1) {
+    //get the door of that particular direction.
+    //returned int provides status of the door.
+    // 0 - Untouched door that will ask player question
+    // 1 - Question was answered successfuly, and door is now open
+    // 2 - Question was answered unsuccessfuly, and door is now locked forever
+    // 3 - Wall.
+
+    public int touchDoor(String c, player player1) {
+
         int[] temp = player1.getPos();
-        if (c.equalsIgnoreCase("w")) { //move up
+        if (c.equalsIgnoreCase("w")) {       //getting north Door status
             return maze[temp[0]][temp[1]].getNorthdoor();
-        } else if (c.equalsIgnoreCase("s")) {//move down
+        } else if (c.equalsIgnoreCase("s")) {//getting south Door status
             return maze[temp[0]][temp[1]].getSouthdoor();
-        } else if (c.equalsIgnoreCase("d")) {//move right
+        } else if (c.equalsIgnoreCase("d")) {//getting east Door status
             return maze[temp[0]][temp[1]].getEastdoor();
-        } else {//move left
+        } else if (c.equalsIgnoreCase("a")){ //getting west door status
             return maze[temp[0]][temp[1]].getWestdoor();
         }
+
+        return 3; //wall
 
     }
 

@@ -14,6 +14,7 @@ public class player{
 
     public static int[] pos = new int[]{0,0};
 
+
     public void movePlayer(String i, Room[][] tempmaze) {
         int temp;
         if (i.equalsIgnoreCase("w") && pos[0] > 0) { //move up
@@ -49,7 +50,6 @@ public class player{
 
 
     }
-
 
 
     public int[] getPos() {

@@ -6,6 +6,7 @@ Author: Kevin Underwood
 Class: CSCD350
 version 1.4
 attributions: took BFS from an old homework assignment and retrofitted it for this purpose
+Revisor: Damien Rodriguez
 
 Notes: Cheats are simple allows the user to just run through and test the movement and function of the maze.
         Its activated on creation of the maze on creation
@@ -18,6 +19,8 @@ import java.util.Queue;
 import java.util.Scanner;
 
 public class mazeTester {
+
+
     public static void main(String[] args) {
         boolean gameOver;
         String t = "y";
@@ -40,18 +43,33 @@ public class mazeTester {
         Scanner kb = new Scanner(System.in);
         player player1 = new player();
         Room[][] tempmaze = maze.getMaze();
+
+        int doorStatus = -1; //default value
+
         do {
             System.out.println(maze.toString());
             String choice = gameMenu(kb);
 
-            if(maze.check(choice, player1) < 2){
-                if(maze.check(choice, player1) == 1 || maze.answerQuestion(kb)) {
-                    player1.movePlayer(choice, tempmaze);
-                }else {
-                    maze.lock(choice, player1);
-                    System.out.println("The lock clicks...\n"+"You know that door will never open again");
+            doorStatus = maze.touchDoor(choice, player1);
+
+            if(doorStatus < 3){
+
+                //door ask stuff
+                if(doorStatus == 0) {
+
+                    if(maze.answerQuestion(kb)) //correct answer, door updated in player
+                        player1.movePlayer(choice, tempmaze);
+                    else {
+                        maze.lock(choice, player1);
+                        System.out.println("The lock clicks...\n"+"You know that door will never open again");
+                    }
                 }
-            }else System.out.println("The doors locked!\n"+"I better find another way round!");
+                else if(doorStatus == 2)
+                    System.out.println("The doors locked!\n"+"I better find another way round!");
+            }
+            else
+                System.out.println("That is a wall humble adventurer.");
+
 
         } while (!Arrays.equals(player1.getPos(), maze.getExitPos()) && BFS(tempmaze,player1));
         System.out.println(maze.toString());
@@ -132,5 +150,5 @@ public class mazeTester {
         return false;
     }
 
-    
+
 }
