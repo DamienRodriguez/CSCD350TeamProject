@@ -8,7 +8,8 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         saveGame(caretaker, originator, kb);
         Memento mySave = loadGame(caretaker, originator, kb);
-        System.out.println(mySave.toString());
+
+        //System.out.println(mySave.toString());
         kb.close();
     }
 

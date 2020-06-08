@@ -18,7 +18,7 @@ class Memento{
         return state;
     }
 
-    public String toString()
+    public String toString() //for testing and debug purposes, the user will not see this code.
     {
         String str = "Save Name: " + saveName;
         
@@ -36,5 +36,17 @@ class Memento{
     public String getName()
     {
         return saveName;
+    }
+
+    public int getCursor(){
+        return cursor;
+    }
+
+    public int[] getPosition(){
+        return playerPosition;
+    }
+
+    public Room[][] getMaze(){
+        return maze;
     }
 }
