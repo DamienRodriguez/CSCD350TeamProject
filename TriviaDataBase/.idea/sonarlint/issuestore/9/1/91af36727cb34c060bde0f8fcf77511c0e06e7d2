@@ -1,38 +1,36 @@
 
-U	java:S106¼"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ºåÃ­©.
-]
-java:S1854¿"?Remove this useless assignment to local variable "answerArray".(ê¤Õ8ºåÃ­©.
-U	java:S106¢"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ºåÃ­©.
-Z	java:S106|"9Replace this use of System.out or System.err by a logger.(ª‡ıúúÿÿÿÿ8ºåÃ­©.
-N
-java:S1481¿"0Remove this unused "answerArray" local variable.(ê¤Õ8ºåÃ­©.
+J
+java:S1068"(Remove this unused "size" private field.(–“Èéıÿÿÿÿ8Á™¬Ø©.
+[	java:S106²"9Replace this use of System.out or System.err by a logger.(ßŞ©Íÿÿÿÿÿ8ºåÃ­©.
 R
-java:S2201È"/The return value of "toLowerCase" must be used.(çÑğÊÿÿÿÿÿ8ºåÃ­©.
-U	java:S106Ô"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ºåÃ­©.
-[	java:S106Ú"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ºåÃ­©.
-N
-java:S1117"8Rename "maze" which hides the field declared at line 21.(ˆ õØ
-g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦ºš„úÿÿÿÿ
-[	java:S106Ä"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ºåÃ­©.
-C
-java:S1948"&Make "maze" transient or serializable.(õ¤İ‘8ó”±·©.
-Y
-java:S1481"7Remove this unused "databaseconnection" local variable.(Ä»ÚÊüÿÿÿÿ8ãØˆå¨.
-[	java:S106”"9Replace this use of System.out or System.err by a logger.(ÇïÂœûÿÿÿÿ8ºåÃ­©.
-G
-java:S1481i"+Remove this unused "answer" local variable.(Â›F8ºåÃ­©.
-@
-java:S1172"*Remove this unused method parameter "dif".(¤ÍŞ¯
-V	java:S106­"9Replace this use of System.out or System.err by a logger.(Ì£è8ºåÃ­©.
-[	java:S106Ù"9Replace this use of System.out or System.err by a logger.(ëÜß­øÿÿÿÿ8ºåÃ­©.
-C
-java:S1068"(Remove this unused "size" private field.(–“Èéıÿÿÿÿ
-F
-java:S1172g")Remove this unused method parameter "kb".(¸»Ù¿8ºåÃ­©.
-R
-java:S2201Ë"/The return value of "toLowerCase" must be used.(š¤Ê¿ÿÿÿÿÿ8ºåÃ­©.
-[	java:S106ª"9Replace this use of System.out or System.err by a logger.(ßŞ©Íÿÿÿÿÿ8ºåÃ­©.
-V	java:S106Ã"9Replace this use of System.out or System.err by a logger.(ûŠøï8ºåÃ­©.
+java:S2201Ğ"/The return value of "toLowerCase" must be used.(çÑğÊÿÿÿÿÿ8ºåÃ­©.
 )
-java:S1700"Rename field "maze"(õ¤İ‘
-[	java:S106®"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ºåÃ­©.
+java:S1700"Rename field "maze"(õ¤İ‘
+U	java:S106Ä"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ºåÃ­©.
+[	java:S106â"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ºåÃ­©.
+R
+java:S2201Ó"/The return value of "toLowerCase" must be used.(š¤Ê¿ÿÿÿÿÿ8ºåÃ­©.
+V	java:S106µ"9Replace this use of System.out or System.err by a logger.(Ì£è8ºåÃ­©.
+G
+java:S1481q"+Remove this unused "answer" local variable.(Â›F8ºåÃ­©.
+[	java:S106á"9Replace this use of System.out or System.err by a logger.(ëÜß­øÿÿÿÿ8ºåÃ­©.
+[	java:S106¶"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ºåÃ­©.
+@
+java:S1172"*Remove this unused method parameter "dif".(¤ÍŞ¯
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¦ºš„úÿÿÿÿ
+Y
+java:S1481"7Remove this unused "databaseconnection" local variable.(Ä»ÚÊüÿÿÿÿ8ãØˆå¨.
+N
+java:S1481Ç"0Remove this unused "answerArray" local variable.(ê¤Õ8ºåÃ­©.
+[	java:S106œ"9Replace this use of System.out or System.err by a logger.(ÇïÂœûÿÿÿÿ8ºåÃ­©.
+]
+java:S1854Ç"?Remove this useless assignment to local variable "answerArray".(ê¤Õ8ºåÃ­©.
+F
+java:S1172o")Remove this unused method parameter "kb".(¸»Ù¿8ºåÃ­©.
+[	java:S106„"9Replace this use of System.out or System.err by a logger.(ª‡ıúúÿÿÿÿ8ºåÃ­©.
+V	java:S106Ë"9Replace this use of System.out or System.err by a logger.(ûŠøï8ºåÃ­©.
+N
+java:S1117"8Rename "maze" which hides the field declared at line 24.(ˆ õØ
+U	java:S106ª"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ºåÃ­©.
+[	java:S106Ì"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ8ºåÃ­©.
+U	java:S106Ü"9Replace this use of System.out or System.err by a logger.(Ş‹“	8ºåÃ­©.

@@ -16,6 +16,10 @@ public class player implements Serializable {
 
     public static int[] pos = new int[]{0,0};
 
+    public void setPos(int[] pos) {
+        player.pos = pos;
+    }
+
 
     public void movePlayer(String i, Room[][] tempmaze) {
         int temp;

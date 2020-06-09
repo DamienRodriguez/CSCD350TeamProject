@@ -17,10 +17,12 @@ Revisor: Damien Rodriguez
  */
 public class maze implements Serializable {
 
+
+
+
     private final int size;
     private Room[][] maze;
     private int[] exitPos;
-    private int cursorLocation;
 
     public maze(int size, int dif, String cheats) {
         DatabaseConnection databaseconnection = DatabaseConnection.getInstance();
@@ -41,6 +43,12 @@ public class maze implements Serializable {
 
         exitPos = new int[]{4, 4};
         setMaze(maze);
+    }
+
+    public maze(Room[][] savedRooms) {
+        setMaze(savedRooms);
+        this.size = savedRooms.length;
+        exitPos = new int[]{4, 4};
     }
 
 
@@ -277,13 +285,4 @@ public class maze implements Serializable {
 
     }
 
-
-    public int getCursorLocation() {
-        return cursorLocation;
-    }
-
-
-    public void setCursorLocation(int cursorLocation) {
-        this.cursorLocation = cursorLocation;
-    }
 }

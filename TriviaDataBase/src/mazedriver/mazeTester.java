@@ -16,10 +16,7 @@ Notes: Cheats are simple allows the user to just run through and test the moveme
 import database.DatabaseConnection;
 import savestate.SaveState;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Scanner;
+import java.util.*;
 
 public class mazeTester {
 
@@ -42,48 +39,44 @@ public class mazeTester {
 
 
     //I believe that this is where the issue happens
-    private static void playGame(maze maze) {
+    private static void playGame(maze myMaze) {
         Scanner kb = new Scanner(System.in);
         player player1 = new player();
-        Room[][] tempmaze = maze.getMaze();
+        Room[][] tempmaze = myMaze.getMaze();
         SaveState state = new SaveState();
 
         int doorStatus = -1; //default value
 
         do {
-            System.out.println(maze.toString());
+            System.out.println(myMaze.toString());
             String choice = gameMenu(kb);
 
             if(choice.equalsIgnoreCase("e")) {
-                maze.setCursorLocation(DatabaseConnection.getInstance().getHashTableCursor());
-                maze newMaze = maze;
-                player tempPlayer = player1;
-
-                state.saveState(newMaze, tempPlayer);
+                state.saveState(myMaze.getMaze(), player1.getPos(), DatabaseConnection.getInstance().getHashTableCursor());
             }
             else if(choice.equalsIgnoreCase("q")) {
-                maze loadedMaze = null;
-                player loadedPlayer = null;
+                ArrayList<Object> dataList = state.loadState();
 
-                state.loadState(loadedMaze, loadedPlayer);
-                DatabaseConnection.getInstance().setHashTableCursor(loadedMaze.getCursorLocation());
-
-                maze = loadedMaze;
-                player1 = loadedPlayer;
+                myMaze = mazebuilder.loadMaze((Room [][]) dataList.get(0)); //first item is the room array
+                player1.setPos((int [])dataList.get(1));
+                DatabaseConnection.getInstance().setHashTableCursor((int)dataList.get(2));
+                tempmaze = myMaze.getMaze();
 
             }
 
             else {
-                doorStatus = maze.touchDoor(choice, player1);
+                doorStatus = myMaze.touchDoor(choice, player1);
                 if(doorStatus < 3){
 
                     //door ask stuff
                     if(doorStatus == 0) {
 
-                        if(maze.answerQuestion(kb)) //correct answer, door updated in player
+                        if(myMaze.answerQuestion(kb)) { //correct answer, door updated in player
                             player1.movePlayer(choice, tempmaze);
+                            myMaze.setMaze(tempmaze);
+                        }
                         else {
-                            maze.lock(choice, player1);
+                            myMaze.lock(choice, player1);
                             System.out.println("The lock clicks...\n"+"You know that door will never open again");
                         }
                     }
@@ -96,9 +89,9 @@ public class mazeTester {
 
             }
 
-        } while (!Arrays.equals(player1.getPos(), maze.getExitPos()) && BFS(tempmaze,player1));
+        } while (!Arrays.equals(player1.getPos(), myMaze.getExitPos()) && BFS(tempmaze,player1));
 
-        System.out.println(maze.toString());
+        System.out.println(myMaze.toString());
         int[] temp = player1.getPos();
         if (temp[0] == 4 && temp[1] == 4) {
             System.out.println("You win!");

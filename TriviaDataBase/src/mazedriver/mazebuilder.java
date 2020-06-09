@@ -26,7 +26,11 @@ public class mazebuilder {
             System.out.println("Returning the easy mode.");
             return new mazedriver.maze(5,1,cheats);
         }
-
-
     }
+
+
+    public static maze loadMaze(Room[][] rooms) {
+        return new maze(rooms);
+    }
+
 }
