@@ -3,6 +3,7 @@ package mazedriver;
 import inputscrubber.Scrubber;
 import database.*;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
@@ -14,12 +15,12 @@ version 1.5
 Revisor: Damien Rodriguez
 
  */
-public class maze {
+public class maze implements Serializable {
 
     private final int size;
     private Room[][] maze;
     private int[] exitPos;
-
+    private int cursorLocation;
 
     public maze(int size, int dif, String cheats) {
         DatabaseConnection databaseconnection = DatabaseConnection.getInstance();
@@ -274,5 +275,15 @@ public class maze {
 
         }else System.out.println("Problem in lock");
 
+    }
+
+
+    public int getCursorLocation() {
+        return cursorLocation;
+    }
+
+
+    public void setCursorLocation(int cursorLocation) {
+        this.cursorLocation = cursorLocation;
     }
 }

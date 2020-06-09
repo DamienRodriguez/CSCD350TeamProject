@@ -1,0 +1,24 @@
+
+m
+java:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(¹üŒì8Î‚š¸©.
+U	java:S1069"9Replace this use of System.out or System.err by a logger.(‰Â¼í8˜¶¹¸©.
+l
+java:S2095."OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(³„ò8ëğ¡¸©.
+C
+java:S1172&"&Remove these unused method parameters.(íÂ°ª8³ú·¸©.
+Z	java:S106!"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8”şà·©.
+Z	java:S106C"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8¿åó·©.
+j
+java:S2095-"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(èÎÒ½8ëğ¡¸©.
+r
+java:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(×Ááèüÿÿÿÿ8ìß˜¸©.
+l
+java:S20951"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(Œ‹´®8¨Ë¡¸©.
+p
+java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Ñ úÿÿÿÿ8ìß˜¸©.
+Z	java:S106:"9Replace this use of System.out or System.err by a logger.(îë²±ûÿÿÿÿ8˜¶¹¸©.
+j
+java:S20950"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(šı¡Â8¨Ë¡¸©.
+k
+java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(ÌúĞ8”şà·©.
+U	java:S1064"9Replace this use of System.out or System.err by a logger.(µä˜î8ÇíÏ¸©.

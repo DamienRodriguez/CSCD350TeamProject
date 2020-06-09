@@ -9,7 +9,9 @@ version 1.2
  */
 
 
-public class player{
+import java.io.Serializable;
+
+public class player implements Serializable {
 
 
     public static int[] pos = new int[]{0,0};

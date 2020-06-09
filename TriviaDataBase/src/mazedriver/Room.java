@@ -10,7 +10,9 @@ attribution: damien and I worked on the dungeon crawler for 349 together.
 The drawing of the layout is based on that old driver.
  */
 
-public class Room {
+import java.io.Serializable;
+
+public class Room implements Serializable {
 
     private int[] coordinates;
     int northdoor = 3; //default to a wall.

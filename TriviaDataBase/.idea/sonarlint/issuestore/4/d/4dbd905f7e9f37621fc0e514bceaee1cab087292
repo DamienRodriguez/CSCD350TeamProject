@@ -1,21 +1,23 @@
 
-U	java:S106o"9Replace this use of System.out or System.err by a logger.(ÉøŠÔ8íÕÏ¯©.
-U	java:S106N"9Replace this use of System.out or System.err by a logger.(…ŠÏş8íÕÏ¯©.
+Z	java:S106^"9Replace this use of System.out or System.err by a logger.(è—±Ëûÿÿÿÿ8èÇ¸©.
+U	java:S1066"9Replace this use of System.out or System.err by a logger.(ß×ŒÈ8èÇ¸©.
+i	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ş¸Å8èÇ¸©.
+U	java:S106u"9Replace this use of System.out or System.err by a logger.(õ¿á8èÇ¸©.
+R
+java:S3740œ"/Provide the parametrized type for this generic.(·€ˆÊüÿÿÿÿ8èÇ¸©.
+U	java:S106$"9Replace this use of System.out or System.err by a logger.(–âÊç8èÇ¸©.
+j
+java:S2259E"HA "NullPointerException" could be thrown; "loadedMaze" is nullable here.(’´‹¯úÿÿÿÿ8“ºÊ¸©.
+N	java:S106h"9Replace this use of System.out or System.err by a logger.(…ŠÏş
+U	java:S106e"9Replace this use of System.out or System.err by a logger.(ß×ŒÈ8èÇ¸©.
 t
-java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ãñ‚¡ÿÿÿÿÿ8“ê½¯©.
-Q
-java:S3740"/Provide the parametrized type for this generic.(·€ˆÊüÿÿÿÿ8íÕÏ¯©.
-b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ş¸Å
-r	java:S117W"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÉ¯Îüÿÿÿÿ8íÕÏ¯©.
-U	java:S106K"9Replace this use of System.out or System.err by a logger.(ß×ŒÈ8íÕÏ¯©.
-U	java:S106P"9Replace this use of System.out or System.err by a logger.(î™×û8íÕÏ¯©.
-U	java:S106Z"9Replace this use of System.out or System.err by a logger.(’Ïµï8íÕÏ¯©.
-o	java:S100x"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä”ã´øÿÿÿÿ8íÕÏ¯©.
-Z	java:S106h"9Replace this use of System.out or System.err by a logger.(±îïşÿÿÿÿ8íÕÏ¯©.
-U	java:S106D"9Replace this use of System.out or System.err by a logger.(Ş§¬Ï8íÕÏ¯©.
-t
-java:S3776x"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ä”ã´øÿÿÿÿ8íÕÏ¯©.
-Z	java:S106@"9Replace this use of System.out or System.err by a logger.(¼¾Ö—ıÿÿÿÿ8•çË¯©.
-N	java:S1062"9Replace this use of System.out or System.err by a logger.(ß×ŒÈ
-N	java:S106!"9Replace this use of System.out or System.err by a logger.(–âÊç
-Z	java:S106G"9Replace this use of System.out or System.err by a logger.(è—±Ëûÿÿÿÿ8ÄŸĞ¯©.
+java:S3776-"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(ãñ‚¡ÿÿÿÿÿ8èÇ¸©.
+p	java:S100•"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä”ã´øÿÿÿÿ8èÇ¸©.
+u
+java:S3776•"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(Ä”ã´øÿÿÿÿ8èÇ¸©.
+Z	java:S106W"9Replace this use of System.out or System.err by a logger.(¼¾Ö—ıÿÿÿÿ8èÇ¸©.
+r	java:S117r"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÉ¯Îüÿÿÿÿ8èÇ¸©.
+U	java:S106["9Replace this use of System.out or System.err by a logger.(Ş§¬Ï8èÇ¸©.
+U	java:S106j"9Replace this use of System.out or System.err by a logger.(î™×û8èÇ¸©.
+[	java:S106…"9Replace this use of System.out or System.err by a logger.(±îïşÿÿÿÿ8èÇ¸©.
+V	java:S106Œ"9Replace this use of System.out or System.err by a logger.(ÉøŠÔ8èÇ¸©.
