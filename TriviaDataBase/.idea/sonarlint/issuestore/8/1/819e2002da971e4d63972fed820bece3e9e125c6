@@ -1,21 +1,21 @@
 
-o
-java:S2095""MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(Ù“ìØøÿÿÿÿ8î×§Ù©.
-U	java:S106%"9Replace this use of System.out or System.err by a logger.(ò´’ÿ8ØÖ±Ù©.
 
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûä¾à8åËŸÙ©.
-p
-java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Õ÷¦úûÿÿÿÿ8îê›Ù©.
+java:S1319!"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ûä¾à8åËŸÙ©.
+E
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ø¼¥Ù©.
+U	java:S106"9Replace this use of System.out or System.err by a logger.(æèÑÏ8—Ù©.
+o
+java:S2095&"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(Ù“ìØøÿÿÿÿ8î×§Ù©.
+E
+java:S1148-"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8²ÊÆØ©.
 r
-java:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(ˆÔ§ğşÿÿÿÿ8îê›Ù©.
-{
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ·ùÑùÿÿÿÿ8ñğ¢Ù©.
-E
-java:S1148)"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ø¼¥Ù©.
-U	java:S106"9Replace this use of System.out or System.err by a logger.(æèÑÏ8—Ù©.
-E
-java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8²ÊÆØ©.
+java:S2095"PUse try-with-resources or close this "ObjectOutputStream" in a "finally" clause.(ˆÔ§ğşÿÿÿÿ8îê›Ù©.
+p
+java:S2095"NUse try-with-resources or close this "FileOutputStream" in a "finally" clause.(Õ÷¦úûÿÿÿÿ8îê›Ù©.
 q
-java:S2095#"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(Ëûğşÿÿÿÿ8¨íªÙ©.
+java:S2095'"OUse try-with-resources or close this "ObjectInputStream" in a "finally" clause.(Ëûğşÿÿÿÿ8¨íªÙ©.
 v
-java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¸ŸÃ²8ù¨¿Ø©.
+java:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¸ŸÃ²8ù¨¿Ø©.
+{
+java:S2293#"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ğ·ùÑùÿÿÿÿ8ñğ¢Ù©.
+U	java:S106)"9Replace this use of System.out or System.err by a logger.(ò´’ÿ8ØÖ±Ù©.

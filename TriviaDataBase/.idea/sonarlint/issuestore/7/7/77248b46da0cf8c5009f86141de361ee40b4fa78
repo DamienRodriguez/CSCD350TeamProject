@@ -1,0 +1,39 @@
+
+)
+java:S1700"Rename field "maze"(õ¤İ‘
+@
+java:S1172"*Remove this unused method parameter "dif".(õ…ÊŸ
+N
+java:S1117"8Rename "maze" which hides the field declared at line 24.(ˆ õØ
+?
+java:S1172o")Remove this unused method parameter "kb".(¸»Ù¿
+T	java:S106„"9Replace this use of System.out or System.err by a logger.(ª‡ıúúÿÿÿÿ
+N	java:S106ª"9Replace this use of System.out or System.err by a logger.(Ş‹“	
+T	java:S106²"9Replace this use of System.out or System.err by a logger.(ßŞ©Íÿÿÿÿÿ
+O	java:S106µ"9Replace this use of System.out or System.err by a logger.(Ì£è
+T	java:S106¶"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ
+V
+java:S1854Ç"?Remove this useless assignment to local variable "answerArray".(ê¤Õ
+N	java:S106Ä"9Replace this use of System.out or System.err by a logger.(Ş‹“	
+O	java:S106Ë"9Replace this use of System.out or System.err by a logger.(ûŠøï
+T	java:S106Ì"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ
+K
+java:S2201Ğ"/The return value of "toLowerCase" must be used.(çÑğÊÿÿÿÿÿ
+K
+java:S2201Ó"/The return value of "toLowerCase" must be used.(š¤Ê¿ÿÿÿÿÿ
+N	java:S106Ü"9Replace this use of System.out or System.err by a logger.(Ş‹“	
+T	java:S106á"9Replace this use of System.out or System.err by a logger.(ëÜß­øÿÿÿÿ
+T	java:S106â"9Replace this use of System.out or System.err by a logger.(ú»µûÿÿÿÿ
+Q
+java:S2209"5Change this instance-reference to a static reference.(Îæõîøÿÿÿÿ
+Q
+java:S2209’"5Change this instance-reference to a static reference.(Îæõîøÿÿÿÿ
+T	java:S106œ"9Replace this use of System.out or System.err by a logger.(ÇïÂœûÿÿÿÿ
+R
+java:S1481"7Remove this unused "databaseconnection" local variable.(Ä»ÚÊüÿÿÿÿ
+@
+java:S1481q"+Remove this unused "answer" local variable.(Â›F
+G
+java:S1481Ç"0Remove this unused "answerArray" local variable.(ê¤Õ
+C
+java:S1068"(Remove this unused "size" private field.(–“Èéıÿÿÿÿ
