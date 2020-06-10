@@ -1,21 +1,28 @@
 
-S	java:S106N"9Replace this use of System.out or System.err by a logger.(¼¾Ö—ýÿÿÿÿ
-N	java:S106z"9Replace this use of System.out or System.err by a logger.(ä—‘’
-N	java:S106_"9Replace this use of System.out or System.err by a logger.(…ŠÏþ
-S	java:S106X"9Replace this use of System.out or System.err by a logger.(è—±Ëûÿÿÿÿ
-N	java:S106U"9Replace this use of System.out or System.err by a logger.(Þ§¬Ï
-M	java:S106j"9Replace this use of System.out or System.err by a logger.(šØ¯4
-N	java:S106a"9Replace this use of System.out or System.err by a logger.(î™×û
-N	java:S106""9Replace this use of System.out or System.err by a logger.(–âÊç
-N	java:S106\"9Replace this use of System.out or System.err by a logger.(ëÜþî
-k	java:S117g"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÉ¯Îüÿÿÿÿ
-N	java:S1063"9Replace this use of System.out or System.err by a logger.(ëÜþî
-N	java:S106{"9Replace this use of System.out or System.err by a logger.(ÉøŠÔ
-K
-java:S3740ˆ"/Provide the parametrized type for this generic.(·€ˆÊüÿÿÿÿ
-d	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ŸùÄ
-g
-java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(Ö™ø
 i
 java:S3776‚"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(²ŸùÄ
-a	java:S112*"FDefine and throw a dedicated exception instead of using a generic one.(Ö™ø8·ÏÄà©.
+S	java:S106X"9Replace this use of System.out or System.err by a logger.(è—±Ëûÿÿÿÿ
+S	java:S106N"9Replace this use of System.out or System.err by a logger.(¼¾Ö—ýÿÿÿÿ
+N	java:S1063"9Replace this use of System.out or System.err by a logger.(ëÜþî
+W
+java:S2209]"5Change this instance-reference to a static reference.(Îæõîøÿÿÿÿ8´ûáà©.
+d	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ŸùÄ
+W
+java:S22097"5Change this instance-reference to a static reference.(Õ«Ä“øÿÿÿÿ8´ûáà©.
+R
+java:S2209Z"5Change this instance-reference to a static reference.(óº Ö8´ûáà©.
+N	java:S106\"9Replace this use of System.out or System.err by a logger.(ëÜþî
+N	java:S106U"9Replace this use of System.out or System.err by a logger.(Þ§¬Ï
+g
+java:S3776*"RRefactor this method to reduce its Cognitive Complexity from 32 to the 15 allowed.(Ö™ø
+k	java:S117g"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(àÉ¯Îüÿÿÿÿ
+N	java:S106z"9Replace this use of System.out or System.err by a logger.(ä—‘’
+N	java:S106""9Replace this use of System.out or System.err by a logger.(–âÊç
+N	java:S106_"9Replace this use of System.out or System.err by a logger.(…ŠÏþ
+M	java:S106j"9Replace this use of System.out or System.err by a logger.(šØ¯4
+X
+java:S2209…"5Change this instance-reference to a static reference.(Îæõîøÿÿÿÿ8´ûáà©.
+N	java:S106a"9Replace this use of System.out or System.err by a logger.(î™×û
+K
+java:S3740ˆ"/Provide the parametrized type for this generic.(·€ˆÊüÿÿÿÿ
+N	java:S106{"9Replace this use of System.out or System.err by a logger.(ÉøŠÔ
