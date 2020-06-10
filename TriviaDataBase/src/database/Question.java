@@ -148,7 +148,7 @@ public class Question {
 
 
     //the below methods were made protected for testing purposes. They will be returned to private after testing is completed.
-    protected String alphaID(final int difficulty, final int roomType, final int questionType) {
+    private String alphaID(final int difficulty, final int roomType, final int questionType) {
 
         String characterID = "";
         if(difficulty == 0) {
@@ -185,7 +185,7 @@ public class Question {
     }
 
 
-    protected int numberID(final int questionType, final DatabaseConnection DB_CONNECTION) {
+    private int numberID(final int questionType, final DatabaseConnection DB_CONNECTION) {
 
         int id = 0;
         if(questionType == 0)
@@ -203,7 +203,7 @@ public class Question {
     }
 
 
-    //change before implementing to maze
+
     @Override
     public String toString() {
        return this.id + " | " + this.question + " | " + this.answer + " | " + this.wrongAnswerOne + " | " + this.wrongAnswerTwo + " | " + this.wrongAnswerThree + " | " + this.hint;

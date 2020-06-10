@@ -15,7 +15,7 @@ version 1.5
 Revisor: Damien Rodriguez
 
  */
-public class maze implements Serializable {
+public class Maze implements Serializable {
 
 
 
@@ -24,7 +24,7 @@ public class maze implements Serializable {
     private Room[][] maze;
     private int[] exitPos;
 
-    public maze(int size, int dif, String cheats) {
+    public Maze(int size, int dif, String cheats) {
         DatabaseConnection databaseconnection = DatabaseConnection.getInstance();
         this.size =size;
         Room[][] maze = new Room[size][size];
@@ -45,7 +45,7 @@ public class maze implements Serializable {
         setMaze(maze);
     }
 
-    public maze(Room[][] savedRooms) {
+    public Maze(Room[][] savedRooms) {
         setMaze(savedRooms);
         this.size = savedRooms.length;
         exitPos = new int[]{4, 4};
@@ -252,7 +252,7 @@ public class maze implements Serializable {
     // 2 - Question was answered unsuccessfuly, and door is now locked forever
     // 3 - Wall.
 
-    public int touchDoor(String c, player player1) {
+    public int touchDoor(String c, Player player1) {
 
         int[] temp = player1.getPos();
         if (c.equalsIgnoreCase("w")) {       //getting north Door status
@@ -270,7 +270,7 @@ public class maze implements Serializable {
     }
 
 
-    public void lock(String c, player player1) {
+    public void lock(String c, Player player1) {
         int[] temp = player1.getPos();
         if (c.equalsIgnoreCase("w")) { //move up
             maze[temp[0]][temp[1]].setNorthdoor(2);

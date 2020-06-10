@@ -1,10 +1,14 @@
 package savestate;
 
 import mazedriver.*;
-
 import java.io.*;
 import java.util.ArrayList;
-
+/*
+Author: Damien Rodriguez
+Class: CSCD350
+version 1.0
+Revisor: Kevin Underwood
+ */
 public class SaveState {
 
 

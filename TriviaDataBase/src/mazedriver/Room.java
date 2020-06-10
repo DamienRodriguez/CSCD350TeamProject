@@ -15,27 +15,23 @@ import java.io.Serializable;
 public class Room implements Serializable {
 
     private int[] coordinates;
-    int northdoor = 3; //default to a wall.
-    int southdoor = 3; //default to a wall.
-    int eastdoor = 3; //default to a wall.
-    int westdoor = 3; //default to a wall.
+    private int northdoor = 3; //default to a wall.
+    private int southdoor = 3; //default to a wall.
+    private int eastdoor = 3; //default to a wall.
+    private int westdoor = 3; //default to a wall.
 
     Room(int[] coords) {
         setCoordinates(coords);
-
         //Figure out if there is a border wall associated with the room
         if(coords[0] != 0)
             //assign unopened door status to room
-
             this.northdoor = 0; //unopened door
-
         if(coords[0] != 4) //south wall
             this.southdoor = 0;
         if(coords[1] != 0)
             this.westdoor = 0;
         if(coords[1] != 4)
             this.eastdoor = 0;
-
     }
 
 
@@ -84,7 +80,7 @@ public class Room implements Serializable {
     }
 
 
-    boolean getHasExit() {
+    private boolean getHasExit() {
         return this.coordinates[0] == 4 && this.coordinates[1] == 4;
     }
 
@@ -95,7 +91,8 @@ public class Room implements Serializable {
 
 
     private boolean getHasPlayer() {
-        return this.coordinates[0] == (mazedriver.player.pos[0]) && this.coordinates[1] == (mazedriver.player.pos[1]);
+
+        return this.coordinates[0] == (Player.getPos()[0]) && this.coordinates[1] == (Player.getPos()[1]);
 
     }
 
@@ -124,8 +121,6 @@ public class Room implements Serializable {
     @Override
     public String toString() {
         char c = whatIsInRoom();
-
-        //Needs work when drawing out the room info.
         if (this.coordinates[1] == 0) { //left side
             if (this.coordinates[0] == 0) {
                 return "***%*" + c + "|%*-*"; //upper corner
@@ -154,6 +149,4 @@ public class Room implements Serializable {
             }
         }
     }
-
-
 }

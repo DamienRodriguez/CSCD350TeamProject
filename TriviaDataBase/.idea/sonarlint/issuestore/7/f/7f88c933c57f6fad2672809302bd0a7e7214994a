@@ -1,64 +1,64 @@
 
-Z	java:S106t"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
 <
 java:S1170"!Make this final field static too.(ì•Öÿÿÿÿÿ
-x
-java:S1149"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ªü¸øüÿÿÿÿ8ú¸à¨.
-Z	java:S106f"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
-J
-java:S1481è"'Remove this unused "rs" local variable.(õˆáøÿÿÿÿ8Åì†©.
-^
-java:S2259Ÿ"@A "NullPointerException" could be thrown; "db" is nullable here.(ñïšĞ8ú”ª®©.
-]
-java:S2095F"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(‚µŠ¯
-m	java:S116"XRename this field "DB_CONNECTION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á‹ú¿
-K
-java:S2115p")Add password protection to this database.(Öµ’¨şÿÿÿÿ8Åì†©.
-O	java:S106–"9Replace this use of System.out or System.err by a logger.(Øâ“ú
-b
-java:S2095E"GUse try-with-resources or close this "Statement" in a "finally" clause.(¿Ú»¯úÿÿÿÿ
-	java:S116"eRename this field "MULTIPLECHOICE_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì•Öÿÿÿÿÿ
-[	java:S106Š"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
+C
+java:S1170"!Make this final field static too.(ªèÖÏıÿÿÿÿ8ú¸à¨.
+|	java:S116"bRename this field "SHORTANSWER_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªèÖÏıÿÿÿÿ
+t
+java:S1149÷"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(‘†¯ù8Åì†©.
+C
+java:S1170"!Make this final field static too.(¼„ úÿÿÿÿ8ú¸à¨.
+Z	java:S106t"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
+e
+java:S2095à"GUse try-with-resources or close this "Statement" in a "finally" clause.(˜€ä´8Åì†©.
+7
+java:S1170"!Make this final field static too.(á‹ú¿
 e
 java:S2095“"GUse try-with-resources or close this "Statement" in a "finally" clause.(˜€ä´8Åì†©.
-|	java:S116"bRename this field "SHORTANSWER_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªèÖÏıÿÿÿÿ
+V	java:S106˜"9Replace this use of System.out or System.err by a logger.(Šğš8Åì†©.
+x
+java:S1149"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(ªü¸øüÿÿÿÿ8ú¸à¨.
+[	java:S106Š"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
+v	java:S116"\Rename this field "TOTAL_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼„ úÿÿÿÿ
 d
 java:S2095€"GUse try-with-resources or close this "Statement" in a "finally" clause.(É¾ÿg8ú¸à¨.
-S	java:S106K"9Replace this use of System.out or System.err by a logger.(Ôü”µşÿÿÿÿ
+S	java:S106s"9Replace this use of System.out or System.err by a logger.(¿¾´´ûÿÿÿÿ
+[
+java:S2168_"9Remove this dangerous instance of double-checked locking.(½³‹ıÿÿÿÿ8Åì†©.
+T	java:S106—"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
 Y
 java:S1854è"6Remove this useless assignment to local variable "rs".(õˆáøÿÿÿÿ8Åì†©.
 e
 java:S2095¡"GUse try-with-resources or close this "Statement" in a "finally" clause.(–¤éé8Åì†©.
-7
-java:S1170"!Make this final field static too.(á‹ú¿
-[	java:S106¥"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
+`	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(µÇúÿÿÿÿÿÿ
+S	java:S106K"9Replace this use of System.out or System.err by a logger.(Ôü”µşÿÿÿÿ
+T	java:S106®"9Replace this use of System.out or System.err by a logger.(ë¶ù˜ùÿÿÿÿ
+O	java:S106–"9Replace this use of System.out or System.err by a logger.(Øâ“ú
+V	java:S106ï"9Replace this use of System.out or System.err by a logger.(İşÎ¸8Åì†©.
 
 java:S1319÷"oThe return type of this method should be an interface such as "Map" rather than the implementation "Hashtable".(‘†¯ù8Åì†©.
-z	java:S116"`Rename this field "TRUEFALSE_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìì£½ıÿÿÿÿ
-[
-java:S2168_"9Remove this dangerous instance of double-checked locking.(½³‹ıÿÿÿÿ8Åì†©.
-[	java:S106¯"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
-e
-java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ä¯åÕ8Åì†©.
-u
-java:S3008"ZRename this field "SINGLE_INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÀ¥ìøÿÿÿÿ
-v	java:S116"\Rename this field "TOTAL_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼„ úÿÿÿÿ
-`	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(µÇúÿÿÿÿÿÿ
-t
-java:S1149÷"VReplace the synchronized class "Hashtable" by an unsynchronized one such as "HashMap".(‘†¯ù8Åì†©.
-[	java:S106‰"9Replace this use of System.out or System.err by a logger.(âÄ˜îûÿÿÿÿ8ú¸à¨.
-S	java:S106s"9Replace this use of System.out or System.err by a logger.(¿¾´´ûÿÿÿÿ
-V	java:S106˜"9Replace this use of System.out or System.err by a logger.(Šğš8Åì†©.
-<
-java:S1170"!Make this final field static too.(ìì£½ıÿÿÿÿ
-T	java:S106®"9Replace this use of System.out or System.err by a logger.(ë¶ù˜ùÿÿÿÿ
-C
-java:S1170"!Make this final field static too.(ªèÖÏıÿÿÿÿ8ú¸à¨.
-e
-java:S2095à"GUse try-with-resources or close this "Statement" in a "finally" clause.(˜€ä´8Åì†©.
-V	java:S106ï"9Replace this use of System.out or System.err by a logger.(İşÎ¸8Åì†©.
-C
-java:S1170"!Make this final field static too.(¼„ úÿÿÿÿ8ú¸à¨.
-T	java:S106—"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+b
+java:S2095E"GUse try-with-resources or close this "Statement" in a "finally" clause.(¿Ú»¯úÿÿÿÿ
+Z	java:S106f"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
 j
 java:S2095è"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(õˆáøÿÿÿÿ8Åì†©.
+K
+java:S2115p")Add password protection to this database.(Öµ’¨şÿÿÿÿ8Åì†©.
+[	java:S106‰"9Replace this use of System.out or System.err by a logger.(âÄ˜îûÿÿÿÿ8ú¸à¨.
+m	java:S116"XRename this field "DB_CONNECTION" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(á‹ú¿
+^
+java:S2259Ÿ"@A "NullPointerException" could be thrown; "db" is nullable here.(ñïšĞ8ú”ª®©.
+	java:S116"eRename this field "MULTIPLECHOICE_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ì•Öÿÿÿÿÿ
+u
+java:S3008"ZRename this field "SINGLE_INSTANCE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒÀ¥ìøÿÿÿÿ
+[	java:S106¯"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
+J
+java:S1481è"'Remove this unused "rs" local variable.(õˆáøÿÿÿÿ8Åì†©.
+[	java:S106¥"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Åì†©.
+e
+java:S2095"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(ä¯åÕ8Åì†©.
+z	java:S116"`Rename this field "TRUEFALSE_COUNT_QUERY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìì£½ıÿÿÿÿ
+<
+java:S1170"!Make this final field static too.(ìì£½ıÿÿÿÿ
+]
+java:S2095F"GUse try-with-resources or close this "ResultSet" in a "finally" clause.(‚µŠ¯

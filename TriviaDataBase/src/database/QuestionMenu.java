@@ -11,7 +11,7 @@ public class QuestionMenu {
 
         int choice = 0;
 
-        while(choice != 6 ) {
+        while(choice != 7 ) {
             choice = Pmenu();
 
             if(choice >= 1 && choice <= 3)
@@ -20,6 +20,8 @@ public class QuestionMenu {
                 clearDatabase();
             else if(choice == 5)
                 displayAllRecords();
+            else if(choice == 6)
+                QuestionReader.main(null);
         }
         DatabaseConnection.getInstance().closeConnection();
     }
@@ -33,16 +35,18 @@ public class QuestionMenu {
          System.out.println("1) Add a true false question");
          System.out.println("2) Add a multiple choice question");
          System.out.println("3) Add a short answer question");
-         System.out.println("4) Nuke database (This option clears all questions in the database)");
+         System.out.println("4) Nuke database (WARNING: GAME WILL NOT WORK IF THIS OPTION" +
+                 "IS USED AND QUESTIONS AREN'T RELOADED INTO THE DATABASE.)");
          System.out.println("5) Display all Questions in database");
-         System.out.println("6) Quit");
+         System.out.println("6) Load questions from Questions.txt");
+         System.out.println("7) Quit");
 
          System.out.println("Please enter your choice -----> ");
          choice = kb.nextInt();
          kb.nextLine();
 
 
-        } while(choice < 0 || choice > 6);
+        } while(choice < 0 || choice > 7);
 
 
         return choice;

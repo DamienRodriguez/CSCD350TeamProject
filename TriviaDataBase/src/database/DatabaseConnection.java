@@ -44,7 +44,7 @@ public class DatabaseConnection {
         setTotalRecordCount(getRecordCount(TOTAL_COUNT_QUERY));
         setQuestionLookUp();
         setKeyset();
-        setHashTableCursor(this.questionLookUp.size()-30); //when questions are loaded into hashtable, all of the hard questions are placed at the top, so we just start from the bottom
+        setHashTableCursor(this.questionLookUp.size()-1); //when questions are loaded into hashtable, all of the hard questions are placed at the top, so we just start from the bottom
 
         if(this.totalRecordCount != (this.multipleChoiceRecordCount + this.trueFalseRecordCount + this.shortAnswerChoiceRecordCount))
             throw new SQLException("SQL statements aren't getting the seperate categories that you are expecting.");

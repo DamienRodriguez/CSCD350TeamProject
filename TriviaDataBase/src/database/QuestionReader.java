@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-class QuestionReader {
+public class QuestionReader {
 
-    final static DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
+    private final static DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
 
     public static void main(String[] args) throws FileNotFoundException {
     System.out.println("In Question Reader.");
