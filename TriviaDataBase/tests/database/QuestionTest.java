@@ -1,21 +1,102 @@
 package database;
 
-import database.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class QuestionTest {
-    public final DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
+    Question q = new Question();
+
+    @BeforeEach
+    void init() {
+        q = new Question(0,0,0,"test","test","test","test","test","test");
+        q.setId("test");
+    }
 
     @Test
-    void getID() {
-        Question q = new Question();
-        q.setId("test");
+    void getId() {
         assertEquals("test",q.getId());
+    }
+
+    @Test
+    void setId() {
+        q.setId("Oni");
+        assertEquals("Oni",q.getId());
+    }
+
+    @Test
+    void getQuestion() {
+        assertEquals("test",q.getQuestion());
+    }
+
+    @Test
+    void setQuestion() {
+        q.setQuestion("Omni");
+        assertEquals("Omni",q.getQuestion());
 
     }
 
+    @Test
+    void getAnswer() {
+        assertEquals("test",q.getAnswer());
+    }
+
+    @Test
+    void setAnswer() {
+        q.setAnswer("Invoker");
+        assertEquals("Invoker",q.getAnswer());
+    }
+
+    @Test
+    void getHint() {
+        assertEquals("test",q.getHint());
+    }
+
+    @Test
+    void setHint() {
+        q.setHint("Slark");
+        assertEquals("Slark",q.getHint());
+    }
+
+    @Test
+    void getWrongAnswerOne() {
+        assertEquals("test",q.getWrongAnswerOne());
+    }
+
+    @Test
+    void setWrongAnswerOne() {
+        q.setWrongAnswerOne("Crystal Maiden");
+        assertEquals("Crystal Maiden", q.getWrongAnswerOne());
+    }
+
+    @Test
+    void getWrongAnswerTwo() {
+        assertEquals("test",q.getWrongAnswerTwo());
+    }
+
+    @Test
+    void setWrongAnswerTwo() {
+        q.setWrongAnswerTwo("Chen");
+        assertEquals("Chen", q.getWrongAnswerTwo());
+    }
+
+    @Test
+    void getWrongAnswerThree() {
+        assertEquals("test",q.getWrongAnswerThree());
+    }
+
+    @Test
+    void setWrongAnswerThree() {
+        q.setWrongAnswerThree("Anti-Mage");
+        assertEquals("Anti-Mage",q.getWrongAnswerThree());
+    }
+
+    @Test
+    void getIDParseArray() {
+        char[] myArray = {'t','e','s','t'};
+        assertArrayEquals(myArray, q.getIDParseArray());
+    }
 
     @Test
     void createTrueFalseFullID() throws Exception {
@@ -23,7 +104,7 @@ class QuestionTest {
         q.createID(0,0,0);
         System.out.println(q.getId());
 
-        assertEquals("eet-1",q.getId());
+        assertEquals("eet-12",q.getId());
     }
 
     @Test
@@ -34,7 +115,7 @@ class QuestionTest {
         assertEquals("eem-1",q.getId());
     }
 
-    
+
     @Test
     void createShortAnswerFullID() throws Exception {
         Question q = new Question();
@@ -44,15 +125,11 @@ class QuestionTest {
         assertEquals("ees-1",q.getId());
     }
 
-
     @Test
-    void getIDParseArray() throws Exception {
-        Question q = new Question();
-        q.createID(0,0,0);
-        System.out.println(q.getId());
+    void testToString() {
+        String test = "test | test | test | test | test | test | test";
+        System.out.println(q.toString());
+        assertEquals(test, q.toString());
 
-        char[] temp = {'e','e', 't', '-','2'};
-
-        assertTrue(Arrays.equals(q.getIDParseArray(), temp));
     }
 }

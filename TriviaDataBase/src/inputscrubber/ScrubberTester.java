@@ -12,9 +12,7 @@ public static void main(String[] args){
         String in3 = "false"; //to test boolean full word
         String in4 = "t"; //to test boolean char
         String in5 = "F"; //to test match w/o case
-        String in6 = "George Washington"; //to test short answer string
-        String in7 = "Georgy Zhukov";//to test for three string answer (NOT ALLOWED!!)
-        String in8 = "Columbus"; //to test for one string answer
+
         String in9 = ""; //to test null in shortScrubber
         String in10 = "1492"; //to test normal string composed of integers
         String in11 = ""; //to test null for intScrubber
@@ -30,12 +28,22 @@ public static void main(String[] args){
         System.out.println("Printing in/out charscrubber, input: " + in4 + ", output: " + out4);
         boolean out5 = Scrubber.boolScrubber(in5, sc);
         System.out.println("Printing in/out charscrubber, input: " + in5 + ", output: " + out5);
+
+
+        String in6 = "George Washington"; //to test short answer string
+        String in7 = "Georgy Zhukov";//to test for three string answer (NOT ALLOWED!!)
+        String in8 = "Columbus"; //to test for one string answer
+
         String[] out6 = Scrubber.shortScrubber(in6, sc);
         System.out.println("Printing in/out shortScrubber, input: " + in6 + ", output: " + Arrays.toString(out6));
         String[] out7 = Scrubber.shortScrubber(in7, sc);
         System.out.println("Printing in/out shortScrubber, input: " + in7 + ", output: " + Arrays.toString(out7));
         String[] out8 = Scrubber.shortScrubber(in8, sc);
         System.out.println("Printing in/out shortScrubber, input: " + in8 + ", output: " + Arrays.toString(out8));
+
+
+
+
         String[] out9 = Scrubber.shortScrubber(in9, sc);
         System.out.println("Printing in/out shortScrubber, input: " + in9 + ", output: " + Arrays.toString(out9));
         int out10 = Scrubber.intScrubber(in10, sc);

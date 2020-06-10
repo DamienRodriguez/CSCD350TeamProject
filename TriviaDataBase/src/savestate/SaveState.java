@@ -12,7 +12,7 @@ Revisor: Kevin Underwood
 public class SaveState {
 
 
-    public void saveState(Room [][] savedRooms, int[] playerPos, int cursorLocation) {
+    public boolean saveState(Room [][] savedRooms, int[] playerPos, int cursorLocation) {
         ArrayList<Object> data = new ArrayList<Object>();
         data.add(savedRooms);
         data.add(playerPos);
@@ -25,8 +25,10 @@ public class SaveState {
             out.close();
             fileOut.close();
             System.out.println("Data saved.");
+            return true;
         } catch(IOException e) {
             e.printStackTrace();
+            return false;
         }
     }
 

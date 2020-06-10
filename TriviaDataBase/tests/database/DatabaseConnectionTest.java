@@ -1,83 +1,99 @@
 package database;
 
-import database.*;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
+
+import javax.xml.crypto.Data;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseConnectionTest {
 
-    public DatabaseConnection db = null;
-
-    @BeforeEach
-    void setUp() {
-        db = DatabaseConnection.getInstance();
+    @AfterEach
+    void tearDown() {
+        DatabaseConnection.getInstance().clearQuestionData();
     }
 
     @Test
     void getInstance() {
-        assertTrue(db instanceof DatabaseConnection);
+        DatabaseConnection instance = DatabaseConnection.getInstance();
+        assertTrue(instance instanceof DatabaseConnection);
     }
-/*
-    @Test
-    void searchQuery() throws Exception {
-        ArrayList<Question> list = new ArrayList<Question>();
-
-        db.searchQuery("SELECT * FROM questions WHERE wrongAnswerOne IS NOT NULL", list);
-
-        System.out.println(list.toString());
-
-        Question q = list.get(0);
-
-        assertEquals("eem-1",q.getId());
-        assertEquals("test", q.getQuestion());
-        assertEquals("test", q.getAnswer());
-        assertEquals("test", q.getHint());
-        assertEquals("test", q.getWrongAnswerOne());
-        assertEquals("test", q.getWrongAnswerTwo());
-        assertEquals("test", q.getWrongAnswerThree());
-
-
-    }
-
 
     @Test
-    void addQuestion() throws Exception {
-        db.addQuestion(new Question("eem-2","test 2", "test 2", "test 2", "test 2","test 2", "test 2"));
-
-        ArrayList<Question> checker = new ArrayList<Question>();
-
-        db.searchQuery("SELECT * FROM questions WHERE wrongAnswerOne IS NOT NULL", checker);
-
-        boolean added = false;
-        if(checker.size() > 1) {
-            added = true;
-        }
-
-        assertTrue(added);
+    void addQuestion() {
+        Question q = new Question(0,0,0,"test","test","test","test","test","test");
+        DatabaseConnection.getInstance().addQuestion(q);
+        assertEquals(1, DatabaseConnection.getInstance().getTotalRecordCount());
     }
-
-
-    @Test
-    void closeConnection() {
-    }
-
     @Test
     void getTrueFalseRecordCount() {
+        DatabaseConnection test = DatabaseConnection.getInstance();
+        assertEquals(0, test.getTrueFalseRecordCount());
+    }
+
+    @Test
+    void setTrueFalseRecordCount() {
     }
 
     @Test
     void getMultipleChoiceRecordCount() {
+        DatabaseConnection test = DatabaseConnection.getInstance();
+        assertEquals(0, test.getMultipleChoiceRecordCount());
+    }
+
+    @Test
+    void setMultipleChoiceRecordCount() {
     }
 
     @Test
     void getShortAnswerChoiceRecordCount() {
+        DatabaseConnection test = DatabaseConnection.getInstance();
+        assertEquals(0, test.getShortAnswerChoiceRecordCount());
+    }
+
+    @Test
+    void setShortAnswerChoiceRecordCount() {
     }
 
     @Test
     void getTotalRecordCount() {
+        DatabaseConnection test = DatabaseConnection.getInstance();
+        assertEquals(0, test.getTotalRecordCount());
     }
 
- */
+    @Test
+    void setTotalRecordCount() {
+    }
+
+    @Test
+    void updateRecordCount() {
+        DatabaseConnection.getInstance().updateRecordCount('t');
+        assertEquals(1, DatabaseConnection.getInstance().getTrueFalseRecordCount());
+        assertEquals(0, DatabaseConnection.getInstance().getShortAnswerChoiceRecordCount());
+        assertEquals(0, DatabaseConnection.getInstance().getMultipleChoiceRecordCount());
+        assertEquals(1, DatabaseConnection.getInstance().getTrueFalseRecordCount());
+    }
+
+    @Test
+    void clearQuestionData() {
+        DatabaseConnection.getInstance().clearQuestionData();
+        assertEquals(DatabaseConnection.getInstance().getTotalRecordCount(), 0);
+
+    }
+
+    @Test
+    void closeConnection() {
+        DatabaseConnection test = DatabaseConnection.getInstance();
+        assertTrue(test.closeConnection());
+    }
+
+    @Test
+    void recordExists() {
+        Question q = new Question(0,0,0,"test","test","test","test","test","test");
+        q.setId("test");
+        DatabaseConnection.getInstance().addQuestion(q);
+        assertTrue(DatabaseConnection.getInstance().recordExists("test"));
+    }
+
 }

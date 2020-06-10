@@ -1,22 +1,22 @@
 
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ÏÑí§ûÿÿÿÿ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(ÿÿÇÍÿÿÿÿÿ
-N	java:S106,"9Replace this use of System.out or System.err by a logger.(›’Ÿù
-S	java:S106"9Replace this use of System.out or System.err by a logger.(Ú–“—úÿÿÿÿ
-g
-java:S1192"LDefine a constant instead of duplicating this literal ", output: " 12 times.(ÿÿÇÍÿÿÿÿÿ
-M	java:S106."9Replace this use of System.out or System.err by a logger.(Šññ
-S	java:S106""9Replace this use of System.out or System.err by a logger.(üôŠôûÿÿÿÿ
-S	java:S106*"9Replace this use of System.out or System.err by a logger.(ÑòÅ¬ùÿÿÿÿ
-‚
-java:S1192""gDefine a constant instead of duplicating this literal "Printing in/out shortScrubber, input: " 4 times.(üôŠôûÿÿÿÿ
-N	java:S106"9Replace this use of System.out or System.err by a logger.(£ÌªÈ
-N	java:S106$"9Replace this use of System.out or System.err by a logger.(¢èëÂ
-N	java:S106("9Replace this use of System.out or System.err by a logger.(îşˆù
-S	java:S106"9Replace this use of System.out or System.err by a logger.(®ÜíÃøÿÿÿÿ
 
-java:S1192"fDefine a constant instead of duplicating this literal "Printing in/out charscrubber, input: " 5 times.(ÿÿÇÍÿÿÿÿÿ
-S	java:S106&"9Replace this use of System.out or System.err by a logger.(Ú¾µ×ÿÿÿÿÿ
+java:S1192"fDefine a constant instead of duplicating this literal "Printing in/out charscrubber, input: " 5 times.(ÿÿÇÍÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(£ÌªÈ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(®ÜíÃøÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÿÿÇÍÿÿÿÿÿ
+S	java:S106*"9Replace this use of System.out or System.err by a logger.(Ú¾µ×ÿÿÿÿÿ
+‚
+java:S1192&"gDefine a constant instead of duplicating this literal "Printing in/out shortScrubber, input: " 4 times.(üôŠôûÿÿÿÿ
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(üôŠôûÿÿÿÿ
+M	java:S1066"9Replace this use of System.out or System.err by a logger.(Šññ
+g
+java:S1192"LDefine a constant instead of duplicating this literal ", output: " 12 times.(ÿÿÇÍÿÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¨ÚÚµ
+N	java:S1060"9Replace this use of System.out or System.err by a logger.(îşˆù
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ÏÑí§ûÿÿÿÿ
 €
-java:S1192*"eDefine a constant instead of duplicating this literal "Printing in/out intScrubber, input: " 3 times.(ÑòÅ¬ùÿÿÿÿ
-N	java:S106 "9Replace this use of System.out or System.err by a logger.(¨ÚÚµ
+java:S11922"eDefine a constant instead of duplicating this literal "Printing in/out intScrubber, input: " 3 times.(ÑòÅ¬ùÿÿÿÿ
+S	java:S1062"9Replace this use of System.out or System.err by a logger.(ÑòÅ¬ùÿÿÿÿ
+N	java:S106("9Replace this use of System.out or System.err by a logger.(¢èëÂ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(Ú–“—úÿÿÿÿ
+N	java:S1064"9Replace this use of System.out or System.err by a logger.(›’Ÿù

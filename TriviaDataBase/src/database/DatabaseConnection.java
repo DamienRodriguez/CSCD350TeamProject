@@ -167,12 +167,14 @@ public class DatabaseConnection {
     }
 
 
-    public void closeConnection() {
+    public boolean closeConnection() {
         try {
             this.c.close();
+            return true;
         } catch(Exception e) {
             System.out.println("ERROR HAPPENED in closeConnection");
             System.out.println(e);
+            return false;
         }
 
     }
@@ -271,6 +273,7 @@ public class DatabaseConnection {
     public Question pullQuestion() {
         Object[] myArray = this.keyset.toArray();
         Question q = this.questionLookUp.get(myArray[this.hashTableCursor]);
+        System.out.println(q.toString());
         this.hashTableCursor--;
 
         if(this.hashTableCursor == -1)
