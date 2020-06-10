@@ -18,7 +18,7 @@ import savestate.SaveState;
 
 import java.util.*;
 
-public class mazeTester {
+public class MazeTester {
 
 
     public static void main(String[] args) {
