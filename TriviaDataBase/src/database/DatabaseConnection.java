@@ -71,7 +71,7 @@ public class DatabaseConnection {
 
     //gets num of records for question types based on predefined
     //sql queries above
-    private int getRecordCount(final String sql)  {
+    public int getRecordCount(final String sql)  {
 
         int count = 0;
         try {

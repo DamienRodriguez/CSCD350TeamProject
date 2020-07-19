@@ -17,13 +17,16 @@ public class QuestionMenu {
             choice = Pmenu();
 
             if(choice >= 1 && choice <= 3)
-                addQuestion(choice);
+                //addQuestion(choice);
+                System.out.println("under construction.");
             else if(choice == 4)
                 clearDatabase();
             else if(choice == 5)
-                displayAllRecords();
+                //displayAllRecords();
+                System.out.println("Under construction");
             else if(choice == 6)
-                QuestionReader.main(null);
+                System.out.println("under construction.");
+                //QuestionReader.main(null);
         }
         DatabaseConnection.getInstance().closeConnection();
     }
@@ -55,6 +58,7 @@ public class QuestionMenu {
     }
 
 
+    /*
     private static void displayAllRecords() {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
         Hashtable<String, Question> table = DB_CONNECTION.getQuestionLookUp();
@@ -66,6 +70,8 @@ public class QuestionMenu {
 
     }
 
+     */
+
 
     private static void clearDatabase() {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
@@ -73,6 +79,7 @@ public class QuestionMenu {
     }
 
 
+    /*
     private static void addQuestion(final int choice) throws Exception {
         DatabaseConnection DB_CONNECTION = DatabaseConnection.getInstance();
 
@@ -88,9 +95,10 @@ public class QuestionMenu {
             System.out.println("This should not ever happen.");
 
     }
+     */
 
 
-    private static Question createTrueFalseQuestion() {
+    public static trueFalseQuestion createTrueFalseQuestion() {
 
         Scanner kb = new Scanner(System.in);
 
@@ -98,7 +106,6 @@ public class QuestionMenu {
         String answer;
         String hint;
         int difficulty;
-        int roomType;
         System.out.println("What is the true false question you'd like to add? ");
         question = kb.nextLine();
 
@@ -119,18 +126,7 @@ public class QuestionMenu {
         } while(difficulty < 0 && difficulty > 3);
 
 
-        do {
-            System.out.println("Would you like this question to appear in a typical room, at the entrance room, or the exit room?");
-            System.out.println("0: Entrance");
-            System.out.println("1: Exit");
-            System.out.println("2: Room");
-            roomType = Integer.valueOf(kb.nextLine());
-        } while(roomType < 0 && roomType > 3);
-
-
-        Question q = new Question(difficulty, roomType, 0, question, answer, null, null, null, hint);
-
-        return q;
+        return new trueFalseQuestion(difficulty, question, answer, hint);
     }
 
 

@@ -33,7 +33,6 @@ public class Question {
             System.out.println("ERROR HAPPENED in Question (ResultSet) Constructor");
             System.out.println(e);
         }
-
     }
 
 
