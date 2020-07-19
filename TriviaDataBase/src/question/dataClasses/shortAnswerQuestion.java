@@ -77,17 +77,12 @@ public class shortAnswerQuestion {
     }
 
 
-    //TODO: UNDER CONSTRUCTION
-    public void createQuestion() {
-        shortAnswerQuestion q = QuestionMenu.createShortAnswerQuestion();
-
-        //send question to databaseManager for processing
-
-    }
-
     //this will be in every single Question class, maybe move this to a seperate, smaller class
     //and have it strictly handle questionID generation
     private String generateQuestionID(final int recordCount, final int difficulty) {
+        if(recordCount < 0 || difficulty < 0 || difficulty > 3)
+            throw new IllegalArgumentException("Arguments in generateQuestionID are invalid.");
+
         String questionID = "SA-"; //init
 
         if(difficulty == 0)

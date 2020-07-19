@@ -99,4 +99,25 @@ public class multipleChoiceQuestion {
         this.hint = hint;
     }
 
+
+    private String generateQuestionID(final int recordCount, final int difficulty) {
+        if(recordCount < 0 || difficulty < 0 || difficulty > 3)
+            throw new IllegalArgumentException("Arguments in generateQuestionID are invalid.");
+
+        String questionID = "MC-"; //init
+
+        if(difficulty == 0)
+            questionID = questionID + "EASY-";
+        else if(difficulty == 1)
+            questionID = questionID + "MEDI-";
+        else if(difficulty == 2)
+            questionID = questionID + "HARD-";
+        else if(difficulty == 3)
+            questionID = questionID + "MAST-";
+
+        questionID = questionID + (recordCount + 1);
+
+        return questionID;
+    }
+
 }
