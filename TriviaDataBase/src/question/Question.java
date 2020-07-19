@@ -1,4 +1,6 @@
-package database;
+package question;
+
+import database.DatabaseConnection;
 
 import java.sql.*;
 

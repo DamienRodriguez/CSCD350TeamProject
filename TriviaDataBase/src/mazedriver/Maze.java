@@ -2,6 +2,7 @@ package mazedriver;
 
 import inputscrubber.Scrubber;
 import database.*;
+import question.Question;
 
 import java.io.Serializable;
 import java.util.Arrays;

@@ -1,4 +1,7 @@
-package database;
+package question;
+
+import database.DatabaseConnection;
+import question.Question;
 
 import java.io.File;
 import java.io.FileNotFoundException;

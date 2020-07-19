@@ -1,5 +1,7 @@
 package database;
 
+import question.Question;
+
 import java.sql.*;
 import java.util.*;
 
@@ -15,10 +17,9 @@ public class DatabaseConnection {
 
     private static DatabaseConnection SINGLE_INSTANCE = null;
     private final String DB_CONNECTION = "jdbc:sqlite:trivia.db";
-    private final String MULTIPLECHOICE_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions WHERE wrongAnswerOne IS NOT NULL";
-    private final String TRUEFALSE_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions WHERE length(answer) == 1 AND wrongAnswerOne IS NULL";
-    private final String SHORTANSWER_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions WHERE length(answer) != 1 AND wrongAnswerOne IS NULL";
-    private final String TOTAL_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM questions";
+    private final String MULTIPLECHOICE_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM multipleChoice";
+    private final String TRUEFALSE_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM trueFalse";
+    private final String SHORTANSWER_COUNT_QUERY = "SELECT COUNT(*) AS rowCount FROM shortAnswer";
     private Connection c;
 
     private int trueFalseRecordCount;
@@ -26,6 +27,12 @@ public class DatabaseConnection {
     private int shortAnswerChoiceRecordCount;
     private int totalRecordCount;
 
+    /*TODO:
+       - Refactor Hashtable instance, and question instances into its own seprate class
+       - Figure out what can be taken out of this class to make it only handle connecting to database
+       - Refactor the name of this class to DatabaseManager (This is because it will handle queries, question insertion,
+         question deletion as well as database information such as how many records are present)
+     */
     private Hashtable<String, Question> questionLookUp = new Hashtable<>();
     private Set<String> keyset;
     private int hashTableCursor;
@@ -38,11 +45,13 @@ public class DatabaseConnection {
     ///SQLException: Throws exception when SQL database connection fails
     private DatabaseConnection() throws Exception {
         connectionSetUp();
+
         setMultipleChoiceRecordCount(getRecordCount(MULTIPLECHOICE_COUNT_QUERY));
         setTrueFalseRecordCount(getRecordCount(TRUEFALSE_COUNT_QUERY));
         setShortAnswerChoiceRecordCount(getRecordCount(SHORTANSWER_COUNT_QUERY));
-        setTotalRecordCount(getRecordCount(TOTAL_COUNT_QUERY));
+        setTotalRecordCount(this.multipleChoiceRecordCount + this.shortAnswerChoiceRecordCount + this.trueFalseRecordCount);
         setQuestionLookUp();
+
         setKeyset();
         setHashTableCursor(this.questionLookUp.size()-1); //when questions are loaded into hashtable, all of the hard questions are placed at the top, so we just start from the bottom
 
@@ -116,6 +125,7 @@ public class DatabaseConnection {
             System.out.println(e);
         }
     }
+
 
 
     public void addQuestion(final Question q) {
