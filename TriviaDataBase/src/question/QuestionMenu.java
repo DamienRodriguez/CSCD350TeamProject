@@ -1,10 +1,10 @@
 package question;
 
 import database.DatabaseConnection;
+import question.dataClasses.shortAnswerQuestion;
+import question.dataClasses.trueFalseQuestion;
 
-import java.util.Hashtable;
 import java.util.Scanner;
-import java.util.Set;
 
 public class QuestionMenu {
 
@@ -186,7 +186,7 @@ public class QuestionMenu {
     }
 
 
-    private static Question createShortAnswerQuestion() throws Exception {
+    public static shortAnswerQuestion createShortAnswerQuestion() {
 
         Scanner kb = new Scanner(System.in);
 
@@ -194,7 +194,6 @@ public class QuestionMenu {
         String answer;
         String hint;
         int difficulty;
-        int roomType;
 
         System.out.println("What is the short answer question you'd like to add? ");
         question = kb.nextLine();
@@ -212,16 +211,7 @@ public class QuestionMenu {
         System.out.println("3: Master");
         difficulty = Integer.valueOf(kb.nextLine());
 
-        System.out.println("Would you like this question to appear in a typical room, at the entrance room, or the exit room?");
-        System.out.println("0: Entrance");
-        System.out.println("1: Exit");
-        System.out.println("2: Room");
-        roomType = Integer.valueOf(kb.nextLine());
-
-        Question q = new Question(difficulty, roomType, 2, question, answer, null, null, null, hint);
-
-
-        return q;
+        return new shortAnswerQuestion(difficulty, question, answer, hint);
     }
 
 

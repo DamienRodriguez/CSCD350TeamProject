@@ -1,6 +1,7 @@
-package question;
+package question.dataClasses;
 
 import database.DatabaseConnection;
+import question.QuestionMenu;
 
 import java.sql.ResultSet;
 
@@ -13,7 +14,7 @@ import java.sql.ResultSet;
     Look into whether it would be more cost efficient to assign a question ID to the associated door,
     Or if pulling the question as each door is accessed would be more efficient
  */
-public class trueFalseQuestion implements QuestionI {
+public class trueFalseQuestion {
 
     private String questionID;
     private String question;
@@ -37,14 +38,10 @@ public class trueFalseQuestion implements QuestionI {
 
     //this constructor will only be used with the createQuestion method
     public trueFalseQuestion(final int difficulty, final String question, final String answer, final String hint) {
-
         this.question = question;
         this.answer = answer;
         this.hint = hint;
         this.questionID = generateQuestionID(DatabaseConnection.getInstance().getTrueFalseRecordCount(), difficulty);
-
-
-
     }
 
 
@@ -88,13 +85,6 @@ public class trueFalseQuestion implements QuestionI {
         this.hint = hint;
     }
 
-
-    public void createQuestion() {
-        trueFalseQuestion q = QuestionMenu.createTrueFalseQuestion();
-
-        //send question to databaseManager for processing
-
-    }
 
     //this will be in every single Question class, maybe move this to a seperate, smaller class
     //and have it strictly handle questionID generation

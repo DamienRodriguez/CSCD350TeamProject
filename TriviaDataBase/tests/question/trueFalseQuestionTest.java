@@ -1,6 +1,7 @@
 package question;
 
 import database.DatabaseConnection;
+import question.dataClasses.trueFalseQuestion;
 
 import static org.junit.jupiter.api.Assertions.*;
 
